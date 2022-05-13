@@ -1,33 +1,45 @@
-# Esercizi su Elementi fondamentali di Microsoft Azure per intelligenza artificiale
+---
+ms.openlocfilehash: 5e30b50971446e2da8383a94557380ede431b7c9
+ms.sourcegitcommit: a01e0cfb657c6628e71e3e2d981b6f19bde0ed89
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 01/31/2022
+ms.locfileid: "138099899"
+---
+# <a name="microsoft-azure-ai-fundamentals-exercises"></a>Esercizi su Elementi fondamentali di Microsoft Azure per intelligenza artificiale
 
-Questa repository contiene le esercitazioni pratiche del corso Microsoft [AI-900 *Elementi fondamentali di Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/it-it/learn/certifications/courses/ai-900t00) e i [moduli autogestiti su Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-ai-fundamentals). I lab si integrano con i materiali di formazione e permettono di fare pratica con le tecnologie descritte. 
+Questo repository contiene gli esercizi dei lab pratici del corso Microsoft [AI-900 *Elementi fondamentali di Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/en-us/learn/certifications/courses/ai-900t00) e i [moduli autogestiti su Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-ai-fundamentals). I lab sono progettati per accompagnare i materiali di apprendimento e consentire di esercitarsi nell'uso delle tecnologie descritte. 
 
-## Cosa facciamo?
+- **[Download dell'ultimo manuale per lo studente e del contenuto AllFiles](../../releases/latest)**
+- **Si è un Microsoft Certified Trainer?** - Esaminare la [guida per utenti di GitHub per Microsoft Certified Trainer](https://microsoftlearning.github.io/MCT-User-Guide/)
+- **È necessario compilare manualmente le istruzioni del lab?** - Le istruzioni sono disponibili nel repository [MicrosoftLearning/Docker-Build](https://github.com/MicrosoftLearning/Docker-Build)
 
-- Ai fini del corretto funzionamento del corso, dobbiamo aggiornare frequentemente il relativo contenuto in modo da assicurarci che sia conforme ai servizi di Azure utilizzati.  Pubblichiamo le istruzioni del lab e i relativi file su GitHub per consentire la libera collaborazione tra gli autori del corso e i MCT in modo che le modifiche vengano implementate nella piattaforma Azure.
+## <a name="what-are-we-doing"></a>Quali attività vengono svolte?
 
-- Confidiamo che ciò aumenterà il senso di collaborazione per i lab a un livello mai raggiunto prima: in caso di variazioni in Azure, se sei il primo a notarle durante un corso dal vivo, non esitare, aggiorna direttamente l’origine del lab.  Aiuta gli altri MCT.
+- Per supportare il corso è necessario apportare frequenti aggiornamenti al suo contenuto, in modo da mantenerlo aggiornato con i servizi Azure utilizzati durante il corso.  Stiamo pubblicando le istruzioni per i lab e i file lab su GitHub per consentire contributi aperti tra gli autori del corso e gli MCT, in modo da mantenere il contenuto aggiornato in base alle modifiche nella piattaforma Azure.
 
-## Come posso usare questi file relativi ai file MOC rilasciati?
+- L'auspicio è favorire un senso di collaborazione per i lab come mai prima d'ora. Quando si verificano modifiche in Azure e vengono rilevate durante una distribuzione in tempo reale, è possibile apportare miglioramenti direttamente nell'origine del lab.  Aiutare i colleghi MCT.
 
-- Il manuale e i PowerPoint del docente sono ancora i materiali di riferimento principali per l'insegnamento dei contenuti del corso.
+## <a name="how-should-i-use-these-files-relative-to-the-released-moc-files"></a>Come usare questi file rispetto ai file MOC rilasciati?
 
-- Questi file su GitHub devono essere utilizzati insieme al manuale dello studente: GitHub funge da repository centralizzata per permettere a MCT e autori del corso di consultare i file del lab più recenti in condivisione.
+- Il manuale dell'istruttore e le presentazioni di PowerPoint continuano a essere la fonte principale di contenuti dei corsi.
 
-- Per ciascun corso offerto, i formatori devono verificare in GitHub la presenza di eventuali modifiche apportate per adattare il contenuto ai servizi Azure più recenti e utilizzare i file più recenti per il corso.
+- Questi file in GitHub dovranno essere usati in combinazione con il manuale per lo studente, ma si trovano in GitHub come repository centrale, quindi i MCT e gli autori dei corsi possono avere un'origine condivisa per i file dei lab più recenti.
 
-## E le modifiche al manuale dello studente?
+- Per ogni distribuzione è consigliabile che i docenti consultino GitHub per verificare se sono state apportate modifiche per supportare i servizi di Azure più recenti e ottenere i file per la loro distribuzione.
 
-- Ogni trimestre, esamineremo il manuale dello studente e, se necessario, lo aggiorneremo utilizzando i normali canali di rilascio MOC.
+## <a name="what-about-changes-to-the-student-handbook"></a>Il manuale per lo studente verrà modificato?
 
-## Come posso contribuire?
+- Il manuale per lo studente verrà revisionato su base trimestrale e aggiornato tramite i normali canali di rilascio MOC, se necessario.
 
-- Tutti i MCT possono inviare una richiesta pull per il codice o contenuto nella repository GitHub. Microsoft e l’autore del corso valuteranno la richiesta e implementeranno le eventuali modifiche al contenuto e al codice del lab.
+## <a name="how-do-i-contribute"></a>Come si può contribuire?
+
+- Qualsiasi MCT può inviare una richiesta pull al codice o ai contenuti del repository GitHub. Microsoft e l'autore del corso verificheranno e includeranno le modifiche a contenuti e codice dei lab se necessario.
 
 - In caso di suggerimenti o per segnalare errori, non esitare a [contattarci](https://docs.microsoft.com/learn/support/troubleshooting#report-feedback).
 
-## Note 
+## <a name="notes"></a>Note 
 
-### Materiale per il corso
+### <a name="classroom-materials"></a>Materiali per le lezioni
 
-È importante che MCT e Partner consultino questi materiali e che, a loro volta, li forniscano separatamente agli studenti.  Infatti, chiedendo agli studenti di accedere direttamente a GitHub per avviare i passaggi di un lab di una lezione in corso, gli studenti dovranno accedere a una diversa interfaccia utente l'esperienza offerta risulterà confusa. Per spiegare agli studenti perché ricevono istruzioni separate per il lab, può essere utile porre l’attenzione sul continuo cambiamento delle interfacce e delle piattaforme basate su cloud. Microsoft Learning concede solo ai MCT che tengono il corso specifico di accedere ai file su GitHub e di navigare sul sito GitHub.
+È consigliabile che MCT e partner accedano a questi materiali e a loro volta li forniscano separatamente agli studenti.  Se si indirizzano gli studenti direttamente a GitHub per accedere ai passaggi per i lab come parte di una lezione in corso, dovranno accedere a un'altra interfaccia utente come parte del corso, cosa che contribuirà a creare un'esperienza fuorviante. Spiegare allo studente i motivi per cui riceverà istruzioni per i lab separate può evidenziare la natura di una piattaforma e di un'interfaccia basata sul cloud in continua evoluzione. Il supporto di Microsoft Learning per l'accesso ai file in GitHub e il supporto per l'esplorazione del sito GitHub è riservato esclusivamente ai MCT che insegnano questo corso.
