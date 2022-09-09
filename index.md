@@ -2,18 +2,18 @@
 title: Istruzioni online
 permalink: index.html
 layout: home
-ms.openlocfilehash: b85af520a10e63a2f9a5696db03bfd946aff968f
-ms.sourcegitcommit: 1ef64e3008a439d0d0bb3d93a27d3df68d3d64a9
+ms.openlocfilehash: 86fa2da9bfa9e4d7edb0c853f77e95fe69e97411
+ms.sourcegitcommit: 3fc8440b350b498c2f50ab4ce531a0f906792584
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2022
-ms.locfileid: "140688693"
+ms.lasthandoff: 09/08/2022
+ms.locfileid: "147866007"
 ---
 # <a name="azure-ai-fundamentals-exercises"></a>Esercizi su Elementi fondamentali di Azure per intelligenza artificiale
 
-Usare i collegamenti seguenti per completare gli esercizi dei lab pratici per il corso Microsoft [AI-900 *Concetti fondamentali su Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/learn/certifications/courses/ai-900t00).
+Questi esercizi pratici sono progettati a supporto del contenuto di training in [Microsoft Learn](https://docs.microsoft.com/training/).
 
-Per completare gli esercizi, è necessaria una sottoscrizione a Microsoft Azure. Se non è stata fornita dal docente, è possibile iscriversi a una versione di valutazione gratuita in [https://azure.microsoft.com](https://azure.microsoft.com).
+Per completare gli esercizi, è necessaria una sottoscrizione a Microsoft Azure. È possibile iscriversi per una versione di valutazione gratuita all’indirizzo [https://azure.microsoft.com](https://azure.microsoft.com).
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
 | Esercizi |
