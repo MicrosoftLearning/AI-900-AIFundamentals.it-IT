@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 69f8fd8920fccc0aecc4fb5d5a40e506935f8340
-ms.sourcegitcommit: 276908bd75615fb4d4712b912426129587e9c307
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2022
-ms.locfileid: "140788222"
----
 # <a name="ai-900-trainer-lab-mapping"></a>Mappatura del lab per il formatore per il corso AI-900
 
 Questo corso, AI-900: Elementi fondamentali per intelligenza artificiale, comprende un sottoinsieme di lab studiati per i training con docente di 1 giorno.
