@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 4e00e832d02871de3fa4511273434b6e8db58df3
-ms.sourcegitcommit: 71edd7d093464547be5a87725ef67dad082aafbf
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2022
-ms.locfileid: "147629851"
----
 # <a name="ai-900-microsoft-azure-ai-fundamentals"></a>AI-900: Microsoft Azure AI Fundamentals
 
 Questo repository contiene gli esercizi dei lab pratici del corso Microsoft [AI-900 *Elementi fondamentali di Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/en-us/learn/certifications/courses/ai-900t00) e i [moduli autogestiti su Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-ai-fundamentals). I lab sono progettati per accompagnare i materiali di apprendimento e consentire di esercitarsi nell'uso delle tecnologie descritte. 
