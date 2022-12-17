@@ -8,7 +8,7 @@ layout: home
 
 Questi esercizi pratici sono progettati a supporto del contenuto di training in [Microsoft Learn](https://docs.microsoft.com/training/).
 
-To complete these exercises, you'll need a Microsoft Azure subscription. You can sign up for a free trial at <bpt id="p1">[</bpt><ph id="ph1">https://azure.microsoft.com</ph><ept id="p1">](https://azure.microsoft.com)</ept>.
+Per completare gli esercizi, è necessaria una sottoscrizione a Microsoft Azure. È possibile iscriversi per una versione di valutazione gratuita all’indirizzo [https://azure.microsoft.com](https://azure.microsoft.com).
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
 | Esercizi |
