@@ -126,9 +126,11 @@ Prima di poter eseguire il training di un modello, è necessario in genere appli
 
     ![Screenshot della posizione della libreria della finestra di progettazione, barra di ricerca e icona componenti.](media/create-classification-model/designer-asset-library-components.png)
 
-1. Trovare il modulo **Normalize Data** e posizionarlo sul canvas, sotto il set di dati **diabetes-data**. Connettere quindi l'output dalla parte inferiore del set di dati **diabetes-data** all'input nella parte superiore del modulo **Normalize Data**, come illustrato di seguito:
+1. Trovare il modulo **Selezionare le colonne nel set di dati** e posizionarlo nel canvas, sotto il set di dati **diabetes-data**. Connettere quindi l'output dalla parte inferiore del set di dati **diabetes-data** all'input nella parte superiore del modulo **Selezionare le colonne nel set di dati**.
 
-    ![Screenshot di una pipeline con il set di dati connesso a un modulo Normalize Data.](media/create-classification-model/dataset-normalize.png)
+1. Trovare il modulo **Selezionare le colonne nel set di dati** e posizionarlo nel canvas, sotto il modulo**Normalizzazione dei dati**. Connettere quindi l'output dalla parte inferiore del modulo **Selezionare le colonne nel set di dati** all'input nella parte superiore del modulo **Normalizzazione dei dati**, come illustrato di seguito:
+
+    ![Screenshot di una pipeline con il set di dati connesso a un modulo Normalizzazione dei dati.](media/create-classification-model/dataset-normalize.png)
 
 1. Fare doppio clic sul modulo **Normalize Data** per visualizzarne le impostazioni: si noti che è necessario specificare il metodo di trasformazione e le colonne da trasformare. 
 
@@ -277,6 +279,7 @@ Le prestazioni di questo modello non sono molto elevate, soprattutto perché è 
     
     - Aggiungere un componente **Web Service Input** per inviare i nuovi dati.
     - Sostituire il set di dati **diabetes-data** con un modulo **Immetti dati manualmente** in cui non sia inclusa la colonna di etichetta (**Diabetic**).
+    - Modificare le colonne selezionate nel modulo **Selezionare le colonne nel set di dati**.
     - Rimozione del modulo **Evaluate Model**.
     - Inclusione di un modulo **Execute Python Script** prima dell'output del servizio Web modo che vengano restituiti solo l'ID paziente, il valore dell'etichetta stimato e la probabilità.
 
@@ -293,6 +296,8 @@ Le prestazioni di questo modello non sono molto elevate, soprattutto perché è 
 
 1. Collegare il nuovo modulo **Enter Data Manually** allo stesso **set di dati** di input del modulo **Apply Transformation** come **input del servizio Web**.
 
+1. Modificare il modulo **Selezionare le colonne nel set di dati**. Rimuovere **Diabetic** da *Colonne selezionate*. 
+
 1. La pipeline di inferenza includerà il modulo **Valuta modello**. Poiché tale modulo non è utile per eseguire stime a partire da nuovi dati, è necessario eliminarlo.
 
 1. L'output del modulo **Modello di punteggio** includerà tutte le funzionalità di input, l'etichetta stimata e il punteggio di probabilità. Per limitare l'output solo alla stima e alla probabilità:
@@ -304,7 +309,7 @@ import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
 
-    scored_results = dataframe1[['PatientID', 'Scored Labels', 'Scored Probabilities']]
+    scored_results = dataframe1[['Scored Labels', 'Scored Probabilities']]
     scored_results.rename(columns={'Scored Labels':'DiabetesPrediction',
                                 'Scored Probabilities':'Probability'},
                         inplace=True)
