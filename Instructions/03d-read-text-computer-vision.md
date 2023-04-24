@@ -1,6 +1,7 @@
 ---
 lab:
   title: Esplorare il riconoscimento ottico dei caratteri
+  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-optical-character-recognition"></a>Esplorare il riconoscimento ottico dei caratteri

@@ -1,6 +1,7 @@
 ---
 lab:
   title: Esplorare la funzionalità di comprensione del linguaggio
+  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-language-understanding"></a>Esplorare la funzionalità di comprensione del linguaggio

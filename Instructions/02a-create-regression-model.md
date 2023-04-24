@@ -1,6 +1,7 @@
 ---
 lab:
   title: Esplorare la regressione con la finestra di progettazione di Azure Machine Learning
+  module: Module 2 - Machine Learning
 ---
 
 # <a name="explore-regression-with-azure-machine-learning-designer"></a>Esplorare la regressione con la finestra di progettazione di Azure Machine Learning

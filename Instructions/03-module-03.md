@@ -1,6 +1,7 @@
 ---
 lab:
   title: Esplorare Visione artificiale
+  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-computer-vision"></a>Esplorare Visione artificiale
