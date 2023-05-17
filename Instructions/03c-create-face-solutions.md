@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare la funzionalità di riconoscimento volto
-  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-face-recognition"></a>Esplorare la funzionalità di riconoscimento volto

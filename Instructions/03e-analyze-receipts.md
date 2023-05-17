@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare la funzionalità di riconoscimento dei moduli
-  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-form-recognition"></a>Esplorare la funzionalità di riconoscimento dei moduli

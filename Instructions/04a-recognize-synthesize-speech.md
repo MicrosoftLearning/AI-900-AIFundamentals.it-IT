@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare le funzionalità del servizio Voce
-  module: Module 4 - Natural Language Processing (NLP)
 ---
 
 # <a name="explore-speech"></a>Esplorare le funzionalità del servizio Voce

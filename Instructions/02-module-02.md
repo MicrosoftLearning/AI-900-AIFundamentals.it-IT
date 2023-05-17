@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare la funzionalità di Machine Learning automatizzato in Azure ML
-  module: Module 2 - Machine Learning
 ---
 
 # <a name="explore-automated-machine-learning-in-azure-ml"></a>Esplorare la funzionalità di Machine Learning automatizzato in Azure ML

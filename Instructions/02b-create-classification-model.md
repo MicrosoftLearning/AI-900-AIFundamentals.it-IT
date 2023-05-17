@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare la classificazione con la finestra di progettazione di Azure Machine Learning
-  module: Module 2 - Machine Learning
 ---
 
 # <a name="explore-classification-with-azure-machine-learning-designer"></a>Esplorare la classificazione con la finestra di progettazione di Azure Machine Learning

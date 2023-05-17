@@ -1,7 +1,6 @@
 ---
 lab:
   title: Esplorare la funzionalità di rilevamento oggetti
-  module: Module 3 - Computer Vision
 ---
 
 # <a name="explore-object-detection"></a>Esplorare la funzionalità di rilevamento oggetti
