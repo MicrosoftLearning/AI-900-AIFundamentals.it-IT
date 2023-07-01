@@ -3,7 +3,7 @@ lab:
   title: Esplorare la funzionalità di knowledge mining
 ---
 
-# <a name="explore-knowledge-mining"></a>Esplorare la funzionalità di knowledge mining
+# Esplorare la funzionalità di knowledge mining
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
@@ -18,7 +18,7 @@ In questo lab si eseguiranno le operazioni seguenti:
 - Query sull'indice di ricerca
 - Revisione dei risultati salvati in un archivio conoscenze
 
-## <a name="azure-resources-needed"></a>Risorse di Azure necessarie
+## Risorse di Azure necessarie
 
 La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nella sottoscrizione di Azure:
 
@@ -29,7 +29,7 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 - Un **account di archiviazione** con contenitori BLOB, in cui verranno archiviati documenti non elaborati e altre raccolte di tabelle, oggetti o file.
 
-### <a name="create-an-azure-cognitive-search-resource"></a>Creare una risorsa di *Ricerca cognitiva di Azure*
+### Creare una risorsa di *Ricerca cognitiva di Azure*
 
 1. Accedere al [portale di Azure](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
@@ -45,7 +45,7 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 1. Al completamento della distribuzione, selezionare **Vai alla risorsa**. Nella pagina di panoramica di Ricerca cognitiva di Azure è possibile aggiungere indici, importare dati e cercare gli indici creati.
 
-### <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per Servizi cognitivi
+### Creare una risorsa per Servizi cognitivi
 
 Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitivi** nella stessa posizione della risorsa di Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
@@ -61,7 +61,7 @@ Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitiv
 
 1. Attendere il completamento della distribuzione, quindi visualizzare i relativi dettagli.
 
-### <a name="create-a-storage-account"></a>Creare un account di archiviazione
+### Creare un account di archiviazione
 
 1. Tornare alla home page del portale di Azure e quindi selezionare il pulsante **+ Crea una risorsa**.
 
@@ -75,7 +75,7 @@ Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitiv
 
 1. Fare clic su **Rivedi** e quindi su **Crea**. Attendere il completamento della distribuzione e quindi passare alla risorsa distribuita.
 
-## <a name="upload-documents-to-azure-storage"></a>Caricare documenti in Archiviazione di Azure
+## Caricare documenti in Archiviazione di Azure
 
 1. Nell'account di archiviazione di Azure creato, nel riquadro del menu a sinistra selezionare **Contenitori**.
 
@@ -102,7 +102,7 @@ Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitiv
 
 1. Al termine del caricamento è possibile chiudere il riquadro **Carica BLOB**. I documenti si trovano ora nel contenitore di archiviazione *coffee-reviews*.
 
-## <a name="index-the-documents"></a>Indicizzare i documenti
+## Indicizzare i documenti
 
 Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricerca cognitiva di Azure per estrarre informazioni dettagliate dai documenti. Il portale di Azure fornisce una *procedura guidata Importa dati*. Grazie a questa procedura guidata è possibile creare automaticamente un indice e un indicizzatore per le origini dati supportate. Si userà la procedura guidata per creare un indice e importare i documenti di ricerca dalla risorsa di archiviazione all'indice di Ricerca cognitiva di Azure.
 
@@ -190,7 +190,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
 
     ![Screenshot che mostra l'indicizzatore coffee-indexer creato correttamente.](media/create-cognitive-search-solution/6a-search-indexer-success.png)
 
-## <a name="query-the-index"></a>Eseguire una query sull'indice
+## Eseguire una query sull'indice
 
 Usare Esplora ricerche per scrivere e testare le query. Esplora ricerche è uno strumento integrato nel portale di Azure, che offre un modo semplice per convalidare la qualità dell'indice di ricerca. È possibile usare Esplora ricerche per scrivere le query ed esaminare i risultati in JSON.
 
@@ -206,15 +206,15 @@ Usare Esplora ricerche per scrivere e testare le query. Esplora ricerche è uno 
 
     > **Nota** Se viene visualizzato il messaggio **Per eseguire ricerche nel portale, consentire l'origine del portale nelle impostazioni CORS dell'indice**, selezionare **Consenti portale** e quindi selezionare **Cerca**.
 
-1. È il momento di applicare un filtro in base alla località. Immettere `search=$filter=locations eq 'Chicago'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con località Chicago.
+1. È il momento di applicare un filtro in base alla località. Immettere `search=locations:'Chicago'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con località Chicago.
 
-1. È il momento di applicare un filtro in base al sentiment. Immettere `search=$filter=sentiment eq 'negative'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con sentiment negativo.
+1. È il momento di applicare un filtro in base al sentiment. Immettere `search=sentiment:'negative'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con sentiment negativo.
 
    > **Nota** Notare come i risultati vengono ordinati in base a `@search.score`. Questo è il punteggio assegnato dal motore di ricerca per visualizzare il livello di corrispondenza dei risultati rispetto alla query specificata.
 
 1. Uno dei potenziali problemi da risolvere è il perché di determinate recensioni. Si esamineranno ora le frasi chiave associate alla recensione negativa. Quale si ritiene che possa essere il motivo della recensione?
 
-## <a name="review-the-knowledge-store"></a>Esaminare l'archivio conoscenze
+## Esaminare l'archivio conoscenze
 
 È il momento di esaminare le potenzialità dell'archivio conoscenze. Quando è stata eseguita la *procedura guidata Importa dati*, è stato creato anche un archivio conoscenze. All'interno dell'archivio conoscenze i dati arricchiti estratti dalle competenze di intelligenza artificiale sono conservati sotto forma di proiezioni e tabelle.
 
@@ -250,6 +250,6 @@ Usare Esplora ricerche per scrivere e testare le query. Esplora ricerche è uno 
 
     Esaminare le frasi chiave che l'archivio conoscenze è riuscito ad acquisire dal contenuto delle recensioni. Molti dei campi sono chiavi, quindi è possibile collegare le tabelle come in un database relazionale. L'ultimo campo mostra le frasi chiave estratte dal set di competenze.
 
-## <a name="learn-more"></a>Altre informazioni
+## Altre informazioni
 
 Questo semplice indice di ricerca rappresenta solo alcune delle funzionalità del servizio Ricerca cognitiva di Azure. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Ricerca cognitiva di Azure](/azure/search/search-what-is-azure-search).

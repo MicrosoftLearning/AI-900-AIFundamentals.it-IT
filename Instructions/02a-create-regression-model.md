@@ -3,13 +3,13 @@ lab:
   title: Esplorare la regressione con la finestra di progettazione di Azure Machine Learning
 ---
 
-# <a name="explore-regression-with-azure-machine-learning-designer"></a>Esplorare la regressione con la finestra di progettazione di Azure Machine Learning
+# Esplorare la regressione con la finestra di progettazione di Azure Machine Learning
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
 In questa esercitazione si eseguirà il training di un modello di regressione che stima il prezzo di un'automobile in base alle relative caratteristiche.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Creare un'area di lavoro di Machine Learning di Azure  
+## Creare un'area di lavoro di Machine Learning di Azure  
 
 1. Accedere al [portale di Azure](https://portal.azure.com?azure-portal=true) usando le proprie credenziali Microsoft.
 
@@ -27,13 +27,13 @@ In questa esercitazione si eseguirà il training di un modello di regressione ch
 
 1. Selezionare **Avvia studio** (in alternativa, aprire una nuova scheda nel browser e passare a [https://ml.azure.com](https://ml.azure.com?azure-portal=true)) e accedere allo studio di Azure Machine Learning usando il proprio account Microsoft.
 
-1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, fare clic su **Microsoft** nel menu a sinistra. Dal nuovo menu a sinistra selezionare quindi **Aree di lavoro**, dove vengono elencate tutte le aree di lavoro associate alla sottoscrizione. Scegliere quella creata per questo esercizio. 
+1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare la directory di Azure nel menu a sinistra. Quindi, dal nuovo menu a sinistra selezionare **Aree di** lavoro, in cui sono elencate tutte le aree di lavoro associate alla directory e selezionare quella creata per questo esercizio.
 
 > **Nota** Questo modulo è uno dei molti che usano un'area di lavoro di Azure Machine Learning, inclusi gli altri moduli nel percorso di apprendimento [Elementi fondamentali di Microsoft Azure per intelligenza artificiale: Esplorare gli strumenti visivi per Machine Learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se si usa la propria sottoscrizione di Azure, è consigliabile creare l'area di lavoro una sola volta e riutilizzarla negli altri moduli. Alla sottoscrizione di Azure verrà addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. È quindi consigliabile eliminare l'area di lavoro di Azure Machine Learning quando non è più necessaria.
 
-## <a name="create-compute"></a>Creare l'ambiente di calcolo
+## Creare l'ambiente di calcolo
 
-1. Nello [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) selezionare le tre righe in alto a sinistra per visualizzare le diverse pagine dell'interfaccia. Potrebbe essere necessario ingrandire le dimensioni della schermata. Queste pagine situate nel riquadro a sinistra consentono di gestire le risorse nell'area di lavoro. Selezionare la pagina **Calcolo** (in **Gestisci**).
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) selezionare l'icona **&#8801;** (un'icona di menu simile a uno stack di tre righe) in alto a sinistra per visualizzare le varie pagine nell'interfaccia (potrebbe essere necessario ingrandire le dimensioni dello schermo). Queste pagine situate nel riquadro a sinistra consentono di gestire le risorse nell'area di lavoro. Selezionare la pagina **Calcolo** (in **Gestisci**).
 
 1. Nella pagina **Calcolo** selezionare la scheda **Cluster di elaborazione** e aggiungere un nuovo cluster di elaborazione con le impostazioni seguenti per eseguire il training di un modello di Machine Learning:
     - **Località**: *selezionare la stessa località dell'area di lavoro. Se la località non è nell'elenco, scegliere quella più vicina alla propria posizione*.
@@ -54,9 +54,9 @@ In questa esercitazione si eseguirà il training di un modello di regressione ch
 
 La creazione del cluster di elaborazione potrebbe richiedere diversi minuti. Mentre il processo di creazione è in corso, è possibile procedere con il passaggio successivo.
 
-## <a name="create-a-pipeline-in-designer"></a>Creare una pipeline nella finestra di Progettazione 
+## Creare una pipeline nella finestra di Progettazione 
 
-1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro a sinistra selezionando l'icona con tre lineette in alto a sinistra nella schermata. Visualizzare la pagina della **finestra di progettazione** (in **Autore**) e selezionare **+** per creare una nuova pipeline.
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro sinistro selezionando l'icona del menu in alto a sinistra della schermata. Visualizzare la pagina della **finestra di progettazione** (in **Autore**) e selezionare **+** per creare una nuova pipeline.
 
 1. Nella parte superiore destra della schermata, selezionare **Impostazioni**. Se il riquadro **Impostazioni** non è visibile, selezionare l'icona a forma di ingranaggio accanto al nome della pipeline nella parte superiore.
 
@@ -64,11 +64,11 @@ La creazione del cluster di elaborazione potrebbe richiedere diversi minuti. Men
 
 1. In **Impostazioni**, in **Dettagli bozza** modificare il nome della bozza (**Pipeline-Created-on-* date***) in **Training prezzi automatici**.
 
-1. Selezionare l’*icona di chiusura* in alto a destra del riquadro **Impostazioni** per chiudere il riquadro. 
+1. Selezionare l'icona *di chiusura* in alto a destra del riquadro **Impostazioni** per chiudere il riquadro. 
 
 ![Screenshot di Machine Learning Studio nel riquadro delle impostazioni.](media/create-regression-model/create-pipeline-help.png)
 
-## <a name="add-and-explore-a-dataset"></a>Aggiungere ed esplorare un set di dati
+## Aggiungere ed esplorare un set di dati
 
 Azure Machine Learning include un set di dati di esempio che è possibile utilizzare per il modello di regressione.
 
@@ -90,7 +90,7 @@ Azure Machine Learning include un set di dati di esempio che è possibile utiliz
 
     ![Screenshot del set di dati del prezzo auto visualizzato nell'area di disegno della finestra di progettazione.](media/create-regression-model/dataset.png)
 
-## <a name="add-data-transformations"></a>Aggiungere trasformazioni di dati
+## Aggiungere trasformazioni di dati
 
 Le trasformazioni dei dati vengono in genere applicate con lo scopo di preparare i dati per la modellazione. Nel caso dei dati relativi al prezzo dell'automobile, si aggiungeranno trasformazioni per risolvere i problemi identificati durante l'esplorazione dei dati.
 
@@ -147,7 +147,7 @@ Eseguire i passaggi successivi usando l'immagine come riferimento per l'aggiunta
 
     >**Suggerimento** Se si confrontano i valori nelle colonne **stroke**, **peak-rpm** e **city-mpg**, si noterà che tutte queste colonne sono misurate in scale diverse ed è possibile che i valori più grandi della colonna **peak-rpm** sbilancino l'algoritmo di training e determinino una dipendenza eccessiva da tale colonna rispetto alle colonne con valori più bassi, ad esempio **stroke**. In genere, i data scientist mitigano questa possibile distorsione *normalizzando* le colonne numeriche in modo che si trovino su scale simili.
 
-## <a name="run-the-pipeline"></a>Eseguire la pipeline
+## Eseguire la pipeline
 
 Per applicare le trasformazioni dei dati è necessario eseguire la pipeline.
 
@@ -169,7 +169,7 @@ Per applicare le trasformazioni dei dati è necessario eseguire la pipeline.
 
 Il set di dati è ora pronto per il training del modello. Chiudere la scheda Dettagli processo per tornare alla pipeline.
 
-## <a name="create-training-pipeline"></a>Creare la pipeline di training
+## Creare la pipeline di training
 
 Dopo aver preparato i dati tramite le trasformazioni di dati, è possibile usarli per eseguire il training di un modello di Machine Learning. Eseguire i passaggi seguenti per estendere la pipeline **Auto Price Training**.
 
@@ -204,7 +204,7 @@ Dopo aver preparato i dati tramite le trasformazioni di dati, è possibile usarl
 
     ![Screenshot di come dividere i dati ed eseguire dilel training con regressione lineare e punteggio.](media/create-regression-model/train-score.png)
 
-## <a name="run-the-training-pipeline"></a>Eseguire la pipeline di training
+## Eseguire la pipeline di training
 
 A questo punto è possibile eseguire la pipeline di training e il training del modello.
 
@@ -220,7 +220,7 @@ A questo punto è possibile eseguire la pipeline di training e il training del m
 
 Il modello restituisce una stima dei valori per l'etichetta **price**, non i valori effettivi. Per misurare l'affidabilità della stima, è necessario valutare il modello.
 
-## <a name="evaluate-model"></a>Valutazione del modello
+## Valutazione del modello
 
 Un modo per valutare un modello di regressione consiste nel confrontare le etichette stimate con le etichette effettive nel set di dati di convalida da mantenere durante il training. Un altro modo consiste nel confrontare le prestazioni di più modelli.
 
@@ -252,9 +252,9 @@ Un modo per valutare un modello di regressione consiste nel confrontare le etich
 
 Dopo aver identificato un modello con le metriche di valutazione che soddisfano le proprie esigenze, è possibile preparare tale modello in modo da usarlo con nuovi dati.
 
-## <a name="create-and-run-an-inference-pipeline"></a>Creare ed eseguire una pipeline di inferenza
+## Creare ed eseguire una pipeline di inferenza
 
-1. In studio di Azure Machine Learning, espandere il riquadro sinistro selezionando le tre righe in alto a sinistra della schermata. Fare clic su **Processi** (in **Asset**) per visualizzare tutti i processi eseguiti. Selezionare l'esperimento **mslearn-auto-training**, quindi selezionare la pipeline **mslearn-auto-training**. 
+1. In studio di Azure Machine Learning espandere il riquadro a sinistra selezionando l'icona del menu in alto a sinistra della schermata. Fare clic su **Processi** (in **Asset**) per visualizzare tutti i processi eseguiti. Selezionare l'esperimento **mslearn-auto-training**, quindi selezionare la pipeline **mslearn-auto-training**. 
 
     ![Screenshot dei processi nel menu a sinistra. Selezionare i processi e quindi il nome dell'esperimento.](media/create-regression-model/jobs-tab.png)
 
@@ -304,7 +304,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return scored_results
 ```
 
-    - Collegare l'output del modulo **Score Model** all'input (a sinistra) del **primo set di dati** del modulo **Execute Python Script** e l'output del modulo **Execute Python Script** all'**output del servizio Web**.
+1. Collegare l'output del modulo **Score Model** all'input (a sinistra) del **primo set di dati** del modulo **Execute Python Script** e l'output del modulo **Execute Python Script** all'**output del servizio Web**.
 
 1. Verificare che la pipeline sia simile alla seguente immagine:
 
@@ -318,13 +318,13 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 La pipeline di inferenza stima i prezzi delle automobili in base alle relative caratteristiche. È ora possibile pubblicare la pipeline in modo che le applicazioni client possano usarla.
 
-## <a name="deploy-model"></a>Distribuire il modello
+## Distribuire il modello
 
 Dopo aver creato e testato una pipeline di inferenza per l'inferenza in tempo reale, è possibile pubblicarla come servizio per poter usare le applicazioni client.
 
 > **Nota** In questo esercizio si distribuirà il servizio Web in un'istanza di Azure Container (ACI). Questo tipo di risorsa di calcolo viene creato dinamicamente ed è utile per le attività di sviluppo e test. Per un ambiente di produzione, è necessario creare un *cluster di inferenza*, che fornisce un cluster del servizio Azure Kubernetes che offre scalabilità e sicurezza migliori.
 
-## <a name="deploy-a-service"></a>Distribuire un servizio
+## Distribuire un servizio
 
 1. Aprire la pipeline di inferenza **Predict Auto Price** creata nell'unità precedente.
 
@@ -343,7 +343,7 @@ Dopo aver creato e testato una pipeline di inferenza per l'inferenza in tempo re
 
 1. Attendere alcuni minuti per la distribuzione del servizio Web. Lo stato della distribuzione viene visualizzato in alto a sinistra nell'interfaccia di progettazione.
 
-## <a name="test-the-service"></a>Testare il servizio
+## Testare il servizio
 
 1. Nella pagina **Endpoint** aprire l'endpoint in tempo reale **predict-auto-price**.
 
@@ -397,15 +397,15 @@ Di seguito vengono descritte le operazioni eseguite. Un set di dati dell’auto 
 
 È stato appena testato un servizio, pronto per essere connesso a un'applicazione client usando le credenziali nella scheda **Utilizza**. Il lab termina qui. È possibile continuare a fare pratica con il servizio appena distribuito.
 
-## <a name="clean-up"></a>Eliminazione
+## Eliminazione
 
-Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure. È anche opportuno arrestare l'istanza di ambiente di calcolo fino a quando non sarà nuovamente necessaria.
+Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure. È anche necessario eliminare il cluster di calcolo.
 
 1. In [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), nella scheda **Endpoint** selezionare l'endpoint **predict-auto-price**. Selezionare quindi **Elimina** e confermare l'eliminazione dell'endpoint.
 
 1. Nella pagina **Calcolo**, nella scheda **Cluster di elaborazione** selezionare il cluster di elaborazione e quindi **Elimina**.
 
->**Nota** L'arresto delle risorse di calcolo garantisce che alla sottoscrizione non vengano addebitati i costi di calcolo corrispondenti. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate. Tuttavia, se si prevede di completare qualsiasi altro lab in questa serie, sarà necessario ricrearla.
+>**Nota** L'eliminazione del calcolo garantisce che la sottoscrizione non venga addebitata per le risorse di calcolo. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate. Tuttavia, se si prevede di completare qualsiasi altro lab in questa serie, sarà necessario ricrearla.
 >
 > Per eliminare l'area di lavoro:
 >

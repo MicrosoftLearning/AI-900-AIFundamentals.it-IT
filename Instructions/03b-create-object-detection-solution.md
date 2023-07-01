@@ -3,19 +3,19 @@ lab:
   title: Esplorare la funzionalità di rilevamento oggetti
 ---
 
-# <a name="explore-object-detection"></a>Esplorare la funzionalità di rilevamento oggetti
+# Esplorare la funzionalità di rilevamento oggetti
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
               Il *rilevamento oggetti* è una forma di visione artificiale in cui viene eseguito il training di un modello di Machine Learning per classificare singole istanze di oggetti in un'immagine e indicare un *rettangolo delimitatore* che ne contrassegna la posizione. È possibile considerarlo come un'evoluzione della *classificazione immagini* (in cui il modello risponde alla domanda "a cosa corrisponde questa immagine?") per la creazione di soluzioni in cui è possibile porre al modello la domanda "quali oggetti sono presenti in questa immagine e dove si trovano?".
 
-Ad esempio, un negozio di alimentari potrebbe usare un modello di rilevamento degli oggetti per implementare un sistema di cassa automatizzato che scansiona un nastro trasportatore usando una telecamera ed è in grado di identificare articoli specifici senza la necessità di posizionare ogni articolo sul nastro e scansionarlo singolarmente.
+Ad esempio, un'iniziativa di sicurezza stradale potrebbe identificare pedoni e ciclisti come gli utenti più vulnerabili alle intersezioni stradali. Utilizzando telecamere per monitorare le intersezioni, è possibile analizzare immagini di utenti stradali per rilevare pedoni e ciclisti per monitorare i numeri o anche modificare il comportamento dei segnali stradali.
 
-Il servizio cognitivo **Visione personalizzata** disponibile in Microsoft Azure offre una soluzione basata sul cloud per la creazione e la pubblicazione di modelli di rilevamento oggetti personalizzati. In Azure è possibile usare il servizio Visione personalizzata per eseguire il training di un modello di classificazione delle immagini in base a immagini esistenti. Sono due gli elementi coinvolti nella creazione di una soluzione di classificazione delle immagini. Prima di tutto, è necessario eseguire il training di un modello per riconoscere classi diverse usando immagini esistenti. Dopo aver eseguito il training del modello è necessario pubblicarlo come servizio che può essere usato dalle applicazioni.
+Il servizio cognitivo **Visione personalizzata** disponibile in Microsoft Azure offre una soluzione basata sul cloud per la creazione e la pubblicazione di modelli di rilevamento oggetti personalizzati. In Azure è possibile usare il servizio Visione personalizzata per eseguire il training di un modello di rilevamento oggetti basato su immagini esistenti. Esistono due elementi per creare una soluzione di rilevamento degli oggetti. Prima di tutto, è necessario eseguire il training di un modello per rilevare la posizione e la classe di oggetti usando immagini etichettate. Dopo aver eseguito il training del modello è necessario pubblicarlo come servizio che può essere usato dalle applicazioni.
 
-Per testare le funzionalità del servizio Visione personalizzata per il rilevamento di oggetti nelle immagini, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
+Per testare le funzionalità del servizio Visione personalizzata per il rilevamento di oggetti nelle immagini, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità si applicano a soluzioni reali, ad esempio siti Web o app per dispositivi mobili.
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa per *Servizi cognitivi*
 
 È possibile usare il servizio Visione personalizzata creando una risorsa **Visione personalizzata** o una risorsa **Servizi cognitivi**.
 
@@ -37,130 +37,134 @@ Creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
 
 1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="create-a-custom-vision-project"></a>Creare un progetto di Visione personalizzata
+## Creare un progetto di Visione personalizzata
 
 Per eseguire il training di un modello di rilevamento degli oggetti, è necessario creare un progetto Visione personalizzata basato sulla risorsa di training. Per farlo, verrà usato il portale Custom Vision (Visione personalizzata).
 
 1. In una nuova scheda del browser aprire il portale di Visione personalizzata all'indirizzo [https://customvision.ai](https://customvision.ai?azure-portal=true) ed eseguire l'accesso usando l'account Microsoft associato alla sottoscrizione di Azure.
 
 1. Creare un nuovo progetto con le impostazioni seguenti:
-    - **Nome**: Grocery Detection
-    - **Descrizione**: Object detection for groceries.
+    - **Nome**: Sicurezza del traffico
+    - **Descrizione**: rilevamento degli oggetti per la sicurezza stradale.
     - **Risorsa**: *la risorsa creata in precedenza*
     - **Tipi di progetto**: Rilevamento oggetti
-    - **Domini**: General (Generale)
+    - **Domini**: Generale \[A1]
 
 1. Attendere che il progetto venga creato e aperto nel browser.
 
-## <a name="add-and-tag-images"></a>Aggiungere le immagini e aggiungere i tag
+## Aggiungere le immagini e aggiungere i tag
 
 Per eseguire il training di un modello di rilevamento degli oggetti, è necessario caricare le immagini che contengono le classi che si vuole identificare tramite il modello e aggiungervi tag per indicare i riquadri di delimitazione per ogni istanza dell'oggetto.
 
-1. Scaricare ed estrarre le immagini di training da https://aka.ms/fruit-objects. La cartella estratta contiene una raccolta di immagini di frutta.
+1. Scaricare ed estrarre le immagini di training da [https://aka.ms/traffic-images](https://aka.ms/traffic-images). La cartella estratta contiene una raccolta di immagini di ciclisti e pedoni.
 
-1. Nel portale di Visione personalizzata [https://customvision.ai](https://customvision.ai?azure-portal=true) assicurarsi di lavorare nel progetto di rilevamento oggetti _Grocery Detection_. Selezionare quindi **Aggiungi immagini** e caricare tutte le immagini nella cartella estratta.
+1. Nel portale di Visione personalizzata, nel progetto di rilevamento oggetti **Sicurezza traffico** selezionare **Aggiungi immagini** e caricare tutte le immagini nella cartella estratta.
 
-    ![Caricare le immagini scaricate facendo clic su Aggiungi immagini.](media/create-object-detection-solution/fruit-upload.jpg)
+    ![Screenshot della finestra di dialogo Caricamento immagini in Visione personalizzata Studio.](media/create-object-detection-solution/upload-images.png)
 
 1. Al termine del caricamento delle immagini selezionare la prima per aprirla.
 
-1. Posizionare il mouse su qualsiasi oggetto nell'immagine fino a quando viene visualizzata un'area rilevata automaticamente come nell'immagine seguente. Selezionare quindi l'oggetto e, se necessario, ridimensionare l'area per circondarlo.
+1. Tieni premuto il mouse su qualsiasi oggetto (ciclista o pedonale) nell'immagine fino a quando non viene visualizzata un'area rilevata automaticamente. Selezionare quindi l'oggetto e, se necessario, ridimensionare l'area per circondarlo. In alternativa, è possibile semplicemente trascinare il mouse intorno all'oggetto per creare un'area.
 
-    ![L'area predefinita di un oggetto](media/create-object-detection-solution/object-region.jpg)
+    Quando l'oggetto viene selezionato strettamente all'interno dell'area rettangolare, immettere il tag appropriato per l'oggetto (*ciclista* o *pedonale*) e usare il pulsante **Tag** region (**+**) per aggiungere il tag al progetto.
 
-    In alternativa, è possibile semplicemente trascinare il mouse intorno all'oggetto per creare un'area.
+    ![Screenshot di un'immagine con un'area contrassegnata nella finestra di dialogo Detaol immagine.](media/create-object-detection-solution/tag-image.png)
 
-1. Quando l'area circonda l'oggetto, aggiungere un nuovo tag con il tipo di oggetto appropriato (*apple*, *banana* o *orange*) come mostrato di seguito:
+1. Usare il collegamento **Avanti** (**(>)** a destra per passare all'immagine successiva e contrassegnare i relativi oggetti. Continuare quindi a lavorare nell'intera raccolta di immagini, contrassegnando ogni ciclista e pedonale.
 
-    ![Un oggetto con tag in un'immagine](media/create-object-detection-solution/object-tag.jpg)
+    Quando si contrassegnano le immagini, tenere presente quanto segue:
 
-1. Selezionare ogni altro oggetto nell'immagine e aggiungere i tag, ridimensionando le aree e aggiungendo nuovi tag come necessario.
+    - Alcune immagini contengono più oggetti, potenzialmente di tipi diversi. Contrassegna ognuno di essi, anche se si sovrappongono.
+    - Dopo aver immesso un tag una volta, è possibile selezionarlo dall'elenco quando si contrassegnano nuovi oggetti.
+    - È possibile tornare indietro e inoltrare le immagini per modificare i tag.
 
-    ![Due oggetti con tag in un'immagine](media/create-object-detection-solution/object-tags.jpg)
-
-1. Usare il collegamento **>** sulla destra per passare all'immagine successiva e aggiungere un tag ai relativi oggetti. Continuare così per tutta la raccolta di immagini, aggiungendo un tag a ogni mela, banana e arancia.
+    ![Screenshot di un'immagine con un'area contrassegnata nella finestra di dialogo Detaol immagine.](media/create-object-detection-solution/multiple-objects.png)
 
 1. Dopo aver finito di aggiungere tag all'ultima immagine, chiudere l'editor **Image Detail** (Dettaglio immagine) e nella pagina **Training Images** (Immagini training), in **Tags** (Tag), selezionare **Tagged** (Con tag) per vedere tutte le tue immagini con tag:
 
-    ![Immagini con tag in un progetto](media/create-object-detection-solution/tagged-images.jpg)
+    ![Screenshot delle immagini contrassegnate in un progetto.](media/create-object-detection-solution/tagged-images.png)
 
-## <a name="train-and-test-a-model"></a>Eseguire il training e il test di un modello
+## Eseguire il training e il test di un modello
 
 Dopo aver aggiunto tag alle immagini nel progetto, si è pronti per eseguire il training di un modello.
 
 1. Nel progetto Visione personalizzata, fare clic su **Train** (Esegui il training) per eseguire il training di un modello di rilevamento degli oggetti usando le immagini con tag. Selezionare l'opzione **Quick Training** (Training rapido).
 
-1. Attendere il completamento del training, che potrebbe richiedere circa 10 minuti, quindi esaminare le metriche delle prestazioni *Precision* (Precisione), *Recall* (Richiamo) e *AP*, che misurano la validità della stima del modello di classificazione e i cui valori dovrebbero essere tutti elevati.
+    > **Suggerimento**: il training può richiedere alcuni minuti. Durante l'attesa, vedere [Analisi video per le città intelligenti](https://www.microsoft.com/research/video/video-analytics-for-smart-cities/), che descrive un progetto reale per l'uso della visione artificiale in un'iniziativa di miglioramento della sicurezza stradale.
 
-1. In alto a destra nella pagina fare clic su **Test rapido** e quindi nella casella **URL immagine** immettere `https://aka.ms/apple-orange` e visualizzare la previsione generata. Chiudere quindi la finestra **Quick Test** (Test rapido).
+2. Al termine del training, esaminare le metriche delle prestazioni *precisione*, *richiamo* e *mAP* , che misurano la bontà di stima del modello di rilevamento oggetti e devono essere tutti ragionevolmente elevati.
 
-## <a name="publish-the-object-detection-model"></a>Pubblicare il modello di rilevamento oggetti
+3. Modificare la **soglia di probabilità** a sinistra, aumentandola dal 50% al 90% e osservare l'impatto sulle metriche delle prestazioni. Questa impostazione determina il valore di probabilità che ogni valutazione tag deve soddisfare o superare per essere conteggiata come stima.
+
+    ![Screenshot delle metriche delle prestazioni per un modello sottoposto a training.](media/create-object-detection-solution/performance-metrics.png)
+
+4. Nella parte superiore destra della pagina fare clic su **Test rapido**, quindi nella casella **URL immagine** immettere `https://aka.ms/pedestrian-cyclist` e visualizzare i risultati.
+
+    Nel riquadro a destra, in **Stime**, ogni oggetto rilevato viene elencato con il tag e la probabilità. Selezionare ogni oggetto per visualizzarlo evidenziato nell'immagine.
+
+    Gli oggetti stimati potrebbero non essere tutti corretti, dopo tutto, ciclisti e pedoni condividono molte caratteristiche comuni. Le stime che il modello è più sicuro di avere i valori di probabilità più alti. Usare il dispositivo di scorrimento **Valore soglia** per eliminare gli oggetti con una bassa probabilità. Dovrebbe essere possibile trovare un punto in cui sono incluse solo le stime corrette (probabilmente intorno all'85-90%).
+
+    ![Screenshot delle metriche delle prestazioni per un modello sottoposto a training.](media/create-object-detection-solution/test-detection.png)
+
+5. Chiudere quindi la finestra **Quick Test** (Test rapido).
+
+## Pubblicare il modello di rilevamento oggetti
 
 A questo punto è possibile pubblicare il modello sottoposto a training per poterlo usare da un'applicazione client.
 
 1. Fare clic su **&128504; Pubblica** per pubblicare il modello sottoposto a training con le impostazioni seguenti:
-    - **Nome del modello**: detect-produce
+    - **Nome modello**: sicurezza del traffico
     - **Risorsa di previsione**: *la risorsa creata in precedenza*.
 
-1. Dopo la pubblicazione fare clic sull'icona dell'*URL di previsione* (&#127760;) per visualizzare le informazioni necessarie per usare il modello pubblicato. In seguito saranno necessari i valori appropriati per l'URL e la chiave di previsione per ottenere una stima da un URL immagine, quindi mantenere aperta questa finestra di dialogo e continuare con l'attività successiva.
+1. Dopo la pubblicazione fare clic sull'icona dell'*URL di previsione* (&#127760;) per visualizzare le informazioni necessarie per usare il modello pubblicato.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+    ![Screenshot dell'URL di previsione.](media/create-object-detection-solution/prediction-url.png)
 
-Per testare le funzionalità del servizio Visione personalizzata, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
+In seguito saranno necessari i valori appropriati per l'URL e la chiave di previsione per ottenere una stima da un URL immagine, quindi mantenere aperta questa finestra di dialogo e continuare con l'attività successiva.
 
-1. Nel portale di Azure selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale. 
+## Preparare un'applicazione client
 
-    ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/create-object-detection-solution/powershell-portal-guide-1.png)
+Per testare le funzionalità del servizio Visione personalizzata, si userà una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. Tornare alla scheda del browser contenente il portale di Azure e selezionare il pulsante **Cloud Shell** (**[>_]**) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale.
 
-1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
+    La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). In tal caso, selezionare **PowerShell**.
 
-    ![Creare l'archiviazione facendo clic su Conferma.](media/create-object-detection-solution/powershell-portal-guide-2.png)
+    Se viene richiesto di creare spazio di archiviazione per il Cloud Shell, assicurarsi che la sottoscrizione sia selezionata e selezionare **Crea archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
-1. Verificare che nella parte superiore sinistra del riquadro Cloud Shell sia impostato *PowerShell* come tipo di shell. Se è *Bash*, passare a *PowerShell* usando il menu a discesa.
+    Quando Cloud Shell è pronto, dovrebbe essere simile al seguente:
+    
+    ![Screenshot di Cloud Shell nel portale di Azure.](media/create-object-detection-solution/cloud-shell.png)
 
-    ![Come trovare il menu a discesa a sinistra per passare a PowerShell](media/create-object-detection-solution/powershell-portal-guide-3.png) 
+    > **Suggerimento**: assicurarsi che il tipo di shell indicato in alto a sinistra del riquadro Cloud Shell sia *PowerShell*. Se è *Bash*, passare a *PowerShell* usando il menu a discesa.
 
-1. Attendere l'avvio di PowerShell. Nel portale di Azure verrà visualizzata la schermata seguente:  
+    Si noti che è possibile ridimensionare Cloud Shell trascinando la barra di separazione nella parte superiore del riquadro o usando le icone **&#8212;** , **&#9723;** e **X** nell'angolo in alto a destra del riquadro per ridurre a icona, ingrandire o chiudere il riquadro. Per altre informazioni sull'uso di Azure Cloud Shell, vedere la [documentazione su Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
-    ![Attendere l'avvio di PowerShell.](media/create-object-detection-solution/powershell-prompt.png) 
-
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
-
-Ora che si dispone di un modello personalizzato, è possibile eseguire una semplice applicazione client che usa il servizio Visione personalizzata per rilevare oggetti in un'immagine.
-
-1. Nella shell dei comandi immettere il comando seguente per scaricare l'applicazione di esempio e salvarla in una cartella denominata ai-900.
+2. Nella shell dei comandi immettere i comandi seguenti per scaricare i file per questo esercizio e salvarli in una cartella denominata **ai-900** (dopo la rimozione di tale cartella, se già esistente)
 
     ```PowerShell
+    rm -r ai-900 -f
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    >**Nota** Se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
-
-1. I file vengono scaricati in una cartella denominata **ai-900**. Ora si vogliono visualizzare tutti i file disponibili nella risorsa di archiviazione di Cloud Shell e usarli. Digitare il comando seguente nella shell:
+3. Dopo aver scaricato i file, immettere i comandi seguenti per passare alla directory **ai-900** e modificare il file di codice per questo esercizio:
 
     ```PowerShell
-    code .
+    cd ai-900
+    code detect-objects.ps1
     ```
 
-    Verrà aperto un editor come quello illustrato nell'immagine seguente: 
+    Si noti che si apre un editor simile a quello nell'immagine seguente:
 
-    ![Editor di codice.](media/create-object-detection-solution/powershell-portal-guide-4.png)
+     ![Screenshot dell'editor di codice in Cloud Shell.](media/create-object-detection-solution/code-editor.png)
 
-1. Nel riquadro **File** a sinistra espandere **ai-900** e selezionare **detect-objects.ps1**. Questo file contiene codice che usa il servizio Visione personalizzata per rilevare oggetti in un'immagine, come illustrato di seguito:
+     > **Suggerimento**: è possibile usare la barra separatore tra la riga di comando di Cloud Shell e l'editor di codice per ridimensionare i riquadri.
 
-    ![Editor contenente il codice per rilevare gli elementi in un'immagine](media/create-object-detection-solution/detect-image-code.png)
+4. Non prestare attenzione eccessiva ai dettagli del codice. L'aspetto importante è che inizia con un codice per specificare l'URL e la chiave di stima per il modello di Visione personalizzata. Sarà necessario aggiornarli in modo che il resto del codice usi il modello.
 
-1. Non preoccuparsi troppo dei dettagli del codice, è importante notare che sono necessari l'URL e la chiave di previsione per il modello di Visione personalizzata quando si usa un URL immagine. 
+    Ottenere *l'URL* di *stima* e la chiave di stima dalla finestra di dialogo aperta nella scheda del browser per il progetto di Visione personalizzata. Se *si dispone di un URL di immagine*, è necessario usare le versioni.
 
-    Ottenere l'*URL di previsione* dalla finestra di dialogo nel progetto Visione personalizzata. 
-
-    >**Nota** Tenere presente che l'*URL di previsione* è stato modificato dopo aver pubblicato il modello di classificazione delle immagini. Per trovare l'*URL di previsione*, passare alla scheda **Performance** nel progetto e quindi fare clic su **Prediction URL** (se la schermata è compressa, potrebbe essere visibile solo un'icona a forma di globo). Verrà visualizzata una finestra di dialogo. Copiare l'URL per **If you have an image URL**. Incollarlo nell'editor di codice, sostituendo **YOUR_PREDICTION_URL**. 
-
-    Usare la stessa finestra di dialogo per ottenere la *chiave di previsione*. Copiare la chiave di previsione visualizzata dopo *Set Prediction-Key Header to*. Incollarla nell'editor di codice, sostituendo il valore segnaposto **YOUR_PREDICTION_KEY**. 
-
-    ![Screenshot dell'URL di previsione.](media/create-object-detection-solution/find-prediction-url.png)
+    Usare questi valori per sostituire i **segnaposto YOUR_PREDICTION_URL** e **YOUR_PREDICTION_KEY** nel file di codice.
 
     Dopo aver incollato i valori di URL di previsione e chiave di previsione, le prime due righe di codice dovrebbero essere simili a questa:
 
@@ -169,21 +173,36 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     $predictionKey ="1a2b3c4d5e6f7g8h9i0j...."
     ```
 
-1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**.
+5. Dopo aver apportato le modifiche alle variabili nel codice, premere **CTRL+S** per salvare il file. Premere **QUINDI CTRL+Q** per chiudere l'editor di codice.
 
-    Si userà l'applicazione client di esempio per rilevare gli oggetti in questa immagine:
+## Testare l'applicazione client
 
-    ![Immagine di un frutto](media/create-object-detection-solution/produce.jpg)
+È ora possibile usare l'applicazione client di esempio per rilevare ciclisti e pedoni nelle immagini.
 
 1. Nel riquadro di PowerShell immettere il comando seguente per eseguire il codice:
 
     ```PowerShell
-    cd ai-900
-    ./detect-objects.ps1 
+    ./detect-objects.ps1 1
     ```
 
-1. Esaminare la previsione, che dovrebbe essere *apple orange banana*.
+    Questo codice usa il modello per rilevare gli oggetti nell'immagine seguente:
 
-## <a name="learn-more"></a>Altre informazioni
+    ![Fotografia di un pedone e di un ciclista.](media/create-object-detection-solution/road-safety-1.jpg)
 
-Questa semplice app mostra solo alcune delle funzionalità del servizio Visione personalizzata. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Visione personalizzata](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
+1. Esaminare la stima, che elenca tutti gli oggetti rilevati con una probabilità del 90% o più, insieme alle coordinate di un rettangolo delimitatore intorno alla posizione.
+
+1. Ora proviamo un'altra immagine. Eseguire questo comando:
+
+    ```PowerShell
+    ./detect-objects.ps1 2
+    ```
+
+    Questa volta viene analizzata l'immagine seguente:
+
+    ![Fotografia di un gruppo di pedoni.](media/create-object-detection-solution/road-safety-2.jpg)
+
+Speriamo che il modello di rilevamento oggetti abbia svolto un buon lavoro per rilevare pedoni e ciclisti nelle immagini di test.
+
+## Altre informazioni
+
+Questo esercizio mostra solo alcune delle funzionalità del servizio Visione personalizzata. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Visione personalizzata](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).

@@ -3,11 +3,11 @@ lab:
   title: Esplorare la classificazione con la finestra di progettazione di Azure Machine Learning
 ---
 
-# <a name="explore-classification-with-azure-machine-learning-designer"></a>Esplorare la classificazione con la finestra di progettazione di Azure Machine Learning
+# Esplorare la classificazione con la finestra di progettazione di Azure Machine Learning
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-## <a name="create-an-azure-machine-learning-workspace"></a>Creare un'area di lavoro di Machine Learning di Azure  
+## Creare un'area di lavoro di Machine Learning di Azure  
 
 1. Accedere al [portale di Azure](https://portal.azure.com?azure-portal=true) usando le proprie credenziali Microsoft.
 
@@ -25,13 +25,13 @@ lab:
 
 1. Selezionare **Avvia studio** (in alternativa, aprire una nuova scheda nel browser e passare a [https://ml.azure.com](https://ml.azure.com?azure-portal=true)) e accedere allo studio di Azure Machine Learning usando il proprio account Microsoft.
 
-1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, fare clic su **Microsoft** nel menu a sinistra. Dal nuovo menu a sinistra selezionare quindi **Aree di lavoro**, dove vengono elencate tutte le aree di lavoro associate alla sottoscrizione. Scegliere quella creata per questo esercizio. 
+1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare la directory di Azure nel menu a sinistra. Quindi, dal nuovo menu a sinistra selezionare **Aree di** lavoro, in cui sono elencate tutte le aree di lavoro associate alla directory e selezionare quella creata per questo esercizio.
 
 > **Nota** Questo modulo è uno dei molti che usano un'area di lavoro di Azure Machine Learning, inclusi gli altri moduli nel percorso di apprendimento [Elementi fondamentali di Microsoft Azure per intelligenza artificiale: Esplorare gli strumenti visivi per Machine Learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se si usa la propria sottoscrizione di Azure, è consigliabile creare l'area di lavoro una sola volta e riutilizzarla negli altri moduli. Alla sottoscrizione di Azure verrà addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. È quindi consigliabile eliminare l'area di lavoro di Azure Machine Learning quando non è più necessaria.
 
-## <a name="create-compute"></a>Creare l'ambiente di calcolo
+## Creare l'ambiente di calcolo
 
-1. Nello [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) selezionare le tre righe in alto a sinistra per visualizzare le diverse pagine dell'interfaccia. Potrebbe essere necessario ingrandire le dimensioni della schermata. Queste pagine situate nel riquadro a sinistra consentono di gestire le risorse nell'area di lavoro. Selezionare la pagina **Calcolo** (in **Gestisci**).
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) selezionare l'icona **&#8801;** (un'icona di menu simile a uno stack di tre righe) in alto a sinistra per visualizzare le varie pagine nell'interfaccia (potrebbe essere necessario ingrandire le dimensioni dello schermo). Queste pagine situate nel riquadro a sinistra consentono di gestire le risorse nell'area di lavoro. Selezionare la pagina **Calcolo** (in **Gestisci**).
 
 1. Nella pagina **Calcolo** selezionare la scheda **Cluster di elaborazione** e aggiungere un nuovo cluster di elaborazione con le impostazioni specificate di seguito. Il cluster sarà usato per eseguire il training di un modello di Machine Learning.
     - **Località**: *selezionare la stessa località dell'area di lavoro. Se la località non è nell'elenco, scegliere quella più vicina alla propria posizione*.
@@ -52,11 +52,11 @@ lab:
 
 La creazione del cluster di elaborazione potrebbe richiedere diversi minuti. Mentre il processo di creazione è in corso, è possibile procedere con il passaggio successivo.
 
-## <a name="create-a-pipeline-in-designer"></a>Creare una pipeline nella finestra di Progettazione
+## Creare una pipeline nella finestra di Progettazione
 
 Per iniziare a usare la finestra di progettazione di Azure Machine Learning, è prima di tutto necessario creare una pipeline e aggiungere il set di dati che si vuole usare.
 
-1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true), espandere il riquadro sinistro selezionando le tre righe in alto a sinistra della schermata. Visualizzare la pagina della **finestra di progettazione** (in **Autore**) e selezionare **+** per creare una nuova pipeline.
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro sinistro selezionando l'icona del menu in alto a sinistra della schermata. Visualizzare la pagina della **finestra di progettazione** (in **Autore**) e selezionare **+** per creare una nuova pipeline.
 
 1. Nella parte superiore destra della schermata, selezionare **Impostazioni**. Se il riquadro **Impostazioni** non è visibile, selezionare l'icona a forma di ingranaggio accanto al nome della pipeline nella parte superiore.
 
@@ -68,9 +68,9 @@ Per iniziare a usare la finestra di progettazione di Azure Machine Learning, è 
 
     ![Screenshot dello studio di Machine Learning nel riquadro delle impostazioni.](media/create-classification-model/create-pipeline-help.png)
 
-## <a name="create-a-dataset"></a>Creare un set di dati
+## Creare un set di dati
 
-1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true), espandere il riquadro sinistro selezionando le tre righe in alto a sinistra della schermata. Visualizzare la pagina **Dati** (in **Asset**). La pagina Dati contiene tabelle o file di dati specifici che si prevede di usare in Azure ML. Da questa pagina è anche possibile creare set di dati.
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro sinistro selezionando l'icona del menu in alto a sinistra della schermata. Visualizzare la pagina **Dati** (in **Asset**). La pagina Dati contiene tabelle o file di dati specifici che si prevede di usare in Azure ML. Da questa pagina è anche possibile creare set di dati.
 
 1. Nella pagina **Dati**, nella scheda **Asset di dati** selezionare **Crea**. Configurare quindi un asset dati con le impostazioni seguenti:
     * **Tipo di dati**:
@@ -96,7 +96,7 @@ Per iniziare a usare la finestra di progettazione di Azure Machine Learning, è 
 
 1. Dopo aver creato il set di dati, aprirlo e visualizzare la pagina **Esplora** per visualizzare un esempio dei dati. Questi dati rappresentano i dettagli dei pazienti a cui è stato misurato il diabete.
 
-### <a name="load-data-to-canvas"></a>Caricare i dati nel canvas
+### Caricare i dati nel canvas
 
 1. Tornare alla pipeline selezionando **Finestra di progettazione** nel menu a sinistra. Nella pagina **Finestra di progettazione** selezionare la pipeline **Diabetes Training**.
 
@@ -118,7 +118,7 @@ Per iniziare a usare la finestra di progettazione di Azure Machine Learning, è 
 
     ![Screenshot del set di dati diabetes-data nel canvas della finestra di progettazione.](media/create-classification-model/diabetes-data.png)
 
-## <a name="add-transformations"></a>Aggiungi trasformazioni
+## Aggiungi trasformazioni
 
 Prima di poter eseguire il training di un modello, è necessario in genere applicare alcune trasformazioni di pre-elaborazione ai dati.
 
@@ -128,27 +128,26 @@ Prima di poter eseguire il training di un modello, è necessario in genere appli
 
 1. Trovare il modulo **Selezionare le colonne nel set di dati** e posizionarlo nel canvas, sotto il set di dati **diabetes-data**. Connettere quindi l'output dalla parte inferiore del set di dati **diabetes-data** all'input nella parte superiore del modulo **Selezionare le colonne nel set di dati**.
 
+1. Fare doppio clic sul modulo **Select Columns in Dataset** per accedere a un riquadro delle impostazioni a destra. Selezionare **Modifica colonna**. Quindi, nella finestra **Seleziona colonne** selezionare **Per nome** e **Aggiungi tutte le** colonne. Rimuovere **quindi PatientID** e fare clic su **Salva**. 
+
 1. Trovare il modulo **Selezionare le colonne nel set di dati** e posizionarlo nel canvas, sotto il modulo**Normalizzazione dei dati**. Connettere quindi l'output dalla parte inferiore del modulo **Selezionare le colonne nel set di dati** all'input nella parte superiore del modulo **Normalizzazione dei dati**, come illustrato di seguito:
 
     ![Screenshot di una pipeline con il set di dati connesso a un modulo Normalizzazione dei dati.](media/create-classification-model/dataset-normalize.png)
 
 1. Fare doppio clic sul modulo **Normalize Data** per visualizzarne le impostazioni: si noti che è necessario specificare il metodo di trasformazione e le colonne da trasformare. 
 
-1. Impostare il *metodo di trasformazione* su **MinMax** e *Usa 0 per le colonne costanti se selezionata* su **True**. Modificare le colonne in modo da includere le colonne seguenti in base al nome, come illustrato nell'immagine:
-    - **Pregnancies**
-    - **PlasmaGlucose**
-    - **DiastolicBloodPressure**
-    - **TricepsThickness**
-    - **SerumInsulin**
-    - **BMI**
-    - **DiabetesPedigree**
-    - **Age**
+1. Impostare il *metodo di trasformazione* su **MinMax** e *Usa 0 per le colonne costanti se selezionata* su **True**. Modificare le colonne da trasformare con **Modifica colonne**. Selezionare le colonne **Con regole** e copiare e incollare l'elenco seguente in Includi nomi di colonna:  
 
-    ![Screenshot delle colonne selezionate per la normalizzazione.](media/create-classification-model/normalize-data.png)
+```
+Pregnancies, PlasmaGlucose, DiastolicBloodPressure, TricepsThickness, SerumInsulin, BMI, DiabetesPedigree, Age
+```
+![Screenshot delle colonne selezionate per la normalizzazione.](media/create-classification-model/normalize-data.png)
+
+Fare clic su **Salva** e chiudere la casella di selezione. 
 
 La trasformazione dei dati normalizza le colonne numeriche in modo da metterle sulla stessa scala, evitando così che le colonne con i valori più grandi possano dominare il training del modello. In genere, si applica un intero insieme di trasformazioni di pre-elaborazione come questo per preparare i dati per il training, ma in questo esercizio opteremo per una procedura semplificata.
 
-## <a name="run-the-pipeline"></a>Eseguire la pipeline
+## Eseguire la pipeline
 
 Per applicare le trasformazioni dei dati, è necessario eseguire la pipeline come esperimento.
 
@@ -160,7 +159,7 @@ Per applicare le trasformazioni dei dati, è necessario eseguire la pipeline com
 
     Si noti che il pannello a sinistra si trova ora nel riquadro **Processi inviati**. Quando l'esecuzione sarà completata, il processo assumerà lo stato **Completato**.
 
-## <a name="view-the-transformed-data"></a>Visualizzare i dati trasformati
+## Visualizzare i dati trasformati
 
 1. Al termine dell'esecuzione il set di dati è pronto per il training del modello. Fare clic su **Dettagli processo**. Verrà visualizzata una nuova scheda.
 
@@ -172,7 +171,7 @@ Per applicare le trasformazioni dei dati, è necessario eseguire la pipeline com
 
 Dopo aver preparato i dati tramite le trasformazioni di dati, è possibile usarli per eseguire il training di un modello di Machine Learning.
 
-## <a name="add-training-modules"></a>Aggiungere moduli di training
+## Aggiungere moduli di training
 
 È consigliabile usare un sottoinsieme di dati per eseguire il training del modello e conservare alcuni dati per eseguire il test del modello con training. In questo modo, infatti, è possibile confrontare le etichette stimate dal modello con le etichette effettivamente presenti nel set di dati originale.
 
@@ -207,7 +206,7 @@ Seguire questa procedura usando l'immagine precedente come riferimento durante l
 
 1. In **Libreria** cercare un modulo **Score Model** e posizionarlo sul canvas, sotto il modulo **Train Model**. Connettere quindi l'output del modulo **Train Model** all'input **Trained model** (a sinistra) del modulo **Score Model** e connettere l'output di **Results dataset2** (a destra) del modulo **Split data** all'input **DataSet** (a destra) del modulo **Score Model**.
 
-## <a name="run-the-training-pipeline"></a>Eseguire la pipeline di training
+## Eseguire la pipeline di training
 
 A questo punto è possibile eseguire la pipeline di training e il training del modello.
 
@@ -227,7 +226,7 @@ Il modello stima i valori per l'etichetta **Diabetic**, ma quanto sono affidabil
 
 I dati di convalida tenuti da parte e usati per assegnare un punteggio al modello includono i valori noti relativi all'etichetta. Per convalidare il modello, è possibile confrontare i valori reali con i valori stimati dell'etichetta durante l'assegnazione del punteggio al set di dati di convalida. In base al confronto, è possibile quindi calcolare varie metriche con cui valutare le prestazioni del modello.
 
-## <a name="add-an-evaluate-model-module"></a>Aggiungere un modulo Evaluate Model
+## Aggiungere un modulo Evaluate Model
 
 1. Aprire la pipeline **Diabetes Training** creata.
 
@@ -261,9 +260,9 @@ I dati di convalida tenuti da parte e usati per assegnare un punteggio al modell
 
 Le prestazioni di questo modello non sono molto elevate, soprattutto perché è stata eseguita solo una parte delle funzionalità di progettazione e di pre-elaborazione. È possibile provare un algoritmo di classificazione diverso, ad esempio **Two-Class Decision Forest** e confrontare i risultati. È possibile connettere gli output del modulo **Split Data** a più moduli **Train Model** e **Score Model** e connettere un secondo modulo **Score Model** al modulo **Evaluate Model** per visualizzare un confronto affiancato. L'obiettivo dell'esercizio è semplicemente illustrare la classificazione e l'interfaccia dell'area di progettazione di Azure Machine Learning e non eseguire il training di un modello perfetto.
 
-## <a name="create-an-inference-pipeline"></a>Creare una pipeline di inferenza
+## Creare una pipeline di inferenza
 
-1. In studio di Azure Machine Learning, espandere il riquadro sinistro selezionando le tre righe in alto a sinistra della schermata. Fare clic su **Processi** (in **Asset**) per visualizzare tutti i processi eseguiti. Selezionare l'esperimento **mslearn-diabetes-training**, quindi selezionare la pipeline **Diabetes Training**.
+1. In studio di Azure Machine Learning espandere il riquadro a sinistra selezionando l'icona del menu nella parte superiore sinistra dello schermo. Fare clic su **Processi** (in **Asset**) per visualizzare tutti i processi eseguiti. Selezionare l'esperimento **mslearn-diabetes-training**, quindi selezionare la pipeline **Diabetes Training**.
 
 1. Individuare il menu sopra il canvas e fare clic su **Crea pipeline di inferenza**. Potrebbe essere necessario espandere la schermata a schermo intero e fare clic sull'icona con i tre puntini **...** nell'angolo in alto a destra della schermata per trovare **Crea pipeline di inferenza** nel menu.  
 
@@ -283,7 +282,7 @@ Le prestazioni di questo modello non sono molto elevate, soprattutto perché è 
     - Rimozione del modulo **Evaluate Model**.
     - Inclusione di un modulo **Execute Python Script** prima dell'output del servizio Web modo che vengano restituiti solo l'ID paziente, il valore dell'etichetta stimato e la probabilità.
 
-1. La pipeline non include automaticamente un componente **Web Service Input** per i modelli creati dai set di dati personalizzati. Cercare un componente **Web Service Input** nella libreria e posizionarlo nella parte superiore della pipeline. Collegare l'output del componente **Web Service Input** all'input a destra del componente **Apply Transformation** già presente nel canvas.
+1. La pipeline non include automaticamente un componente **Web Service Input** per i modelli creati dai set di dati personalizzati. Cercare un componente **Web Service Input** nella libreria e posizionarlo nella parte superiore della pipeline. Connettere l'output del componente **Input del servizio Web** al componente **Seleziona colonne nel componente Set di dati** già presente nell'area di disegno.
 
 1. La pipeline di inferenza presuppone che i nuovi dati corrispondano allo schema dei dati di training originali e, pertanto, conterrà il set di dati **diabetes-data** della pipeline di training. I dati di input, tuttavia, includono l'etichetta **Diabetic** stimata dal modello, che non è inclusa nei dati di nuovi pazienti per i quali non è stata ancora eseguita una previsione sul diabete. Eliminare questo modulo e sostituirlo con un modulo **Enter Data Manually** contenente i dati in formato CSV riportati di seguito, in cui sono inclusi valori di caratteristiche senza etichette per tre nuove osservazioni di pazienti:
 
@@ -294,7 +293,7 @@ Le prestazioni di questo modello non sono molto elevate, soprattutto perché è 
     1228510,4,115,50,29,243,34.69215364,0.741159926,59
     ```
 
-1. Collegare il nuovo modulo **Enter Data Manually** allo stesso **set di dati** di input del modulo **Apply Transformation** come **input del servizio Web**.
+1. Connettere il nuovo modulo **Invio dati manualmente** allo stesso input **del set di dati** del modulo **Seleziona colonne nel set di dati** dell'input **del servizio Web**.
 
 1. Modificare il modulo **Selezionare le colonne nel set di dati**. Rimuovere **Diabetic** da *Colonne selezionate*. 
 
@@ -332,7 +331,7 @@ Dopo aver creato e testato una pipeline di inferenza per l'inferenza in tempo re
 
 > **Nota** In questo esercizio si distribuirà il servizio Web in un'istanza di Azure Container (ACI). Questo tipo di risorsa di calcolo viene creato dinamicamente ed è utile per le attività di sviluppo e test. Per un ambiente di produzione, è necessario creare un *cluster di inferenza*, che fornisce un cluster del servizio Azure Kubernetes che offre scalabilità e sicurezza migliori.
 
-## <a name="deploy-a-service"></a>Distribuire un servizio
+## Distribuire un servizio
 
 1. Aprire la pipeline di inferenza **Predict Diabetes** creata nell'unità precedente.
 
@@ -351,7 +350,7 @@ Dopo aver creato e testato una pipeline di inferenza per l'inferenza in tempo re
 
 1. Attendere il completamento della distribuzione del servizio Web tenendo presente che potrebbero essere necessari alcuni minuti. Lo stato della distribuzione viene visualizzato in alto a sinistra nell'interfaccia di progettazione.
 
-## <a name="test-the-service"></a>Testare il servizio
+## Testare il servizio
 
 1. Nella pagina **Endpoint** aprire l'endpoint in tempo reale **predict-diabetes**.
 
@@ -387,15 +386,15 @@ Dopo aver creato e testato una pipeline di inferenza per l'inferenza in tempo re
 
     È stato appena testato un servizio pronto per essere connesso a un'applicazione client usando le credenziali nella scheda **Utilizza**. Il lab termina qui. È possibile continuare a fare pratica con il servizio appena distribuito.
 
-## <a name="clean-up"></a>Eliminazione
+## Eliminazione
 
-Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure.
+Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure. È anche necessario eliminare il cluster di calcolo.
 
 1. In [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true), nella scheda **Endpoint**, selezionare l'endpoint **predict-diabetes**. Selezionare quindi **Elimina** e confermare l'eliminazione dell'endpoint.
 
 1. Nella pagina **Calcolo**, nella scheda **Cluster di elaborazione** selezionare il cluster di elaborazione e quindi **Elimina**.
 
->**Nota** L'arresto delle risorse di calcolo garantisce che alla sottoscrizione non vengano addebitati i costi di calcolo corrispondenti. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate. Tuttavia, se si prevede di completare qualsiasi altro lab in questa serie, sarà necessario ricrearla.
+>**Nota** L'eliminazione del calcolo garantisce che la sottoscrizione non venga addebitata per le risorse di calcolo. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate. Tuttavia, se si prevede di completare qualsiasi altro lab in questa serie, sarà necessario ricrearla.
 >
 > Per eliminare l'area di lavoro:
 >
