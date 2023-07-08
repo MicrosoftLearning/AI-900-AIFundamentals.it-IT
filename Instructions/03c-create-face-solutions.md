@@ -3,7 +3,7 @@ lab:
   title: Esplorare la funzionalità di riconoscimento volto
 ---
 
-# <a name="explore-face-recognition"></a>Esplorare la funzionalità di riconoscimento volto
+# Esplorare la funzionalità di riconoscimento volto
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
@@ -11,27 +11,26 @@ Le soluzioni di visione artificiale richiedono spesso una soluzione di intellige
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa *DELL'API Viso*
 
-È possibile usare il servizio Viso creando una risorsa **Viso** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Viso creando una risorsa **Viso** . (L'API Viso non è più disponibile in Servizi cognitivi)
 
-Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **dell'API Viso** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul ** pulsante&#65291;Creare una risorsa** , cercare *Viso* e creare una risorsa **Viso** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: Standard S0
-    - **Selezionando questa casella, confermo di aver letto e compreso tutte le condizioni seguenti**: selezionata.
+    - **Piano tariffario**: F0 Gratuito
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed Endpoint** per la risorsa Viso. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure. 
 
@@ -53,7 +52,7 @@ Per testare le funzionalità del servizio Viso, verrà usata una semplice applic
 
     ![Attendere l'avvio di PowerShell.](media/create-face-solutions/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
+## Configurare ed eseguire un'applicazione client
 
 Ora che si dispone di un modello personalizzato, è possibile eseguire una semplice applicazione client che usa il servizio Viso.
 
@@ -79,7 +78,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente codice per rilevare i visi in un'immagine](media/create-face-solutions/find-faces-code.png)
 
-1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi cognitivi. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo dei dettagli del codice, è importante che sia necessario l'URL dell'endpoint e una delle chiavi per la risorsa Viso. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
@@ -133,6 +132,6 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
 1. Esaminare i risultati dell'analisi del viso per la terza immagine.
 
-## <a name="learn-more"></a>Altre informazioni
+## Altre informazioni
 
-Questa semplice app mostra solo alcune delle funzionalità del servizio Viso. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina dell'API Viso](https://azure.microsoft.com/services/cognitive-services/face/).
+Questa semplice app mostra solo alcune delle funzionalità del servizio Viso. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina dell'API Viso](https://azure.microsoft.com/en-us/products/cognitive-services/vision-services).
