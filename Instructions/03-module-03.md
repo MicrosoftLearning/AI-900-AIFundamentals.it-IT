@@ -3,7 +3,7 @@ lab:
   title: Esplorare Visione artificiale
 ---
 
-# <a name="explore-computer-vision"></a>Esplorare Visione artificiale
+# Esplorare Visione artificiale
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
@@ -13,7 +13,7 @@ Si supponga, ad esempio, che l'azienda di vendita al dettaglio fittizia *Northwi
 
 In questo lab si userà una semplice applicazione da riga di comando per vedere il servizio Visione artificiale in azione. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa per *Servizi cognitivi*
 
 È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **Servizi cognitivi**.
 
@@ -33,7 +33,7 @@ Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sotto
 
 1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Visione artificiale, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
@@ -55,7 +55,7 @@ Per testare le funzionalità del servizio Visione artificiale, verrà usata una 
 
     ![Attendere l'avvio di PowerShell.](media/analyze-images-computer-vision-service/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
+## Configurare ed eseguire un'applicazione client
 
 Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplice applicazione che usa il servizio Visione artificiale per analizzare un'immagine.
 
@@ -134,6 +134,6 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
 
 1. Esaminare i risultati dell'analisi dell'immagine per la terza immagine.
 
-## <a name="learn-more"></a>Altre informazioni
+## Altre informazioni
 
-Questa semplice app mostra solo alcune delle funzionalità del servizio Visione artificiale. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Visione artificiale](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
+Questa semplice app mostra solo alcune delle funzionalità del servizio Visione artificiale. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Visione artificiale](https://azure.microsoft.com/products/ai-services?activetab=pivot:visiontab).
