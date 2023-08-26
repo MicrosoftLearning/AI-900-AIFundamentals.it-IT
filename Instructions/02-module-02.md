@@ -62,7 +62,7 @@ La creazione del cluster di elaborazione potrebbe richiedere diversi minuti. Men
 
 1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro sinistro selezionando l'icona del menu nella parte superiore sinistra della schermata. Visualizzare la pagina **Dati** (in **Asset**). La pagina Dati contiene tabelle o file di dati specifici che si prevede di usare in Azure ML. Da questa pagina è anche possibile creare set di dati.
 
-1. Nella pagina **Dati**, nella scheda **Asset di dati** selezionare **Crea**. Configurare quindi un asset dati con le impostazioni seguenti:
+1. Nella scheda **Asset dati** della pagina **Dati** selezionare **+ Crea**. Configurare quindi un asset dati con le impostazioni seguenti:
     * **Tipo di dati**:
         * **Nome**: noleggi di biciclette
         * **Descrizione**: dati noleggio biciclette
@@ -128,9 +128,7 @@ Attenersi alla procedura seguente per eseguire un processo che usa Machine Learn
         - **Tipo di convalida**: automatica
         - **Test dell'asset dati (anteprima)** : nessun asset di dati di test richiesto
 
-1. Al termine dell'invio dei dettagli del processo di Machine Learning automatizzato, l'avvio viene eseguito automaticamente. Attendere che lo stato cambi da *In preparazione* a *In esecuzione*.
-
-1. Quando lo stato passa a *In esecuzione*, visualizzare la scheda **Modelli** e osservare mentre viene provata ogni combinazione possibile di algoritmi di training e passaggi di pre-elaborazione e vengono valutate le prestazioni del modello risultante. La pagina viene aggiornata automaticamente a intervalli regolari, ma è anche possibile selezionare **Aggiorna**. Potrebbero essere necessari circa dieci minuti per della comparsa dei primi modelli, perché prima di poter iniziare il training occorre inizializzare i nodi del cluster.
+1. Al termine dell'invio dei dettagli del processo di Machine Learning automatizzato, l'avvio viene eseguito automaticamente.
 
 1. Attendere il completamento del processo. L'operazione potrebbe richiedere un po' di tempo.
 
@@ -163,26 +161,24 @@ Attenersi alla procedura seguente per eseguire un processo che usa Machine Learn
 
     ![Screenshot del riepilogo del modello migliore con una casella attorno al nome dell'algoritmo nella scheda Dettagli.](media/use-automated-machine-learning/deploy-detail-tab.png)
 
-1. Nella scheda **Modelli** selezionare il pulsante **Distribuisci** e usare l'opzione **Distribuisci in servizio Web** per distribuire il modello con le impostazioni seguenti:
+1. Nella scheda **Modelli** selezionare il pulsante **Distribuisci** e usare l'opzione **Servizio Web** per distribuire il modello con le impostazioni seguenti:
     - **Nome**: previsione-noleggi
     - **Descrizione**: prevedere i noleggi di biciclette
     - **Tipo di ambiente di calcolo**: Istanza di Azure Container
     - **Abilita autenticazione**: Opzione selezionata
 
-1. Attendere l'avvio della distribuzione. L'operazione potrebbe richiedere alcuni secondi. Quindi, nella sezione di **Riepilogo modelli** osservare lo **Stato di distribuzione** per il servizio **previsione-noleggi**, che deve essere **In esecuzione**. Attendere che questo stato venga modificato in **Operazione riuscita**. Tale operazione potrebbe richiedere tempo. Potrebbe essere necessario selezionare periodicamente **Aggiorna**.
+1. Attendere l'avvio della distribuzione. L'operazione potrebbe richiedere alcuni secondi.
 
-1. In studio di Azure Machine Learning, nel menu a sinistra selezionare **Endpoint**.
-    ![Screenshot della posizione di Endpoint nel menu a sinistra.](media/use-automated-machine-learning/find-endpoints.png)
+1. In studio di Azure Machine Learning, nel menu a sinistra selezionare **Endpoint** e aprire l'endpoint in tempo reale **predict-rentals**.
+1. Attendere che lo **stato della distribuzione** venga modificato in **Integro** : questo potrebbe richiedere alcuni minuti.
 
 ## Testare il servizio distribuito
 
 A questo punto è possibile testare il servizio distribuito.
 
-1. Nella pagina **Endpoint** aprire l'endpoint in tempo reale **predict-rentals**.
+1. Nella pagina dell'endpoint in tempo reale **predict-rentals** viene visualizzata la scheda **Test** .
 
-1. Quando viene aperto l'endpoint **predict-rentals**, visualizzare la scheda **Test**.
-
-1. Nel riquadro **Dati di input per testare l'endpoint in tempo reale** sostituire il codice JSON del modello con i dati di input seguenti:
+1. Nel riquadro **Dati di input per testare l'endpoint** sostituire il modello JSON con i dati di input seguenti:
 
     ```JSON
     {
