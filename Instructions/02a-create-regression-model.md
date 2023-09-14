@@ -155,15 +155,15 @@ Per applicare le trasformazioni dei dati è necessario eseguire la pipeline.
 
 1. Selezionare **Avanti** per esaminare il processo della pipeline e quindi selezionare **Invia** per eseguire la pipeline di training.
 
-1. Attendere qualche minuto per il completamento dell'esecuzione. È possibile controllare lo stato del processo selezionando **Processi** in **Asset**. Da qui selezionare il processo **di Training automatico** prezzi.
+1. Attendere qualche minuto per il completamento dell'esecuzione. È possibile controllare lo stato del processo selezionando **Processi** in **Asset**. Da qui selezionare il processo **di Training automatico** prezzi. Da qui è possibile visualizzare quando il processo è stato completato. Al termine del processo, il set di dati è ora preparato per il training del modello.
 
-Il set di dati è ora pronto per il training del modello. Chiudere la scheda Dettagli processo per tornare alla pipeline.
+1. Passare al menu a sinistra. In **Creazione selezionare** **Designer**. Selezionare quindi la pipeline di *Training automatico prezzo* dall'elenco di **Pipeline**.
 
 ## Creare la pipeline di training
 
 Dopo aver preparato i dati tramite le trasformazioni di dati, è possibile usarli per eseguire il training di un modello di Machine Learning. Eseguire i passaggi seguenti per estendere la pipeline **Auto Price Training**.
 
-1. Tornare alla pipeline **Auto Price Training** creata nell'unità precedente, se non è già aperta.
+1. Assicurarsi che il menu a sinistra abbia **Designer** selezionato e che sia stato restituito alla pipeline **di Training** automatico prezzi.
 
 1. Nel riquadro **Libreria** a sinistra cercare un modulo **Split Data** e posizionarlo sul canvas, sotto il modulo **Normalize Data**. Collegare quindi l'output (a sinistra) del *set di dati trasformato* del modulo **Normalize Data** all'input del modulo **Split Data**.
 
@@ -226,8 +226,6 @@ Un modo per valutare un modello di regressione consiste nel confrontare le etich
 
 1. L'esecuzione dell'esperimento richiederà alcuni minuti per completare. Tornare alla pagina **Processi** e selezionare l'ultima esecuzione del processo **di training** automatico.
 
-1. Al termine dell'esecuzione dell'esperimento, fare clic con il pulsante destro del mouse sul modulo **Valuta modello** e selezionare **Anteprima dati** e quindi **Risultati valutazione**.
-
 1. Al termine dell'esecuzione dell'esperimento, selezionare **Dettagli processo**, che aprirà un'altra scheda. Trovare il modulo **Evaluate Model** e fare clic con il pulsante destro del mouse su di esso. Selezionare **Anteprima dei dati** e quindi **Risultati valutazione**.
 
     ![Screenshot della posizione del modulo di valutazione del modello.](media/create-regression-model/evaluate-model-help-1.png)
@@ -288,6 +286,7 @@ Dopo aver identificato un modello con le metriche di valutazione che soddisfano 
                         inplace=True)
      return scored_results
     ```
+>**Nota**: la copia e il incollamento possono introdurre spazi nello script Python che non devono essere presenti. Verificare che non sia presente uno spazio prima *dell'importazione* o *della def* o *restituzione*. Assicurarsi che sia presente un rientro di scheda prima *di scored_results* e *scored_results.rename()*.
 
 1. Connettere l'output dal modulo **Score Model** all'input **Dataset1** (left-most) dello **script Esegui Python**.
 
