@@ -5,18 +5,24 @@ lab:
 
 # Esplorare la funzionalità di Machine Learning automatizzato in Azure ML
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+In questo esercizio si userà la funzionalità di Machine Learning automatizzata in Azure Machine Learning per eseguire il training e valutare un modello di Machine Learning. Verrà quindi distribuito e testato il modello sottoposto a training.
 
-In questo esercizio si userà un set di dati contenente i dettagli cronologici del noleggio di biciclette per eseguire il training di un modello che stima il numero di noleggi di biciclette che dovrebbe essere previsto per un determinato giorno, in base alle caratteristiche stagionali e meteorologiche.
+Questo esercizio deve richiedere circa **30** minuti per completare.
 
-## Creare un'area di lavoro di Machine Learning di Azure  
+> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free) in cui si ha accesso amministrativo.
 
-1. Accedere al [portale di Azure](https://portal.azure.com?azure-portal=true) usando le proprie credenziali Microsoft.
+## Creare un'area di lavoro di Machine Learning di Azure
 
-1. Selezionare **+ Crea una risorsa**, cercare *Machine Learning* e creare una nuova risorsa **Azure Machine Learning** con un piano di *Azure Machine Learning*. Usare le seguenti impostazioni:
+Per usare Azure Machine Learning, è necessario effettuare il provisioning di un'area di lavoro di Azure Machine Learning nella sottoscrizione di Azure. Sarà quindi possibile usare studio di Azure Machine Learning per usare le risorse nell'area di lavoro.
+
+> **Suggerimento**: se si dispone già di un'area di lavoro di Azure Machine Learning, è possibile usarla e passare all'attività successiva.
+
+1. Accedere al [portale di Azure](https://portal.azure.com) `https://portal.azure.com` usando le credenziali Microsoft.
+
+1. Selezionare **+ Creare una risorsa**, cercare *Machine Learning* e creare una nuova risorsa di **Azure Machine Learning** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *creare o selezionare un gruppo di risorse*.
-    - **Nome area di lavoro**: *immettere un nome univoco per l'area di lavoro*.
+    - **Nome**: *immettere un nome univoco per l'area di lavoro*.
     - **Area**: *selezionare l'area geografica più vicina*.
     - **Account di archiviazione**: *prendere nota del nuovo account di archiviazione predefinito che verrà creato per l'area di lavoro*.
     - **Insieme di credenziali delle chiavi**: *prendere nota del nuovo insieme di credenziali delle chiavi predefinito che verrà creato per l'area di lavoro*.
@@ -25,140 +31,136 @@ In questo esercizio si userà un set di dati contenente i dettagli cronologici d
 
 1. Selezionare **Rivedi e crea** e quindi **Crea**. Attendere che l'area di lavoro venga creata (l'operazione può richiedere alcuni minuti) e quindi passare alla risorsa distribuita.
 
-1. Selezionare **Avvia studio** (in alternativa, aprire una nuova scheda nel browser e passare a [https://ml.azure.com](https://ml.azure.com?azure-portal=true)) e accedere allo studio di Azure Machine Learning usando il proprio account Microsoft.
+1. Selezionare **Avvia studio** (in alternativa, aprire una nuova scheda nel browser e passare a [https://ml.azure.com](https://ml.azure.com?azure-portal=true)) e accedere allo studio di Azure Machine Learning usando il proprio account Microsoft. Chiudere tutti i messaggi visualizzati.
 
-1. Chiudere tutti i messaggi visualizzati.
+1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare **Tutte le aree di lavoro** nel menu a sinistra e selezionare l'area di lavoro appena creata.
 
-1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare la directory di Azure nel menu a sinistra. Quindi, dal nuovo menu a sinistra selezionare **Aree di** lavoro, in cui sono elencate tutte le aree di lavoro associate alla directory e selezionare quella creata per questo esercizio.
+## Abilitare le funzionalità di anteprima
 
-> **Nota** Questo modulo è uno dei molti che usano un'area di lavoro di Azure Machine Learning, inclusi gli altri moduli nel percorso di apprendimento [Elementi fondamentali di Microsoft Azure per intelligenza artificiale: Esplorare gli strumenti visivi per Machine Learning](https://docs.microsoft.com/learn/paths/create-no-code-predictive-models-azure-machine-learning/). Se si usa la propria sottoscrizione di Azure, è consigliabile creare l'area di lavoro una sola volta e riutilizzarla negli altri moduli. Alla sottoscrizione di Azure verrà addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. È quindi consigliabile eliminare l'area di lavoro di Azure Machine Learning quando non è più necessaria.
+Alcune funzionalità di Azure Machine Learning sono in anteprima e devono essere abilitate in modo esplicito nell'area di lavoro.
 
-## Creazione di un'origine dati
+1. In Azure Machine Learning Studio fare clic su **Gestisci funzionalità di anteprima** (icona a voce alta - &#128363;).
 
-1. Visualizzare i dati delimitati da virgole in [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true) nel Web browser.
+    ![Screenshot del pulsante Gestisci funzionalità di anteprima nel menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
 
-1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) espandere il riquadro sinistro selezionando l'icona del menu in alto a sinistra della schermata. Visualizzare la pagina **Dati** (in **Asset**). La pagina Dati contiene tabelle o file di dati specifici che si prevede di usare in Azure ML. Da questa pagina è anche possibile creare set di dati.
+1. Abilitare la funzionalità di anteprima seguente:
 
-1. Nella pagina **Dati** , nella scheda **Asset di dati** selezionare **+ Crea**. Configurare quindi un asset dati con le impostazioni seguenti:
-    * **Tipo di dati**:
-        * **Nome**: noleggi di biciclette
-        * **Descrizione**: dati noleggio biciclette
-        * **Dataset type** (Tipo di set di dati): tabulare
-    * **Origine dati**: da file Web
-    * **Web URL** (URL Web): 
-        * **URL Web**: [https://aka.ms/bike-rentals](https://aka.ms/bike-rentals?azure-portal=true)
-        * **Ignora convalida dei dati**: *non selezionare*
-    * **Impostazioni**:
-        * **Formato di file**: delimitato
-        * **Delimitatore**: virgola
-        * **Codifica**: UTF-8
-        * **Intestazioni colonna**: solo il primo file ha intestazioni
-        * **Ignora righe**: Nessuno
-        * **Il set di dati contiene dati su più righe**: *non selezionare*
-    * **Schema**:
-        * Includi tutte le colonne diverse da **Path**
-        * Rivedi i tipi rilevati automaticamente
-    * **Verifica**
-        * Selezionare **Crea**
+    - *Esperienza guidata per l'invio di processi di training con calcolo serverless*
 
-1. Dopo aver creato il set di dati, aprirlo e visualizzare la pagina **Esplora** per visualizzare un esempio dei dati. Questi dati contengono funzionalità ed etichette cronologiche dei noleggi di biciclette.
+## Usare Machine Learning automatizzato per eseguire il training di un modello
 
-> **Citazione**: *Questi dati sono derivati da [Capital bikeshare](https://www.capitalbikeshare.com/system-data) e vengono usati in conformità con il [contratto di licenza](https://www.capitalbikeshare.com/data-license-agreement) dei dati pubblicati*.
+Machine Learning automatizzato consente di provare più algoritmi e parametri per eseguire il training di più modelli e identificare quello migliore per i dati. In questo esercizio si userà un set di dati dei dettagli del noleggio di biciclette cronologici per eseguire il training di un modello che stima il numero di noleggio biciclette che dovrebbe essere previsto in un determinato giorno, in base alle caratteristiche stagionali e meteorologiche.
 
-## Abilitare l'ambiente di calcolo serverless
+> **Citazione**: *i dati usati in questo esercizio sono derivati da [Capital Bikeshare](https://www.capitalbikeshare.com/system-data) e vengono usati in conformità al [contratto di licenza](https://www.capitalbikeshare.com/data-license-agreement) dei dati pubblicati*.
 
-1. In Azure Machine Learning Studio fare clic su **Gestisci funzionalità di anteprima** (icona dell'altoparlante forte).
 
-![Screenshot del pulsante Gestisci funzionalità di anteprima nel menu.](../instructions/media/use-automated-machine-learning/severless-compute-1.png)
+1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) visualizzare la pagina **Machine Learning automatizzata** (in **Creazione**).
 
-1. Abilitare la funzionalità "Esperienza guidata per l'invio di processi di training con calcolo serverless".
+1. Creare un nuovo processo di Machine Learning automatizzato con le impostazioni seguenti, usando **Avanti** in base alle esigenze per eseguire l'avanzamento tramite l'interfaccia utente:
 
-![Screenshot della funzionalità di calcolo senza server.](../instructions/media/use-automated-machine-learning/enable-serverless-compute.png)
+    **Impostazioni di base**:
 
-## Eseguire un processo di Machine Learning automatizzato
+    - **Nome processo**: mslearn-bike-automl
+    - **Nome nuovo esperimento**: mslearn-bike-rental
+    - **Descrizione**: Machine Learning automatizzato per la stima del noleggio di biciclette
+    - **Tag**: *nessuno*
 
-Attenersi alla procedura seguente per eseguire un processo che usa Machine Learning automatizzato per eseguire il training di un modello di regressione che consente di prevedere i noleggi di biciclette.
+   **Tipo di attività & dati**:
 
-1. In [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) visualizzare la pagina Machine Learning **automatizzato** (in **Creazione**).
+    - **Selezionare il tipo di attività: Regressione**
+    - **Selezionare il set di dati**: Creare un nuovo set di dati con le impostazioni seguenti:
+        - **Tipo di dati**:
+            - **Nome**: noleggi di biciclette
+            - **Descrizione**: Dati di noleggio biciclette storici
+            - **Tipo**: tabulare
+        - **Origine dati**:
+            - Selezionare **da file Web**
+        - **Web URL** (URL Web): 
+            - **Web URL** (URL Web): `https://aka.ms/bike-rentals`
+            - **Ignora convalida dei dati**: *non selezionare*
+        - **Impostazioni**:
+            - **Formato di file**: delimitato
+            - **Delimitatore**: virgola
+            - **Codifica**: UTF-8
+            - **Intestazioni colonna**: solo il primo file ha intestazioni
+            - **Ignora righe**: Nessuno
+            - **Il set di dati contiene dati su più righe**: *non selezionare*
+        - **Schema**:
+            - Includi tutte le colonne diverse da **Path**
+            - Rivedi i tipi rilevati automaticamente
 
-1. Creare un processo di ML automatizzato con le impostazioni seguenti:
-    - **Selezionare l'asset di dati**:
-        - **Set di dati**: noleggi di biciclette
-    - **Configurare processo**:
-        - **Nome nuovo esperimento**: mslearn-bike-rental
-        - **Colonna di destinazione**: noleggi (*questa è l'etichetta per la cui previsione viene eseguito il training del modello)*
-        - **Selezionare cluster di elaborazione di Azure ML**: *il cluster di elaborazione creato in precedenza*.
-    - **Selezionare attività e impostazioni**: 
-        - **Tipo di attività**: Regressione *(il modello prevede un valore numerico)* 
+        Selezionare il set di dati **bike-rentals** dopo averla creata.
 
-    ![Screenshot di un riquadro di selezione con caselle intorno al tipo di attività Regressione e impostazioni di configurazione aggiuntive.](media/use-automated-machine-learning/new-automated-ml-run-4.png)
+    **Impostazioni attività**:
 
-    Si noti che in Tipo di attività sono presenti le impostazioni *Visualizza impostazioni di configurazione aggiuntive* e *Visualizza impostazioni di definizione delle funzionalità*. Configurare ora queste impostazioni.
-
-    - **Impostazioni aggiuntive per la configurazione**:
-        - **Metrica primaria**: selezionare **Radice normalizzata dell'errore quadratico medio**
-        - **Modello esplicativo migliore**: selezionato. *Questa opzione fa in modo che il Machine Learning automatizzato calcoli l'importanza della funzionalità per il modello migliore, rendendo possibile determinare l'influenza di ogni funzionalità nell'etichetta stimata.*
+    - **Tipo di attività**: Regressione
+    - **Set di dati**: noleggi di biciclette
+    - **Colonna di destinazione**: Noleggi (integer)
+    - **Impostazioni di configurazione aggiuntive**:
+        - **Metrica primaria**: Errore quadratico medio normalizzato
+        - **Spiegare il modello migliore**: *Non selezionato*
         - **Usare tutti i modelli supportati**: <u>deselezionato</u>. *Durante il processo si proveranno solo alcuni algoritmi specifici.*
         - **Modelli consentiti**: *selezionare solo **RandomForest** e **LightGBM**. Normalmente si vorrà provare il maggior numero possibile di modelli, ma ogni modello aggiunto aumenta il tempo necessario per eseguire il processo.*
+    - **Limiti**: *Espandere questa sezione*
+        - **Numero massimo di prove**: 3
+        - **Numero massimo di prove simultanee**: 3
+        - **Numero massimo di nodi**: 3
+        - **Soglia di punteggio metrica**: *0,85 (in modo che se un modello ottiene un punteggio di metrica di errore quadratico quadratico normalizzato pari a 0,085 o minore, il processo termina.*
+        - **Timeout**: 15
+        - **Timeout iterazione**: 5
+        - **Abilitare la terminazione anticipata**: *selezionata*
+    - **Convalida e test**:
+        - **Tipo di convalida**: suddivisione tra training e convalida
+        - **Percentuale di dati di convalida**: 10
+        - **Set di dati di test**: Nessuno
 
-        ![Screenshot delle configurazioni aggiuntive con una casella intorno ai modelli consentiti.](media/use-automated-machine-learning/allowed-models.png)
-Si noti che in *Visualizza impostazioni di configurazione aggiuntive* è presente una sezione *Limiti* . Espandere la sezione per configurare le impostazioni:
-        - **Timeout (minuti):** 30: *termina il processo dopo un massimo di 30 minuti.*
-        - **Soglia di punteggio metrica**: 0,085. *Se un modello raggiunge un punteggio della metrica Radice normalizzata dell'errore quadratico medio di 0,085 o inferiore, il processo termina.*
-        - Scegliere **Avanti**
-        - **Calcolo**: nessuna modifica necessaria qui
-        - Scegliere **Avanti**
-1. Al termine dell'invio dei dettagli del processo di Machine Learning automatizzato, l'avvio viene eseguito automaticamente.
+    **Compute**:
+
+    - **Selezionare il tipo di calcolo**: Serverless
+    - **Tipo di macchina virtuale**: CPU
+    - **Livello macchina virtuale**: priorità bassa
+    - **Dimensioni della macchina virtuale**: Standard_DS3_V2
+    - **Numero di istanze**: 1
+
+1. Inviare il processo di training. Viene avviato automaticamente.
 
 1. Attendere il completamento del processo. L'operazione potrebbe richiedere un po' di tempo.
 
 ## Esaminare il modello migliore
 
+Al termine del processo di Machine Learning automatizzato, è possibile esaminare il modello migliore sottoposto a training.
+
 1. Nella scheda **Panoramica** del processo di Machine Learning automatizzato prendere nota del riepilogo del modello migliore.
     ![Screenshot del riepilogo del modello migliore del processo di Machine Learning automatizzato con una casella attorno al nome dell'algoritmo.](media/use-automated-machine-learning/complete-run.png)
 
-    > **Nota** È possibile che venga visualizzato un messaggio con lo stato "Avviso: è stato raggiunto il punteggio di uscita specificato dall'utente...". Si tratta di un messaggio previsto. Continuare con il passaggio successivo.  
+    > **Nota** È possibile che venga visualizzato un messaggio nello stato "Avviso: punteggio di uscita specificato dall'utente raggiunto...". Si tratta di un messaggio previsto. Continuare con il passaggio successivo.
+  
 1. Selezionare il testo in **Nome dell'algoritmo** per il modello migliore per visualizzarne i dettagli.
 
-1. Accanto al valore *Radice normalizzata dell'errore quadratico medio* selezionare **Visualizza tutte le altre metriche** per visualizzare i valori di altre metriche di valutazione possibili per un modello di regressione.
-
-    ![Screenshot che illustra come individuare tutte le altre metriche nella scheda Modello.](media/use-automated-machine-learning/review-run-1.png)
-
 1. Selezionare la scheda **Metriche** e selezionare i grafici **residui** e **predicted_true**, se non sono già selezionati. 
-    ![Screenshot della scheda Metriche con i grafici residuals e predicted_true selezionati.](media/use-automated-machine-learning/review-run-3.png)
 
-    Esaminare i grafici che mostrano le prestazioni del modello. Il primo grafico mostra i *residui*, ovvero le differenze tra valori previsti ed effettivi, come istogramma. Il secondo grafico confronta i valori previsti con i valori reali.
+    Esaminare i grafici che mostrano le prestazioni del modello. Il grafico dei residui mostra i **residui** (le differenze tra i valori *stimati* e effettivi) come istogramma. Il grafico **predicted_true** confronta i valori stimati rispetto ai valori true. 
 
-1. Selezionare la scheda **Spiegazioni**. Selezionare un ID spiegazione e quindi visualizzare la pagina **Importanza delle caratteristiche aggregate**. Questo grafico mostra il livello di influenza di ogni caratteristica del set di dati sulla stima dell'etichetta, come illustrato di seguito:
+## Distribuire e testare il modello
 
-    ![Screenshot del grafico dell'importanza della caratteristica nella scheda Spiegazioni.](media/use-automated-machine-learning/feature-importance.png)
-
-## Distribuire un servizio predittivo
-
-1. Nello [studio di Azure Machine Learning](https://ml.azure.com?azure-portal=true) nella pagina **ML automatizzato** selezionare il processo di Machine Learning automatizzato.
-
-1. Nella scheda **Panoramica** selezionare il nome dell'algoritmo per il modello migliore.
-
-    ![Screenshot del riepilogo del modello migliore con una casella attorno al nome dell'algoritmo nella scheda Dettagli.](media/use-automated-machine-learning/deploy-detail-tab.png)
-
-1. Nella scheda **Modelli** selezionare il pulsante **Distribuisci** e usare l'opzione **Servizio Web** per distribuire il modello con le impostazioni seguenti:
+1. Nella scheda **Modello** per il modello migliore sottoposto a training dal processo di Machine Learning automatizzato selezionare **Distribuisci** e usa l'opzione **Servizio Web** per distribuire il modello con le impostazioni seguenti:
     - **Nome**: previsione-noleggi
     - **Descrizione**: prevedere i noleggi di biciclette
     - **Tipo di ambiente di calcolo**: Istanza di Azure Container
-    - **Abilita autenticazione**: Opzione selezionata
+    - **Abilitare l'autenticazione**: *selezionata*
 
-1. Attendere l'avvio della distribuzione. L'operazione potrebbe richiedere alcuni secondi.
-
-1. In studio di Azure Machine Learning, nel menu a sinistra selezionare **Endpoint** e aprire l'endpoint in tempo reale **predict-rentals**.
-1. Attendere che **lo stato della distribuzione** cambi in **Integro** . L'operazione potrebbe richiedere alcuni minuti.
+1. Attendere l'avvio della distribuzione. L'operazione potrebbe richiedere alcuni secondi. Lo **stato Di distribuzione** per l'endpoint **predict-rentals** verrà indicato nella parte principale della pagina come *In esecuzione*.
+1. Attendere che lo **stato Distribui** venga modificato *in Successed*. Questo può richiedere 5-10 minuti.
 
 ## Testare il servizio distribuito
 
 A questo punto è possibile testare il servizio distribuito.
 
+1. In studio di Azure Machine Learning, nel menu a sinistra selezionare **Endpoint** e aprire l'endpoint in tempo reale **predict-rentals**.
+
 1. Nella pagina dell'endpoint **predict-rentals** in tempo reale visualizzare la scheda **Test** .
 
-1. Nel riquadro **Input data to test endpoint (Dati di input per testare l'endpoint** ) sostituire il modello JSON con i dati di input seguenti:
+1. Nel riquadro **Dati di input per testare l'endpoint** sostituire il modello JSON con i dati di input seguenti:
 
     ```JSON
     {
@@ -186,13 +188,20 @@ A questo punto è possibile testare il servizio distribuito.
 
 1. Fare clic sul pulsante **Test**.
 
-1. Esaminare i risultati dei test, che includono un numero stimato dei noleggi in base alle caratteristiche di input. Il riquadro di test ha considerato i dati di input e ha usato il modello sottoposto a training per restituire il numero stimato di noleggi.
+1. Esaminare i risultati del test, che includono un numero stimato di noleggi in base alle funzionalità di input, simile al seguente:
 
-    ![Screenshot di un esempio di test del modello con i dati di esempio nella scheda Test.](media/use-automated-machine-learning/workaround-test.png)
+    ```JSON
+    {
+      "Results": [
+        444.27799000000000
+      ]
+    }
+    ```
 
-Di seguito vengono descritte le operazioni eseguite. È stato usato un set di dati cronologici relativi al noleggio di biciclette per eseguire il training di un modello. Il modello stima il numero di noleggi di biciclette previsti in un determinato giorno, in base a *caratteristiche* stagionali e meteorologiche. In questo caso, le *etichette* sono il numero di noleggi di biciclette.
+    Il riquadro di test ha considerato i dati di input e ha usato il modello sottoposto a training per restituire il numero stimato di noleggi.
 
-È stato appena testato un servizio pronto per essere connesso a un'applicazione client usando le credenziali nella scheda **Utilizza**. Il lab termina qui. È possibile continuare a fare pratica con il servizio appena distribuito.
+
+Di seguito vengono descritte le operazioni eseguite. È stato usato un set di dati cronologici relativi al noleggio di biciclette per eseguire il training di un modello. Il modello stima il numero di noleggi di biciclette previsti in un determinato giorno, in base a *caratteristiche* stagionali e meteorologiche.
 
 ## Eliminazione
 
@@ -200,8 +209,9 @@ Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se n
 
 1. In [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true) nella scheda **Endpoint** selezionare l'endpoint **previsione-noleggi**. Selezionare quindi **Elimina** e confermare l'eliminazione dell'endpoint.
 
-> **Nota** L'eliminazione del calcolo garantisce che la sottoscrizione non venga addebitata per le risorse di calcolo. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate. Tuttavia, se si prevede di completare qualsiasi altro lab in questa serie, sarà necessario ricrearla.
->
-> Per eliminare l'area di lavoro:
-> 1. Nel [portale di Azure](https://portal.azure.com?azure-portal=true), nella pagina **Gruppi di risorse**, aprire il gruppo di risorse specificato durante la creazione dell'area di lavoro di Azure Machine Learning.
-> 2. Fare clic su **Elimina gruppo di risorse**, digitare il nome del gruppo di risorse per confermare che si vuole eliminarlo e quindi selezionare **Elimina**.
+    L'eliminazione del calcolo garantisce che la sottoscrizione non venga addebitata per le risorse di calcolo. Verrà tuttavia addebitato un importo ridotto per l'archiviazione dei dati, fintanto che l'area di lavoro di Azure Machine Learning è presente nella sottoscrizione. Se è stata completata l'esplorazione di Azure Machine Learning, è possibile eliminare l'area di lavoro di Azure Machine Learning e le risorse associate.
+
+Per eliminare l'area di lavoro:
+
+1. Nel [portale di Azure](https://portal.azure.com?azure-portal=true), nella pagina **Gruppi di risorse**, aprire il gruppo di risorse specificato durante la creazione dell'area di lavoro di Azure Machine Learning.
+2. Fare clic su **Elimina gruppo di risorse**, digitare il nome del gruppo di risorse per confermare che si vuole eliminarlo e quindi selezionare **Elimina**.
