@@ -13,15 +13,15 @@ Si supponga, ad esempio, che l'azienda di vendita al dettaglio fittizia *Northwi
 
 In questo lab si userà una semplice applicazione da riga di comando per vedere il servizio Visione artificiale in azione. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
 
-È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **dei servizi di intelligenza artificiale di Azure**.
 
-Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa dei **servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul ** pulsante crea una risorsa&#65291;** e cercare *Servizi cognitivi*. Selezionare **Crea** un piano **di Servizi cognitivi** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -31,7 +31,7 @@ Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sotto
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
 ## Eseguire Cloud Shell
 
