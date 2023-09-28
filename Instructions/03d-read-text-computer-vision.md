@@ -3,7 +3,7 @@ lab:
   title: Esplorare il riconoscimento ottico dei caratteri
 ---
 
-# <a name="explore-optical-character-recognition"></a>Esplorare il riconoscimento ottico dei caratteri
+# Esplorare il riconoscimento ottico dei caratteri
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
@@ -11,21 +11,21 @@ Il rilevamento e l'interpretazione del testo in un'immagine rappresentano una sf
 
 Per testare le funzionalità dell'API Lettura, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## <a name="use-the-computer-vision-service-to-read-text-in-an-image"></a>Usare il servizio Visione artificiale per leggere il testo in un'immagine
+## Usare il servizio Visione intelligenza artificiale di Azure per leggere il testo in un'immagine
 
-Il servizio cognitivo **Visione artificiale** offre supporto per le attività OCR, tra cui:
+Il servizio **Visione di intelligenza** artificiale di Azure offre supporto per le attività OCR, tra cui:
 
 - Un'API di **lettura** ottimizzata per documenti di dimensioni maggiori. Questa API viene usata in modo asincrono e può essere usata sia per il testo stampato che per quello scritto a mano.
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa *Servizi cognitivi*
+## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
 
-È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Visione di intelligenza artificiale di Azure creando una risorsa **Visione artificiale** o una risorsa **dei servizi di intelligenza artificiale di Azure**.
 
-Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **dei servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul ** pulsante&#65291;Creare una risorsa** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarla con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -35,9 +35,9 @@ Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sotto
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Visione personalizzata, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
@@ -59,7 +59,7 @@ Per testare le funzionalità del servizio Visione personalizzata, verrà usata u
 
     ![Attendere l'avvio di PowerShell.](media/read-text-computer-vision/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
+## Configurare ed eseguire un'applicazione client
 
 Ora che si dispone di un modello personalizzato, è possibile eseguire una semplice applicazione client che usa il servizio OCR.
 
@@ -85,7 +85,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente il codice per analizzare il testo nelle immagini.](media/read-text-computer-vision/ocr-code.png)
 
-1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi cognitivi. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo dei dettagli del codice, è importante che sia necessario l'URL dell'endpoint e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
@@ -96,7 +96,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     $endpoint="https..."
     ```
 
-1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**. Dopo aver configurato la chiave e l'endpoint, è possibile usare la risorsa Servizi cognitivi per estrarre testo da un'immagine.
+1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**. Dopo aver configurato la chiave e l'endpoint, è possibile usare la risorsa dei servizi di intelligenza artificiale di Azure per estrarre il testo da un'immagine.
 
     Si userà ora l'API **Lettura**. In questo caso, si dispone di un'immagine pubblicitaria della società fittizia di vendita al dettaglio Northwind Traders, che include un testo.
 
@@ -129,6 +129,6 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
 1. Esaminare i risultati dell'analisi per la seconda immagine. Dovrebbe restituire anche il testo e i rettangoli delimitatori del testo.
 
-## <a name="learn-more"></a>Altre informazioni
+## Altre informazioni
 
 Questa semplice app mostra solo alcune delle funzionalità OCR del servizio Visione artificiale. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina di OCR](https://docs.microsoft.com/azure/cognitive-services/computer-vision/overview-ocr).

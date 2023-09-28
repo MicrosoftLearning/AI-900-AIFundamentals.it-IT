@@ -13,7 +13,7 @@ Per testare le funzionalità del servizio Viso, verrà usata una semplice applic
 
 ## Creare una risorsa *DELL'API Viso*
 
-È possibile usare il servizio Viso creando una risorsa **Viso** . (L'API Viso non è più disponibile in Servizi cognitivi)
+È possibile usare il servizio Viso creando una risorsa **Viso** .
 
 Se non è già stato fatto, creare una risorsa **dell'API Viso** nella sottoscrizione di Azure.
 

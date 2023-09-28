@@ -23,9 +23,9 @@ In questo lab si eseguiranno le operazioni seguenti:
 La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nella sottoscrizione di Azure:
 
 - Una risorsa di **Ricerca cognitiva di Azure**, che gestirà l'indicizzazione e l'esecuzione di query.
-- Una risorsa di **Servizi cognitivi**, che fornisce servizi di intelligenza artificiale per le competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
+- Una risorsa dei servizi di intelligenza artificiale di **Azure** , che fornisce servizi di intelligenza artificiale per le competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-    > **Nota** Le risorse Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa posizione.
+    > **Nota** Le risorse Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure devono trovarsi nella stessa posizione.
 
 - Un **account di archiviazione** con contenitori BLOB, in cui verranno archiviati documenti non elaborati e altre raccolte di tabelle, oggetti o file.
 
@@ -45,11 +45,11 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 1. Al completamento della distribuzione, selezionare **Vai alla risorsa**. Nella pagina di panoramica di Ricerca cognitiva di Azure è possibile aggiungere indici, importare dati e cercare gli indici creati.
 
-### Creare una risorsa per Servizi cognitivi
+### Creare una risorsa dei servizi di intelligenza artificiale di Azure
 
-Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitivi** nella stessa posizione della risorsa di Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
+È necessario effettuare il provisioning di una risorsa dei **servizi di intelligenza artificiale di Azure** che si trova nella stessa posizione della risorsa Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-1. Tornare alla home page del portale di Azure e selezionare il pulsante **+ Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti: 
+1. Tornare alla home page del portale di Azure. Fare clic sul pulsante ** crea una risorsa&#65291;** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *lo stesso gruppo di risorse della risorsa di Ricerca cognitiva di Azure*.
     - **Area**: *la stessa posizione della risorsa di Ricerca cognitiva di Azure*.
@@ -67,7 +67,7 @@ Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitiv
 
 1. Cercare *account di archiviazione* e creare una risorsa di **Account di archiviazione** con le impostazioni seguenti: 
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
-    - **Gruppo di risorse**: *lo stesso gruppo di risorse delle risorse di Ricerca cognitiva di Azure e Servizi cognitivi*.
+    - **Gruppo di risorse**: *lo stesso gruppo di risorse delle risorse Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure*.
     - **Nome account di archiviazione**: *un nome univoco*.
     - **Posizione**: *scegliere una delle posizioni disponibili*.
     - **Prestazioni**: standard
@@ -75,9 +75,12 @@ Sarà necessario effettuare il provisioning di una risorsa di **Servizi cognitiv
 
 1. Fare clic su **Rivedi** e quindi su **Crea**. Attendere il completamento della distribuzione e quindi passare alla risorsa distribuita.
 
+1. Nel riquadro del menu a sinistra dell'account di archiviazione di Azure creato selezionare **Configurazione** (in **Impostazioni**).
+1. Modificare l'impostazione *Consenti l'accesso anonimo al BLOB* su **Abilitato** e quindi selezionare **Salva**.
+
 ## Caricare documenti in Archiviazione di Azure
 
-1. Nell'account di archiviazione di Azure creato, nel riquadro del menu a sinistra selezionare **Contenitori**.
+1. Nel riquadro del menu a sinistra selezionare **Contenitori**.
 
     ![Screenshot che mostra la pagina di panoramica del BLOB di archiviazione.](media/create-cognitive-search-solution/storage-blob-1.png)
 
@@ -123,7 +126,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
 
 1. Selezionare **Avanti: Aggiungi competenze cognitive (facoltativo)**.
 
-1. Nella sezione **Collega Servizi cognitivi** selezionare la risorsa di Servizi cognitivi.  
+1. Nella sezione **Collegare Servizi cognitivi** selezionare la risorsa dei servizi di intelligenza artificiale di Azure.  
 
 1. Nella sezione **Aggiungi arricchimenti**:
     - Modificare il **Nome del set di competenze** in **coffee-skillset**.
@@ -154,14 +157,12 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
     > **Nota** Viene visualizzato un avviso che richiede una **stringa di connessione dell'account di archiviazione**.
     >
     > ![Screenshot che mostra un avviso nella schermata di connessione dell'account di archiviazione con l'opzione "Scegli una connessione esistente" selezionata.](media/create-cognitive-search-solution/6a-azure-cognitive-search-enrichments-warning.png)
-
+    >
     > 1. Selezionare **Scegliere una connessione esistente**. Scegliere l'account di archiviazione creato in precedenza.
-
-    > 1. Fare clic su **+ Contenitore** per creare un nuovo contenitore denominato **knowledge-store** con il livello di privacy impostato su Privato e quindi selezionare **Crea**.
-
+    > 1. Fare clic su **+ Contenitore** per creare un nuovo contenitore denominato **knowledge store** con il livello di privacy impostato su **Privato** e selezionare **Crea**.
     > 1. Selezionare il contenitore **knowledge-store** e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 
-1. Selezionare **Progetti BLOB di Azure: documento**. Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
+1. Selezionare **proiezioni BLOB di Azure: documento**. Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
 
 1. Selezionare **Avanti: Personalizza indice di destinazione**. Modificare il **Nome indice** in **coffee-index**.
 

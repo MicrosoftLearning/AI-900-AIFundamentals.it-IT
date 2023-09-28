@@ -11,21 +11,21 @@ lab:
 
 Ad esempio, un'iniziativa di sicurezza stradale potrebbe identificare pedoni e ciclisti come gli utenti più vulnerabili alle intersezioni stradali. Utilizzando telecamere per monitorare le intersezioni, è possibile analizzare immagini di utenti stradali per rilevare pedoni e ciclisti per monitorare i numeri o anche modificare il comportamento dei segnali stradali.
 
-Il servizio cognitivo **Visione personalizzata** disponibile in Microsoft Azure offre una soluzione basata sul cloud per la creazione e la pubblicazione di modelli di rilevamento oggetti personalizzati. In Azure è possibile usare il servizio Visione personalizzata per eseguire il training di un modello di rilevamento oggetti basato su immagini esistenti. Esistono due elementi per creare una soluzione di rilevamento degli oggetti. Prima di tutto, è necessario eseguire il training di un modello per rilevare la posizione e la classe di oggetti usando immagini etichettate. Dopo aver eseguito il training del modello è necessario pubblicarlo come servizio che può essere usato dalle applicazioni.
+Il servizio **Visione personalizzata** in Microsoft Azure offre una soluzione basata sul cloud per la creazione e la pubblicazione di modelli di rilevamento oggetti personalizzati. In Azure è possibile usare il servizio Visione personalizzata per eseguire il training di un modello di rilevamento oggetti basato su immagini esistenti. Esistono due elementi per creare una soluzione di rilevamento degli oggetti. Prima di tutto, è necessario eseguire il training di un modello per rilevare la posizione e la classe di oggetti usando immagini etichettate. Dopo aver eseguito il training del modello è necessario pubblicarlo come servizio che può essere usato dalle applicazioni.
 
 Per testare le funzionalità del servizio Visione personalizzata per il rilevamento di oggetti nelle immagini, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità si applicano a soluzioni reali, ad esempio siti Web o app per dispositivi mobili.
 
-## Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
 
-È possibile usare il servizio Visione personalizzata creando una risorsa **Visione personalizzata** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Visione personalizzata creando una risorsa **Visione personalizzata** o una risorsa **dei servizi di intelligenza artificiale di Azure**.
 
-> **Nota** Non tutte le risorse sono disponibili in tutte le aree. Indipendentemente dal fatto che si crei una risorsa Visione personalizzata o Servizi cognitivi, è possibile usare solo le risorse create in [determinate aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) per accedere ai servizi di Visione personalizzata. Per semplicità, è stata preselezionata un'area nelle istruzioni di configurazione riportate di seguito.
+> **Nota** Non tutte le risorse sono disponibili in tutte le aree. Indipendentemente dal fatto che si crei una risorsa Visione personalizzata o servizi di intelligenza artificiale di Azure, è possibile usare solo le risorse create in [determinate aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) per accedere ai servizi di Visione personalizzata. Per semplicità, è stata preselezionata un'area nelle istruzioni di configurazione riportate di seguito.
 
-Creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Creare una risorsa dei **servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul pulsante ** crea una risorsa&#65291;** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: Stati Uniti orientali
@@ -35,7 +35,7 @@ Creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
 ## Creare un progetto di Visione personalizzata
 
@@ -203,6 +203,3 @@ Per testare le funzionalità del servizio Visione personalizzata, si userà una 
 
 Speriamo che il modello di rilevamento oggetti abbia svolto un buon lavoro per rilevare pedoni e ciclisti nelle immagini di test.
 
-## Altre informazioni
-
-Questo esercizio mostra solo alcune delle funzionalità del servizio Visione personalizzata. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Visione personalizzata](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
