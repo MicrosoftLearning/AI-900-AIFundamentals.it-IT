@@ -3,7 +3,7 @@ lab:
   title: Esplorare la funzionalità di riconoscimento dei moduli
 ---
 
-# <a name="explore-form-recognition"></a>Esplorare la funzionalità di riconoscimento dei moduli
+# Esplorare la funzionalità di riconoscimento dei moduli
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
@@ -15,15 +15,15 @@ Riconoscimento modulo usa modelli di Machine Learning sottoposti a training per 
 
 Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## <a name="create-a-cognitive-services-resource"></a>Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
 
-È possibile usare il servizio Riconoscimento modulo creando una risorsa **Riconoscimento modulo** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Riconoscimento modulo creando una risorsa **Riconoscimento modulo** o una risorsa **dei servizi di intelligenza artificiale di Azure**.
 
-Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **dei servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul ** pulsante&#65291;Creare una risorsa** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarla con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -33,9 +33,9 @@ Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sotto
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure. 
 
@@ -57,7 +57,7 @@ Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata un
 
     ![Attendere l'avvio di PowerShell.](media/analyze-receipts/powershell-prompt.png) 
 
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
+## Configurare ed eseguire un'applicazione client
 
 Ora che si dispone di un modello personalizzato, è possibile eseguire una semplice applicazione client che usa il servizio Riconoscimento modulo.
 
@@ -83,7 +83,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente il codice per analizzare i campi in una ricevuta.](media/analyze-receipts/recognize-receipt-code.png)
 
-1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi cognitivi. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo dei dettagli del codice, è importante che sia necessario l'URL dell'endpoint e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
@@ -109,6 +109,6 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
 1. Esaminare i risultati restituiti. Si noti che Riconoscimento modulo è in grado di interpretare i dati nel modulo, identificando correttamente l'indirizzo e il numero di telefono del commerciante, nonché la data e l'ora della transazione, oltre alle singole voci, il subtotale, le imposte e gli importi totali.
 
-## <a name="learn-more"></a>Altre informazioni
+## Altre informazioni
 
 Questa semplice app mostra solo alcune delle funzionalità di Riconoscimento modulo del servizio Visione artificiale. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Riconoscimento modulo](https://docs.microsoft.com/azure/applied-ai-services/form-recognizer/overview).

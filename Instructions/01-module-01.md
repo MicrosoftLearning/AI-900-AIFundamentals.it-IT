@@ -1,21 +1,21 @@
 ---
 lab:
-  title: Esplorare Servizi cognitivi
+  title: Esplorare i servizi di intelligenza artificiale di Azure
 ---
 
-# <a name="explore-cognitive-services"></a>Esplorare Servizi cognitivi
+# Esplorare i servizi di intelligenza artificiale di Azure
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-I Servizi cognitivi di Azure incapsulano le funzionalità comuni di intelligenza artificiale, che possono essere suddivise in quattro categorie principali: visione, parlato, lingua e servizi decisionali. In questo esercizio si esaminerà uno dei servizi decisionali per avere un'idea generale di come effettuare il provisioning di una risorsa di Servizi cognitivi e di come usarla in un'applicazione software.
+I servizi di intelligenza artificiale di Azure incapsulano le funzionalità di intelligenza artificiale comuni che possono essere classificate in quattro pilastri principali: visione, riconoscimento vocale, linguaggio e servizi decisionali. In questo esercizio si esaminerà uno dei servizi decisionali per avere un'idea generale di come effettuare il provisioning e usare una risorsa dei servizi di intelligenza artificiale di Azure in un'applicazione software.
 
-Il servizio cognitivo che si analizzerà in questo esercizio è per la precisione *Rilevamento anomalie*. Rilevamento anomalie viene usato per analizzare i valori dei dati nel corso del tempo e per rilevare eventuali valori insoliti che potrebbero indicare un problema o una situazione su cui condurre ulteriori indagini. Ad esempio, un sensore in un magazzino a temperatura controllata può monitorare la temperatura ogni minuto e registrare i valori misurati. È possibile usare il servizio Rilevamento anomalie per analizzare i valori di temperatura registrati e segnalare quelli che si discostano significativamente dall'intervallo normale di temperature previste.
+Il servizio di intelligenza artificiale di Azure specifico che verrà esaminato in questo esercizio è *Rilevamento anomalie*. Rilevamento anomalie viene usato per analizzare i valori dei dati nel corso del tempo e per rilevare eventuali valori insoliti che potrebbero indicare un problema o una situazione su cui condurre ulteriori indagini. Ad esempio, un sensore in un magazzino a temperatura controllata può monitorare la temperatura ogni minuto e registrare i valori misurati. È possibile usare il servizio Rilevamento anomalie per analizzare i valori di temperatura registrati e segnalare quelli che si discostano significativamente dall'intervallo normale di temperature previste.
 
 Per testare le funzionalità del servizio di rilevamento anomalie, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-> **Nota** L'obiettivo di questo esercizio è avere un'idea generale di come viene effettuato il provisioning dei servizi cognitivi e di come vengono usati. Rilevamento anomalie viene usato come esempio, ma non ci si aspetta che con questo esercizio l'utente acquisisca una conoscenza completa del rilevamento delle anomalie.
+> **Nota** L'obiettivo di questo esercizio è ottenere un'idea generale del provisioning e dell'uso dei servizi di intelligenza artificiale di Azure. Rilevamento anomalie viene usato come esempio, ma non ci si aspetta che con questo esercizio l'utente acquisisca una conoscenza completa del rilevamento delle anomalie.
 
-## <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa *Rilevamento anomalie*
+## Creare una risorsa *Rilevamento anomalie*
 
 Si inizierà creando una risorsa **Rilevamento anomalie** nella sottoscrizione di Azure:
 
@@ -32,7 +32,7 @@ Si inizierà creando una risorsa **Rilevamento anomalie** nella sottoscrizione d
 
 1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Rilevamento anomalie. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## <a name="run-cloud-shell"></a>Eseguire Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Rilevamento anomalie, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
@@ -54,7 +54,7 @@ Per testare le funzionalità del servizio Rilevamento anomalie, verrà usata una
 
     ![Attendere l'avvio di PowerShell.](media/anomaly-detector/powershell-prompt.png)
 
-## <a name="configure-and-run-a-client-application"></a>Configurare ed eseguire un'applicazione client
+## Configurare ed eseguire un'applicazione client
 
 Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplice applicazione che usa il servizio Rilevamento anomalie per analizzare i dati.
 
@@ -104,11 +104,7 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
 
 1. Esaminare i risultati, osservando che la colonna finale dei risultati è **True** o **False** per indicare se il valore registrato a ogni data/ora è considerato un'anomalia o meno. Considerare come si potrebbero usare queste informazioni in una situazione reale. Quale azione potrebbe essere attivata dall'applicazione se i valori della temperatura del frigorifero o della pressione sanguigna fossero rilevati come anomalie?  
 
-## <a name="learn-more"></a>Altre informazioni
-
-Questa semplice app mostra solo alcune delle funzionalità del servizio Rilevamento anomalie. Per altre informazioni su cosa è possibile fare con questo servizio, vedere la [pagina del servizio Rilevamento anomalie](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/).
-
-## <a name="clean-up"></a>Eliminazione
+## Eliminazione
 
 È consigliabile, alla fine di un progetto, verificare se le risorse create sono ancora necessarie. L'esecuzione continua delle risorse può avere un costo. 
 

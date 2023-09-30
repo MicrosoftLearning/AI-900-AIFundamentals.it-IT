@@ -7,21 +7,21 @@ lab:
 
 > **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-Il servizio cognitivo *Visione artificiale* usa modelli di Machine Learning sottoposti a training per analizzare le immagini ed estrarre informazioni su di esse.
+Il servizio *Visione artificiale* usa modelli di Machine Learning pre-training per analizzare le immagini ed estrarre informazioni su di essi.
 
 Si supponga, ad esempio, che l'azienda di vendita al dettaglio fittizia *Northwind Traders* abbia deciso di implementare un "negozio intelligente", in cui i servizi di intelligenza artificiale mantengono monitorato il negozio per identificare i clienti che richiedono assistenza e indirizzare i dipendenti per aiutarli. Usando il servizio Visione artificiale è possibile analizzare le immagini scattate dalle fotocamere in tutto il negozio per fornire descrizioni significative di ciò che rappresentano.
 
 In questo lab si userà una semplice applicazione da riga di comando per vedere il servizio Visione artificiale in azione. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una risorsa per *Servizi cognitivi*
+## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
 
-È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **Servizi cognitivi**.
+È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **di servizi di intelligenza artificiale di Azure**.
 
-Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **dei servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante **&65291;Crea una risorsa**, cercare *Servizi cognitivi* e creare una risorsa di **Servizi cognitivi** con le impostazioni seguenti:
+1. Fare clic sul ** pulsante&#65291;Creare una risorsa** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarla con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -31,7 +31,7 @@ Se non è già stato fatto, creare una risorsa **Servizi cognitivi** nella sotto
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi cognitivi. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
 ## Eseguire Cloud Shell
 
@@ -81,7 +81,7 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
 
     ![Editor contenente il codice per analizzare un'immagine](media/analyze-images-computer-vision-service/analyze-image-code.png)
 
-1. Non preoccuparsi troppo del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi cognitivi. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo del codice, è importante che sia necessario l'URL dell'endpoint e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 

@@ -30,7 +30,7 @@ La funzionalità di risposta alla domanda personalizzata del servizio Lingua con
     - **Piano tariffario di Ricerca di Azure**: Gratuito F (3 indici) - (*Se questo livello non è disponibile, selezionare Standard S (50 indici)* )
     - **Selezionando questa casella, dichiaro di conoscere e confermare tutti i termini indicati nei nostri principi di intelligenza artificiale responsabile**: *selezionata*.
 
-    > **Nota** Se è già stato effettuato il provisioning di risorse di **Ricerca cognitiva di Azure** di livello gratuito, la quota potrebbe non consentire di crearne un'altra. In questo caso, selezionare un livello diverso da **Gratuito F**.
+    > **Nota** Se è già stato effettuato il provisioning di una risorsa di **Ricerca cognitiva di Azure** livello gratuito, la quota potrebbe non consentire di creare un'altra risorsa. In questo caso, selezionare un livello diverso da **Gratuito F**.
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**. Attendere il completamento della distribuzione del servizio Lingua che supporterà la knowledge base della funzionalità di risposta alla domanda personalizzata.
 
@@ -131,15 +131,15 @@ La knowledge base offre un servizio back-end che le applicazioni client possono 
     - **Impostazioni app**
         - **Chiave risorsa lingua**: *è necessario copiare la chiave della risorsa lingua e incollarla qui.* 
         
-        > **Nota** Per passare alla chiave della risorsa Language, aprire [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Nella home page fare clic su *Gruppi di risorse* e individuare il gruppo di risorse in cui è stata creata la risorsa Lingua. Selezionare la risorsa Lingua e passare al relativo menu a sinistra. Selezionare *quindi Chiavi ed Endpoint*. Copiare una delle chiavi. 
+        > **Nota** Per passare alla chiave della risorsa lingua, aprire [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Nella home page fare clic su *Gruppi di risorse* e individuare il gruppo di risorse creato nella risorsa Lingua. Selezionare la risorsa Lingua e passare al menu a sinistra. Selezionare quindi *Chiavi ed Endpoint*. Copiare una delle chiavi. 
 
     -  
-        - **Nome progetto linguistico**: MargiesDevice
-        - **Nome host dell'endpoint del servizio di linguaggio**: *prepopolato con l'endpoint del servizio di linguaggio*
-    - **Dettagli del servizio di lingua**
-        - **ID sottoscrizione**: *prepopolato con l'ID sottoscrizione*
-        - **Nome gruppo** di *risorse: prepopolato con il nome del gruppo di risorse*
-        - **Nome account**: *prepopolato con il nome della risorsa*
+        - **Nome del progetto linguistico**: MargiesTravel
+        - **Nome host dell'endpoint del servizio linguistico**: *pre-popolato con l'endpoint del servizio linguistico*
+    - **Dettagli del servizio linguistico**
+        - **ID sottoscrizione**: *precompilato con l'ID sottoscrizione*
+        - **Nome gruppo di risorse**: *precompilato con il nome del gruppo di risorse*
+        - **Nome account**: *precompilato con il nome della risorsa*
 
 1. Selezionare **Rivedi e crea**.
 
