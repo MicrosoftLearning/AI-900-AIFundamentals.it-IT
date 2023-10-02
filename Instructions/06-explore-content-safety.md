@@ -7,6 +7,8 @@ Content Safety Studio consente di esplorare il modo in cui è possibile moderare
 
 In questo esercizio del lab verrà creata una risorsa di Servizi di intelligenza artificiale di Azure multiservizio nell'portale di Azure e si esaminano gli endpoint e le chiavi. Si userà quindi Content Safety Studio per esplorare le funzionalità del servizio Content Safety AI. 
 
+> **Nota** L'obiettivo di questo esercizio è quello di ottenere un senso generale del provisioning e dell'uso dei servizi di intelligenza artificiale di Azure. La sicurezza dei contenuti viene usata come esempio, ma non si prevede di acquisire una conoscenza completa della sicurezza dei contenuti in questo esercizio!
+
 ## Creare una risorsa di Servizi di intelligenza artificiale
 
 1.  In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
@@ -20,6 +22,8 @@ In questo esercizio del lab verrà creata una risorsa di Servizi di intelligenza
 
 ## Associare la risorsa a Content Safety Studio 
 In una scheda del browser separata aprire Content Safety Studio e accedere. Viene visualizzata la schermata Introduzione.
+
+![Screenshot della pagina di destinazione di Content Safety Studio.](./media/content-safety/content-safety-getting-started.png)
 
 1.  Fare clic sull'ingranaggio Impostazioni nel menu in alto a destra.
 2.  Selezionare la risorsa del servizio Intelligenza artificiale di Azure appena creata e quindi fare clic su Usa risorsa.
