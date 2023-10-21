@@ -33,7 +33,7 @@ Per usare Azure Machine Learning, è necessario effettuare il provisioning di un
 
 1. Selezionare **Avvia studio** (in alternativa, aprire una nuova scheda nel browser e passare a [https://ml.azure.com](https://ml.azure.com?azure-portal=true)) e accedere allo studio di Azure Machine Learning usando il proprio account Microsoft. Chiudere tutti i messaggi visualizzati.
 
-1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare **Tutte le aree di lavoro** nel menu a sinistra e selezionare l'area di lavoro appena creata.
+1. Nello studio di Azure Machine Learning verrà visualizzata l'area di lavoro appena creata. In caso contrario, selezionare **Tutte le aree di lavoro** nel menu a sinistra e quindi selezionare l'area di lavoro appena creata.
 
 ## Abilitare le funzionalità di anteprima
 
@@ -118,7 +118,7 @@ Machine Learning automatizzato consente di provare più algoritmi e parametri pe
 
     - **Selezionare il tipo di calcolo**: Serverless
     - **Tipo di macchina virtuale**: CPU
-    - **Livello macchina virtuale**: priorità bassa
+    - **Livello macchina virtuale**: Dedicato
     - **Dimensioni della macchina virtuale**: Standard_DS3_V2
     - **Numero di istanze**: 1
 
@@ -200,12 +200,11 @@ A questo punto è possibile testare il servizio distribuito.
 
     Il riquadro di test ha considerato i dati di input e ha usato il modello sottoposto a training per restituire il numero stimato di noleggi.
 
-
 Di seguito vengono descritte le operazioni eseguite. È stato usato un set di dati cronologici relativi al noleggio di biciclette per eseguire il training di un modello. Il modello stima il numero di noleggi di biciclette previsti in un determinato giorno, in base a *caratteristiche* stagionali e meteorologiche.
 
 ## Eliminazione
 
-Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure. È anche necessario eliminare il cluster di calcolo.
+Il servizio Web creato è ospitato in un'*Istanza di contenitore di Azure*. Se non si vogliono eseguire altri esperimenti con tale servizio, è consigliabile eliminare l'endpoint per evitare di accumulare tempi di utilizzo superflui per Azure.
 
 1. In [Azure Machine Learning Studio](https://ml.azure.com?azure-portal=true) nella scheda **Endpoint** selezionare l'endpoint **previsione-noleggi**. Selezionare quindi **Elimina** e confermare l'eliminazione dell'endpoint.
 
