@@ -11,7 +11,7 @@ Si supponga di lavorare per Fourth Coffee, una catena nazionale di caffetterie. 
 
 In questo lab si eseguiranno le operazioni seguenti:
 
-- Creare le risorse di Azure
+- Creare risorse Azure
 - Estrazione dei dati da un'origine dati
 - Arricchimento dei dati con competenze di intelligenza artificiale
 - Uso dell'indicizzatore di Azure nel portale di Azure
@@ -23,9 +23,9 @@ In questo lab si eseguiranno le operazioni seguenti:
 La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nella sottoscrizione di Azure:
 
 - Una risorsa di **Ricerca cognitiva di Azure**, che gestirà l'indicizzazione e l'esecuzione di query.
-- Una risorsa dei servizi di intelligenza artificiale di **Azure** , che fornisce servizi di intelligenza artificiale per le competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
+- Una **risorsa dei servizi** di intelligenza artificiale di Azure, che fornisce servizi di intelligenza artificiale per competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-    > **Nota** Le risorse Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure devono trovarsi nella stessa posizione.
+    > **Nota** Le risorse dei servizi di intelligenza artificiale di Azure e Ricerca cognitiva di Azure devono trovarsi nella stessa posizione.
 
 - Un **account di archiviazione** con contenitori BLOB, in cui verranno archiviati documenti non elaborati e altre raccolte di tabelle, oggetti o file.
 
@@ -47,9 +47,9 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 ### Creare una risorsa dei servizi di intelligenza artificiale di Azure
 
-È necessario effettuare il provisioning di una risorsa dei **servizi di intelligenza artificiale di Azure** che si trova nella stessa posizione della risorsa Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
+Sarà necessario effettuare il provisioning di una **risorsa dei servizi** di intelligenza artificiale di Azure che si trova nella stessa posizione della risorsa Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-1. Tornare alla home page del portale di Azure. Fare clic sul pulsante ** crea una risorsa&#65291;** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Tornare alla home page del portale di Azure. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *lo stesso gruppo di risorse della risorsa di Ricerca cognitiva di Azure*.
     - **Area**: *la stessa posizione della risorsa di Ricerca cognitiva di Azure*.
@@ -65,9 +65,9 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 1. Tornare alla home page del portale di Azure e quindi selezionare il pulsante **+ Crea una risorsa**.
 
-1. Cercare *account di archiviazione* e creare una risorsa di **Account di archiviazione** con le impostazioni seguenti: 
+1. Cercare *account di archiviazione* e creare una risorsa di **Account di archiviazione** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
-    - **Gruppo di risorse**: *lo stesso gruppo di risorse delle risorse Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure*.
+    - **Gruppo** di risorse: *lo stesso gruppo di risorse delle risorse* Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure.
     - **Nome account di archiviazione**: *un nome univoco*.
     - **Posizione**: *scegliere una delle posizioni disponibili*.
     - **Prestazioni**: standard
@@ -75,8 +75,8 @@ La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nel
 
 1. Fare clic su **Rivedi** e quindi su **Crea**. Attendere il completamento della distribuzione e quindi passare alla risorsa distribuita.
 
-1. Nel riquadro del menu a sinistra dell'account di archiviazione di Azure creato selezionare **Configurazione** (in **Impostazioni**).
-1. Modificare l'impostazione *Consenti l'accesso anonimo al BLOB* su **Abilitato** e quindi selezionare **Salva**.
+1. Nell'account Archiviazione di Azure creato, nel riquadro del menu a sinistra selezionare **Configurazione** (in **Impostazioni**).
+1. Modificare l'impostazione *Consenti l'accesso* anonimo blob su **Abilitato** e quindi selezionare **Salva**.
 
 ## Caricare documenti in Archiviazione di Azure
 
@@ -126,7 +126,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
 
 1. Selezionare **Avanti: Aggiungi competenze cognitive (facoltativo)**.
 
-1. Nella sezione **Collegare Servizi cognitivi** selezionare la risorsa dei servizi di intelligenza artificiale di Azure.  
+1. Nella **sezione Collegare Servizi** cognitivi selezionare la risorsa dei servizi di intelligenza artificiale di Azure.  
 
 1. Nella sezione **Aggiungi arricchimenti**:
     - Modificare il **Nome del set di competenze** in **coffee-skillset**.
@@ -140,7 +140,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
         | Competenza cognitiva | Parametro | Nome del campo |
         | --------------- | ---------- | ---------- |
         | Estrai nomi di località | | locations |
-        | Estrarre le frasi chiave | | keyphrase |
+        | Estrarre le espressioni chiave | | keyphrase |
         | Rileva valutazione | | Valutazione |
         | Genera tag dalle immagini | | imageTags |
         | Genera sottotitoli in altre lingue dalle immagini | | imageCaption |
@@ -159,10 +159,10 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
     > ![Screenshot che mostra un avviso nella schermata di connessione dell'account di archiviazione con l'opzione "Scegli una connessione esistente" selezionata.](media/create-cognitive-search-solution/6a-azure-cognitive-search-enrichments-warning.png)
     >
     > 1. Selezionare **Scegliere una connessione esistente**. Scegliere l'account di archiviazione creato in precedenza.
-    > 1. Fare clic su **+ Contenitore** per creare un nuovo contenitore denominato **knowledge store** con il livello di privacy impostato su **Privato** e selezionare **Crea**.
+    > 1. Fare clic su + Contenitore** per creare un nuovo contenitore denominato **Knowledge Store** con il livello di privacy impostato su **** Privato** e selezionare **Crea**.
     > 1. Selezionare il contenitore **knowledge-store** e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 
-1. Selezionare **proiezioni BLOB di Azure: documento**. Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
+1. Selezionare **Proiezioni BLOB di Azure: Documento**. Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
 
 1. Selezionare **Avanti: Personalizza indice di destinazione**. Modificare il **Nome indice** in **coffee-index**.
 
@@ -172,7 +172,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
 
     ![Screenshot che mostra il riquadro Indice personalizzato con il nome dell'indice già inserito e il parametro "Filtrabile" selezionato per un campo di indice predefinito.](media/create-cognitive-search-solution/6a-azure-cognitive-search-customize-index.png)
 
-1. Selezionare **Passaggio successivo: Crea un indicizzatore**.
+1. Seleziona **Successivo: Crea un indicizzatore**.
 
 1. Modificare il **Nome indicizzatore** in **coffee-indexer**.
 
@@ -203,7 +203,7 @@ Usare Esplora ricerche per scrivere e testare le query. Esplora ricerche è uno 
 
     ![Screenshot di Esplora ricerche.](media/create-cognitive-search-solution/search-explorer-query.png)
 
-    Immettere `search=*&$count=true` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query di ricerca restituisce tutti i documenti nell'indice di ricerca, incluso un conteggio di tutti i documenti nel campo **@odata.count** . L'indice di ricerca dovrebbe restituire un documento JSON contenente i risultati della ricerca.
+    Immettere `search=*&$count=true` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query di ricerca restituisce tutti i documenti nell'indice di ricerca, incluso un conteggio di tutti i documenti nel campo **@odata.count**. L'indice di ricerca dovrebbe restituire un documento JSON contenente i risultati della ricerca.
 
     > **Nota** Se viene visualizzato il messaggio **Per eseguire ricerche nel portale, consentire l'origine del portale nelle impostazioni CORS dell'indice**, selezionare **Consenti portale** e quindi selezionare **Cerca**.
 

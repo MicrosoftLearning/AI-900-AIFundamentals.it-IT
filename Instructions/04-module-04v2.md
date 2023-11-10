@@ -15,15 +15,15 @@ Riconoscimento modulo usa modelli di Machine Learning sottoposti a training per 
 
 Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
+## Creare una *risorsa dei servizi* di intelligenza artificiale di Azure
 
-È possibile usare il servizio Riconoscimento modulo creando una risorsa **Riconoscimento modulo** o una risorsa **dei servizi di intelligenza artificiale di Azure**.
+È possibile usare il servizio Riconoscimento modulo creando una risorsa Riconoscimento modulo** o una ****risorsa dei servizi** di intelligenza artificiale di Azure.
 
-Se non è già stato fatto, creare una risorsa dei **servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una **risorsa dei servizi** di intelligenza artificiale di Azure nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul pulsante ** crea una risorsa&#65291;** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -33,9 +33,9 @@ Se non è già stato fatto, creare una risorsa dei **servizi di intelligenza art
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la **pagina Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## Eseguire Cloud Shell
+## Run Cloud Shell
 
 Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure. 
 
@@ -43,7 +43,7 @@ Per testare le funzionalità del servizio Riconoscimento modulo, verrà usata un
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/analyze-receipts/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
