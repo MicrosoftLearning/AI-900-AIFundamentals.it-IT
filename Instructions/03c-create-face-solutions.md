@@ -11,26 +11,26 @@ Le soluzioni di visione artificiale richiedono spesso una soluzione di intellige
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una risorsa *DELL'API Viso*
+## Creare una *risorsa API* Viso
 
-È possibile usare il servizio Viso creando una risorsa **Viso** .
+È possibile usare il servizio Viso creando una **risorsa Viso** .
 
-Se non è già stato fatto, creare una risorsa **dell'API Viso** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una **risorsa API** Viso nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul ** pulsante&#65291;Creare una risorsa** , cercare *Viso* e creare una risorsa **Viso** con le impostazioni seguenti:
+1. Fare clic sul **&#65291; Creare un pulsante di risorsa** , cercare *Viso* e creare una **risorsa Viso** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: F0 Gratuito
+    - **Piano tariffario**: F0 gratuito
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la pagina **Chiavi ed Endpoint** per la risorsa Viso. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la **pagina Chiavi ed endpoint** per la risorsa Viso. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## Eseguire Cloud Shell
+## Run Cloud Shell
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure. 
 
@@ -38,7 +38,7 @@ Per testare le funzionalità del servizio Viso, verrà usata una semplice applic
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/create-face-solutions/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -78,7 +78,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente codice per rilevare i visi in un'immagine](media/create-face-solutions/find-faces-code.png)
 
-1. Non preoccuparsi troppo dei dettagli del codice, è importante che sia necessario l'URL dell'endpoint e una delle chiavi per la risorsa Viso. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparti troppo dei dettagli del codice, l'aspetto importante è che richiede l'URL dell'endpoint e una delle chiavi per la risorsa Viso. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 

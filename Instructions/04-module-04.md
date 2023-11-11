@@ -9,21 +9,21 @@ lab:
 
 L'elaborazione del linguaggio naturale è un ramo dell'intelligenza artificiale che si occupa del linguaggio scritto o parlato. È possibile usare l'elaborazione del linguaggio naturale per creare soluzioni che estraggono il significato semantico dal testo o dal parlato voce o che formulano risposte significative in linguaggio naturale.
 
-I *servizi di intelligenza* artificiale di Microsoft Azure includono le funzionalità di analisi del testo nel servizio *linguaggio* , che offre alcune funzionalità di prevenzione della perdita di rete predefinite, tra cui l'identificazione delle frasi chiave nel testo e la classificazione del testo in base al sentiment.
+I servizi* di intelligenza artificiale di Microsoft *Azure includono le funzionalità di analisi del *testo nel servizio di linguaggio*, che offre alcune funzionalità predefinite per la prevenzione della perdita dei dati, tra cui l'identificazione delle frasi chiave nel testo e la classificazione del testo in base al sentiment.
 
 Si supponga, ad esempio, che l'agenzia di viaggi fittizia *Margie's Travel* incoraggi i clienti a inviare recensioni per i soggiorni in hotel. È possibile usare il servizio Lingua per riepilogare le recensioni estraendo frasi chiave, determinare quali recensioni sono positive e quali sono negative o analizzare il testo della recensione per individuare le menzioni di entità note, ad esempio località o persone.
 
 Per testare le funzionalità del servizio Lingua, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una risorsa *dei servizi di intelligenza artificiale di Azure*
+## Creare una *risorsa dei servizi* di intelligenza artificiale di Azure
 
-È possibile usare il servizio lingua creando una risorsa **del linguaggio** o una risorsa **dei servizi di intelligenza artificiale di Azure** .
+È possibile usare il servizio lingua creando una risorsa lingua** o una ****risorsa dei servizi** di intelligenza artificiale di Azure.
 
-Se non è già stato fatto, creare una risorsa **dei servizi di intelligenza artificiale di Azure** nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una **risorsa dei servizi** di intelligenza artificiale di Azure nella sottoscrizione di Azure.
 
 1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul ** pulsante&#65291;Creare una risorsa** e cercare *i servizi di intelligenza artificiale di Azure*. Selezionare **Crea** un piano **di servizi di intelligenza artificiale di Azure** . Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarla con le impostazioni seguenti:
+1. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
@@ -35,11 +35,11 @@ Se non è già stato fatto, creare una risorsa **dei servizi di intelligenza art
 
 ### Ottenere la chiave e l'endpoint per la risorsa dei servizi di intelligenza artificiale di Azure
 
-1. Attendere il completamento della distribuzione. Passare quindi alla risorsa dei servizi di intelligenza artificiale di Azure e nella pagina **Panoramica** selezionare il collegamento per gestire le chiavi per il servizio. È necessario disporre dell'endpoint e delle chiavi per connettersi alla risorsa dei servizi di intelligenza artificiale di Azure dalle applicazioni client.
+1. Attendere il completamento della distribuzione. Passare quindi alla risorsa dei servizi di intelligenza artificiale di Azure e **nella pagina Panoramica** selezionare il collegamento per gestire le chiavi per il servizio. Sono necessari l'endpoint e le chiavi per connettersi alla risorsa dei servizi di intelligenza artificiale di Azure dalle applicazioni client.
 
 1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa. Sarà necessario specificare la **chiave** e l'**endpoint** per la connessione dalle applicazioni client.
 
-## Eseguire Cloud Shell
+## Run Cloud Shell
 
 Per testare le funzionalità di analisi del testo del servizio Lingua, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
@@ -47,7 +47,7 @@ Per testare le funzionalità di analisi del testo del servizio Lingua, verrà us
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/analyze-text-language-service/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -91,7 +91,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
-    ![Trovare la scheda chiave ed endpoint nel riquadro sinistro della risorsa servizi intelligenza artificiale di Azure.](media/analyze-text-language-service/key-endpoint-support.png)
+    ![Trovare la scheda chiave ed endpoint nel riquadro sinistro della risorsa dei servizi di intelligenza artificiale di Azure.](media/analyze-text-language-service/key-endpoint-support.png)
 
     Dopo aver sostituito i valori della chiave e dell'endpoint, le prime righe del codice dovrebbero essere simili a quanto segue:
 
@@ -102,7 +102,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
 1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**.
 
-    L'applicazione client di esempio userà il servizio lingua di Azure AI Services per rilevare la lingua, estrarre frasi chiave, determinare il sentiment ed estrarre entità note per le revisioni.
+    L'applicazione client di esempio userà il servizio linguistico di Servizi di intelligenza artificiale di Azure per rilevare la lingua, estrarre frasi chiave, determinare il sentiment ed estrarre entità note per le revisioni.
 
 1. In Cloud Shell immettere il comando seguente per eseguire il codice:
 
