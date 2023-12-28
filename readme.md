@@ -1,6 +1,6 @@
-# AI-900: Microsoft Azure AI Fundamentals
+# AI-900: Concetti fondamentali su Microsoft Azure per intelligenza artificiale
 
->**Importante**: è stato creato un nuovo repository per gli exercies pratici per AI-900 per riflettere un aggiornamento principale per il corso. In futuro, usare mslearn-ai-fundamentals[](https://github.com/MicrosoftLearning/mslearn-ai-fundamentals). Questo repository verrà ritirato prima della fine dell'anno di calendario. 
+>**Importante**: è stato creato un nuovo repository per gli esercizi pratici per AI-900 per riflettere un importante aggiornamento del corso. In futuro, usare [mslearn-ai-fundamentals](https://github.com/MicrosoftLearning/mslearn-ai-fundamentals). Questo repository verrà ritirato prima della fine dell'anno solare. 
 
-Questo repository contiene gli esercizi dei lab pratici del corso Microsoft [AI-900 *Elementi fondamentali di Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/en-us/learn/certifications/courses/ai-900t00) e i [moduli autogestiti su Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-ai-fundamentals). I lab sono progettati per accompagnare i materiali di apprendimento e consentono di esercitarsi usando le tecnologie descritte. 
+Questo repository contiene le esercitazioni pratiche del corso Microsoft [AI-900 *Concetti fondamentali su Microsoft Azure per intelligenza artificiale*](https://docs.microsoft.com/en-us/learn/certifications/courses/ai-900t00) e i [moduli autogestiti su Microsoft Learn](https://docs.microsoft.com/learn/certifications/azure-ai-fundamentals). I lab si integrano con i materiali di formazione e permettono di fare pratica con le tecnologie descritte. 
 

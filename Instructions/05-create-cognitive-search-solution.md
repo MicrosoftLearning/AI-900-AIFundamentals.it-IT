@@ -5,13 +5,13 @@ lab:
 
 # Esplorare la funzionalità di knowledge mining
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-Si supponga di lavorare per Fourth Coffee, una catena nazionale di caffetterie. Viene chiesto di creare una soluzione di Knowledge Mining che semplifichi la ricerca di informazioni dettagliate sulle esperienze dei clienti. Si decide di creare un indice di Ricerca cognitiva di Azure usando i dati estratti dalle recensioni dei clienti.  
+Si supponga di lavorare per Fourth Coffee, una catena nazionale di caffetterie. Viene chiesto di creare una soluzione di knowledge mining che semplifichi la ricerca di informazioni dettagliate sulle esperienze dei clienti. Si decide di creare un indice di Ricerca cognitiva di Azure usando i dati estratti dalle recensioni dei clienti.  
 
 In questo lab si eseguiranno le operazioni seguenti:
 
-- Creare risorse Azure
+- Creazione di risorse Azure
 - Estrazione dei dati da un'origine dati
 - Arricchimento dei dati con competenze di intelligenza artificiale
 - Uso dell'indicizzatore di Azure nel portale di Azure
@@ -22,39 +22,39 @@ In questo lab si eseguiranno le operazioni seguenti:
 
 La soluzione che verrà creata per Fourth Coffe richiede le risorse seguenti nella sottoscrizione di Azure:
 
-- Una risorsa di **Ricerca cognitiva di Azure**, che gestirà l'indicizzazione e l'esecuzione di query.
-- Una **risorsa dei servizi** di intelligenza artificiale di Azure, che fornisce servizi di intelligenza artificiale per competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
+- Una risorsa **Ricerca cognitiva di Azure**, che gestirà l'indicizzazione e l'esecuzione di query.
+- Una risorsa **Servizi di Azure AI**, che fornisce servizi di intelligenza artificiale per le competenze che la soluzione di ricerca può usare per arricchire i dati nell'origine dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-    > **Nota** Le risorse dei servizi di intelligenza artificiale di Azure e Ricerca cognitiva di Azure devono trovarsi nella stessa posizione.
+    > **Nota:** le risorse Ricerca cognitiva di Azure e Servizi di Azure AI devono trovarsi nella stessa posizione.
 
 - Un **account di archiviazione** con contenitori BLOB, in cui verranno archiviati documenti non elaborati e altre raccolte di tabelle, oggetti o file.
 
-### Creare una risorsa di *Ricerca cognitiva di Azure*
+### Creare una risorsa *Ricerca cognitiva di Azure*
 
 1. Accedere al [portale di Azure](https://portal.azure.com/learn.docs.microsoft.com?azure-portal=true).
 
-1. Fare clic sul pulsante **+ Crea una risorsa**, cercare *Ricerca cognitiva di Azure* e creare una risorsa di **Ricerca cognitiva di Azure** con le impostazioni seguenti:
+1. Fare clic sul pulsante **+ Crea una risorsa**, cercare *Ricerca cognitiva di Azure* e creare una risorsa **Ricerca cognitiva di Azure** con le impostazioni seguenti:
 
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Nome del servizio**: *un nome univoco*.
     - **Posizione**: *scegliere una qualsiasi area disponibile*.
-    - **Piano tariffario**: Basic
+    - **Piano tariffario**: Basic.
 
 1. Selezionare **Rivedi e crea** e, dopo aver visualizzato la risposta **Convalida completata**, selezionare **Crea**.
 
 1. Al completamento della distribuzione, selezionare **Vai alla risorsa**. Nella pagina di panoramica di Ricerca cognitiva di Azure è possibile aggiungere indici, importare dati e cercare gli indici creati.
 
-### Creare una risorsa dei servizi di intelligenza artificiale di Azure
+### Creare una risorsa Servizi di Azure Ai
 
-Sarà necessario effettuare il provisioning di una **risorsa dei servizi** di intelligenza artificiale di Azure che si trova nella stessa posizione della risorsa Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
+Sarà necessario effettuare il provisioning di una risorsa **Servizi di Azure AI** nella stessa posizione della risorsa Ricerca cognitiva di Azure. La soluzione di ricerca userà questa risorsa per arricchire i dati nell'archivio dati con informazioni dettagliate generate dall'intelligenza artificiale.
 
-1. Tornare alla home page del portale di Azure. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Tornare alla pagina iniziale del portale di Azure. Fare clic sul pulsante **&#65291;Crea una risorsa** e cercare *Servizi di Azure Ai*. Selezionare **Crea** un piano di **Servizi di Azure AI**. Verrà visualizzata una pagina per creare una risorsa Servizi di Azure AI. Eseguire la configurazione con le seguenti impostazioni:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
-    - **Gruppo di risorse**: *lo stesso gruppo di risorse della risorsa di Ricerca cognitiva di Azure*.
-    - **Area**: *la stessa posizione della risorsa di Ricerca cognitiva di Azure*.
+    - **Gruppo di risorse**: *lo stesso gruppo di risorse della risorsa Ricerca cognitiva di Azure*.
+    - **Area**: *la stessa posizione della risorsa Ricerca cognitiva di Azure*.
     - **Nome**: *un nome univoco*.
-    - **Piano tariffario**: Standard S0
+    - **Piano tariffario**: Standard S0.
     - **Selezionando questa casella, confermo di aver letto e compreso tutte le condizioni seguenti**: selezionata
 
 1. Selezionare **Rivedi e crea**. Dopo aver visualizzato la risposta **Convalida superata**, selezionare **Crea**.
@@ -63,11 +63,11 @@ Sarà necessario effettuare il provisioning di una **risorsa dei servizi** di in
 
 ### Creare un account di archiviazione
 
-1. Tornare alla home page del portale di Azure e quindi selezionare il pulsante **+ Crea una risorsa**.
+1. Tornare alla pagina iniziale del portale di Azure e quindi selezionare il pulsante **+ Crea una risorsa**.
 
-1. Cercare *account di archiviazione* e creare una risorsa di **Account di archiviazione** con le impostazioni seguenti:
+1. Cercare *account di archiviazione* e creare una risorsa **Account di archiviazione** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
-    - **Gruppo** di risorse: *lo stesso gruppo di risorse delle risorse* Ricerca cognitiva di Azure e dei servizi di intelligenza artificiale di Azure.
+    - **Gruppo di risorse**: *lo stesso gruppo di risorse delle risorse di Ricerca cognitiva di Azure e Servizi di AI*.
     - **Nome account di archiviazione**: *un nome univoco*.
     - **Posizione**: *scegliere una delle posizioni disponibili*.
     - **Prestazioni**: standard
@@ -75,8 +75,8 @@ Sarà necessario effettuare il provisioning di una **risorsa dei servizi** di in
 
 1. Fare clic su **Rivedi** e quindi su **Crea**. Attendere il completamento della distribuzione e quindi passare alla risorsa distribuita.
 
-1. Nell'account Archiviazione di Azure creato, nel riquadro del menu a sinistra selezionare **Configurazione** (in **Impostazioni**).
-1. Modificare l'impostazione *Consenti l'accesso* anonimo blob su **Abilitato** e quindi selezionare **Salva**.
+1. Nell'account di archiviazione di Azure creato, nel riquadro del menu a sinistra selezionare **Configurazione** (in **Impostazioni**).
+1. Modificare l'impostazione *Allow Blob anonymous access* (Consenti l'accesso BLOB anonimo) su **Abilitato** e selezionare **Salva**.
 
 ## Caricare documenti in Archiviazione di Azure
 
@@ -109,7 +109,7 @@ Sarà necessario effettuare il provisioning di una **risorsa dei servizi** di in
 
 Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricerca cognitiva di Azure per estrarre informazioni dettagliate dai documenti. Il portale di Azure fornisce una *procedura guidata Importa dati*. Grazie a questa procedura guidata è possibile creare automaticamente un indice e un indicizzatore per le origini dati supportate. Si userà la procedura guidata per creare un indice e importare i documenti di ricerca dalla risorsa di archiviazione all'indice di Ricerca cognitiva di Azure.
 
-1. Nel portale di Azure passare alla risorsa di Ricerca cognitiva di Azure. Nella pagina **Panoramica** selezionare **Importa dati**.
+1. Nel portale di Azure passare alla risorsa Ricerca cognitiva di Azure. Nella pagina **Panoramica** selezionare **Importa dati**.
 
     ![Screenshot che mostra la procedura guidata per l'importazione di dati.](media/create-cognitive-search-solution/azure-search-wizard-1.png)
 
@@ -126,12 +126,12 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
 
 1. Selezionare **Avanti: Aggiungi competenze cognitive (facoltativo)**.
 
-1. Nella **sezione Collegare Servizi** cognitivi selezionare la risorsa dei servizi di intelligenza artificiale di Azure.  
+1. Nella sezione **Collega Servizi cognitivi** selezionare la risorsa Servizi di Azure AI.  
 
 1. Nella sezione **Aggiungi arricchimenti**:
     - Modificare il **Nome del set di competenze** in **coffee-skillset**.
     - Selezionare la casella di controllo **Abilita OCR e unisci tutto il testo nel campo merged_content**.
-        > **Nota** È importante selezionare **Abilita OCR** per visualizzare tutte le opzioni dei campi arricchiti.
+        > **Nota:** è importante selezionare **Abilita OCR** per visualizzare tutte le opzioni dei campi arricchiti.
     - Assicurarsi che il **Campo dei dati di origine** sia impostato su **merged_content**.
     - Impostare **Livello di granularità dell'arricchimento** su **Pagine (blocchi da 5000 caratteri)**.
     - Non selezionare *Abilita arricchimento incrementale*
@@ -154,15 +154,15 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
     - Dettagli immagine
     - Riferimenti alle immagini
 
-    > **Nota** Viene visualizzato un avviso che richiede una **stringa di connessione dell'account di archiviazione**.
+    > **Nota:** viene visualizzato un avviso che richiede una **stringa di connessione dell'account di archiviazione**.
     >
     > ![Screenshot che mostra un avviso nella schermata di connessione dell'account di archiviazione con l'opzione "Scegli una connessione esistente" selezionata.](media/create-cognitive-search-solution/6a-azure-cognitive-search-enrichments-warning.png)
     >
     > 1. Selezionare **Scegliere una connessione esistente**. Scegliere l'account di archiviazione creato in precedenza.
-    > 1. Fare clic su + Contenitore** per creare un nuovo contenitore denominato **Knowledge Store** con il livello di privacy impostato su **** Privato** e selezionare **Crea**.
+    > 1. Fare clic su **+ Contenitore** per creare un nuovo contenitore denominato** knowledge-store** con il livello di privacy impostato su **Privato** e quindi selezionare **Crea**.
     > 1. Selezionare il contenitore **knowledge-store** e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 
-1. Selezionare **Proiezioni BLOB di Azure: Documento**. Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
+1. Selezionare **Azure blob projections: Document** (Proiezioni BLOB di Azure: documento). Viene visualizzata un'impostazione *Nome del contenitore* con il contenitore *knowledge-store* popolato automaticamente. Non modificare il nome del contenitore.
 
 1. Selezionare **Avanti: Personalizza indice di destinazione**. Modificare il **Nome indice** in **coffee-index**.
 
@@ -185,7 +185,7 @@ Quando i documenti sono nella risorsa di archiviazione, è possibile usare Ricer
     - Esegue il set di competenze cognitive per generare campi più arricchiti.
     - Esegue il mapping all'indice dei campi estratti.
 
-1. Nella metà inferiore della pagina **Panoramica** della risorsa di Ricerca cognitiva di Azure selezionare la scheda **Indicizzatori**. Questa scheda mostra l'indicizzatore **coffee-indexer** appena creato. Attendere un minuto e selezionare **&orarr; Aggiorna** finché **Stato** non indica l'esito positivo.
+1. Nella metà inferiore della pagina **Panoramica** della risorsa Ricerca cognitiva di Azure selezionare la scheda **Indicizzatori**. Questa scheda mostra l'indicizzatore **coffee-indexer** appena creato. Attendere un minuto e selezionare **&orarr; Aggiorna** finché **Stato** non indica l'esito positivo.
 
 1. Selezionare il nome dell'indicizzatore per visualizzare altri dettagli.
 
@@ -205,13 +205,13 @@ Usare Esplora ricerche per scrivere e testare le query. Esplora ricerche è uno 
 
     Immettere `search=*&$count=true` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query di ricerca restituisce tutti i documenti nell'indice di ricerca, incluso un conteggio di tutti i documenti nel campo **@odata.count**. L'indice di ricerca dovrebbe restituire un documento JSON contenente i risultati della ricerca.
 
-    > **Nota** Se viene visualizzato il messaggio **Per eseguire ricerche nel portale, consentire l'origine del portale nelle impostazioni CORS dell'indice**, selezionare **Consenti portale** e quindi selezionare **Cerca**.
+    > **Nota:** se viene visualizzato il messaggio **Per eseguire ricerche nel portale, consentire l'origine del portale nelle impostazioni CORS dell'indice**, selezionare **Consenti portale** e quindi selezionare **Cerca**.
 
 1. È il momento di applicare un filtro in base alla località. Immettere `search=locations:'Chicago'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con località Chicago.
 
 1. È il momento di applicare un filtro in base al sentiment. Immettere `search=sentiment:'negative'` nel campo **Stringa di query** e quindi selezionare **Cerca**. La query cerca tutti i documenti nell'indice e filtra le recensioni con sentiment negativo.
 
-   > **Nota** Notare come i risultati vengono ordinati in base a `@search.score`. Questo è il punteggio assegnato dal motore di ricerca per visualizzare il livello di corrispondenza dei risultati rispetto alla query specificata.
+   > **Nota:** notare come i risultati vengono ordinati in base a `@search.score`. Questo è il punteggio assegnato dal motore di ricerca per visualizzare il livello di corrispondenza dei risultati rispetto alla query specificata.
 
 1. Uno dei potenziali problemi da risolvere è il perché di determinate recensioni. Si esamineranno ora le frasi chiave associate alla recensione negativa. Quale si ritiene che possa essere il motivo della recensione?
 
