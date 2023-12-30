@@ -5,13 +5,13 @@ lab:
 
 # Esplorare la funzionalità di risposta alle domande
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
 Per gli scenari di assistenza ai clienti, è comune creare un bot in grado di interpretare e rispondere alle domande frequenti tramite una finestra di chat del sito Web, un messaggio di posta elettronica o un'interfaccia vocale. Alla base dell'interfaccia del bot si trova una knowledge base di domande e risposte appropriate nella quale il bot può cercare risposte appropriate.
 
 ## Creare una knowledge base personalizzata di risposta alla domanda
 
-La funzionalità di risposta alla domanda personalizzata del servizio Lingua consente di creare rapidamente una knowledge base, immettendo coppie di domande e risposte o da un documento o da una pagina Web esistente. Può quindi usare alcune funzionalità di elaborazione del linguaggio naturale predefinite per interpretare le domande e trovare le risposte appropriate.
+La funzionalità di risposta alla domanda personalizzata del servizio Lingua consente di creare rapidamente una knowledge base, immettendo coppie di domande e risposte o da un documento o da una pagina Web esistente. Può quindi usare alcune capacità di elaborazione del linguaggio naturale predefinite per interpretare le domande e trovare le risposte appropriate.
 
 1. Aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
@@ -25,12 +25,12 @@ La funzionalità di risposta alla domanda personalizzata del servizio Lingua con
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare un gruppo di risorse esistente o crearne uno nuovo*.
     - **Nome**: *specificare un nome univoco per la risorsa Lingua*.
-    - **Piano tariffario**: S (1.000 chiamate al minuto)
+    - **Piano tariffario**: S (1.000 chiamate al minuto).
     - **Area di Ricerca di Azure**: *qualsiasi località disponibile*.
-    - **Piano tariffario di Ricerca di Azure**: Gratuito F (3 indici) - (*Se questo livello non è disponibile, selezionare Standard S (50 indici)*)
+    - **Piano tariffario di Ricerca di Azure**: Gratuito F (3 indici) - (*Se questo livello non è disponibile, selezionare Standard S (50 indici)*).
     - **Selezionando questa casella, dichiaro di conoscere e confermare tutti i termini indicati nei nostri principi di intelligenza artificiale responsabile**: *selezionata*.
 
-    > **Nota** Se è già stato effettuato il provisioning di una risorsa di Ricerca cognitiva di Azure** di livello **gratuito, la quota potrebbe non consentire di crearne un'altra. In questo caso, selezionare un livello diverso da **Gratuito F**.
+    > **Nota:** se è già stato effettuato il provisioning della risorsa **Ricerca cognitiva di Azure** di livello gratuito, la quota potrebbe non consentire di crearne un'altra. In questo caso, selezionare un livello diverso da **Gratuito F**.
 
 1. Fare clic su **Rivedi e crea** e quindi su **Crea**. Attendere il completamento della distribuzione del servizio Lingua che supporterà la knowledge base della funzionalità di risposta alla domanda personalizzata.
 
@@ -45,7 +45,7 @@ La funzionalità di risposta alla domanda personalizzata del servizio Lingua con
     1. Sulla barra nella parte superiore della pagina fare clic sul pulsante **Impostazioni (&#9881;)**.
     2. Nella pagina **Impostazioni** visualizzare la scheda **Risorse**.
     3. Selezionare la risorsa del servizio Lingua appena creata e fare clic su **Cambiare risorsa**.
-    4. Nella parte superiore della pagina fare clic su **Language Studio** per tornare alla home page di Language Studio.
+    4. Nella parte superiore della pagina fare clic su **Language Studio** per tornare alla pagina iniziale di Language Studio.
 
 1. Nella parte superiore del portale di Language Studio scegliere **Risposta personalizzata alle domande** dal menu **Crea nuovo**.
 
@@ -53,7 +53,7 @@ La funzionalità di risposta alla domanda personalizzata del servizio Lingua con
 
 1. Nella pagina **Enter basic information** (Immetti informazioni di base) immettere i dati seguenti e fare clic su **Avanti**:
     - **Risorsa Lingua**: *scegliere la risorsa Lingua*.  
-    - **Risorsa Ricerca di Azure**: *scegliere la risorsa di Ricerca di Azure*.
+    - **Risorsa Ricerca di Azure**: *scegliere la risorsa Ricerca di Azure*.
     - **Nome**: MargiesTravel
     - **Descrizione**: knowledge base semplice
     - **Lingua di origine**: inglese
@@ -90,9 +90,9 @@ Ora che è stata creata una knowledge base, è possibile testarla.
 
 1. Nella parte inferiore del riquadro di test immettere il messaggio *Hi*. Dovrebbe essere restituita la risposta **Hello**.
 
-1. Nel riquadro di test, in basso, immettere il messaggio *I want to book a flight*. Deve essere restituita una risposta appropriata dalle domande frequenti.
+1. Nel riquadro di test, in basso, immettere il messaggio *I want to book a flight*. Dovrebbe essere restituita una risposta appropriata dalle domande frequenti.
 
-    > **Nota** La risposta include una *risposta breve* oltre a un *passaggio di risposta* più dettagliato: il passaggio di risposta mostra il testo completo nel documento delle domande frequenti per la domanda più simile, mentre la risposta breve viene estratta in modo intelligente dal passaggio. È possibile controllare se la risposta breve proviene dalla risposta usando la casella di controllo **Visualizza risposta breve** nella parte superiore del riquadro di test.
+    > **Nota:** la risposta include una *risposta breve* oltre a un *passaggio di risposta* più dettagliato: il passaggio di risposta mostra il testo completo nel documento delle domande frequenti per la domanda più simile, mentre la risposta breve viene estratta in modo intelligente dal passaggio. È possibile controllare se la risposta breve proviene dalla risposta usando la casella di controllo **Visualizza risposta breve** nella parte superiore del riquadro di test.
 
 1. Provare un'altra domanda, ad esempio *How can I cancel a reservation?*
 
@@ -106,48 +106,48 @@ La knowledge base offre un servizio back-end che le applicazioni client possono 
 
 1. Nella parte superiore della pagina fare clic su **Distribuisci**. Una finestra di dialogo chiederà se si vuole distribuire il progetto. Seleziona **Distribuisci**.
 
-1. Dopo aver distribuito il servizio, fare clic su **Crea un bot**. Verrà aperto il portale di Azure in una nuova scheda del browser in modo da poter creare un bot app Web nella sottoscrizione di Azure.
+1. Dopo aver distribuito il servizio, fare clic su **Crea un bot**. Verrà aperto il portale di Azure in una nuova scheda del browser, dove è possibile creare un bot per app Web nella sottoscrizione di Azure in uso.
 
-1. Nella portale di Azure creare un bot app Web. È possibile che venga visualizzato un messaggio di avviso per verificare che l'origine del modello sia attendibile. Non è necessario eseguire alcuna azione per il messaggio. Continuare aggiornando le impostazioni seguenti:
+1. Nel portale di Azure, creare una bot per app Web. È possibile che venga visualizzato un messaggio di avviso per verificare che l'origine del modello sia attendibile. Non è necessario eseguire alcuna azione per il messaggio. Continuare aggiornando le impostazioni seguenti:
 
     - **Dettagli del progetto**
-        - **Sottoscrizione**: *sottoscrizione di Azure*
+        - **Sottoscrizione**: *la sottoscrizione di Azure usata*
         - **Gruppo di risorse**: *gruppo di risorse contenente la risorsa Lingua*
     - **Dettagli istanza**
-        - **Località** del gruppo di risorse: *la stessa posizione del servizio* linguistico.
+        - **Posizione del gruppo di risorse**: *la stessa posizione del servizio Lingua*.
     - **Azure Bot**
-        - **Handle** bot: *un nome univoco per il bot* (*prepopolato*)
+        - **Handle di bot**: *nome univoco per il bot* (*pre-popolato*)
     - **Scegliere il piano tariffario**
-        - **** Piano tariffario: gratuito (F0) (potrebbe essere necessario selezionare *Cambia piano*)
-    - **Microsoft App ID**
-        - **Tipo di** creazione: *selezionare Crea nuova identità gestita assegnata dall'utente* 
+        - **Piano tariffario**: gratuito F0 (potrebbe essere necessario selezionare *Cambia piano*).
+    - **ID app Microsoft**
+        - **Tipo di creazione**: *selezionare Crea nuova identità gestita assegnata dall'utente* 
 
 5. Selezionare **Avanti: App Web >** per continuare ad aggiornare le impostazioni. 
     - **Servizio app**
         - **Nome dell'app**: *uguale a **Handle di bot** con **.azurewebsites.net** aggiunto automaticamente*
         - **Lingua dell'SDK**: *scegliere C# o Node.js*
     - **Piano di servizio app**
-        - **Tipo di creazione: *selezionare Crea nuovo piano di** servizio app*
+        - **Tipo di creazione**: *selezionare Create new app service plan (Crea nuovo piano di servizio app)*
     - **Impostazioni app**
-        - **Chiave** risorsa lingua: *è necessario copiare la chiave della risorsa lingua e incollarla qui.* 
+        - **Chiave risorsa Lingua**: *è necessario copiare la chiave della risorsa Lingua e incollarla qui.* 
         
-        > **Nota** Per passare alla chiave della risorsa lingua, aprirehttps://portal.azure.com[](https://portal.azure.com?azure-portal=true) . Nella home page fare clic su *Gruppi* di risorse e individuare il gruppo di risorse in cui è stata creata la risorsa Lingua. Selezionare la risorsa Lingua e passare al relativo menu a sinistra. Selezionare *quindi Chiavi ed Endpoint*. Copiare una delle chiavi. 
+        > **Nota:** per passare alla chiave della risorsa Lingua, aprire [https://portal.azure.com](https://portal.azure.com?azure-portal=true). Nella pagina iniziale fare clic su *Gruppi di risorse* e individuare il gruppo di risorse in cui è stata creata la risorsa Lingua. Selezionare la risorsa Lingua e passare al relativo menu a sinistra. Selezionare *Chiavi ed endpoint*. Copiare una delle chiavi. 
 
     -  
-        - **Nome progetto** linguistico: MargiesDevice
-        - **Nome host** dell'endpoint del servizio di linguaggio: *precompilato con l'endpoint del servizio di linguaggio*
-    - **Dettagli del servizio linguistico**
-        - **ID** sottoscrizione: *precompilato con l'ID sottoscrizione*
-        - **Nome** gruppo di risorse: *prepopolato con il nome del gruppo di risorse*
-        - **Nome** account: *precompilato con il nome della risorsa*
+        - **Nome progetto della lingua**: MargiesTravel
+        - **Nome host dell'endpoint di servizio della lingua**: *pre-popolato con l'endpoint di servizio della lingua*
+    - **Dettagli del servizio della lingua**
+        - **ID sottoscrizione**: *pre-popolato con il proprio ID sottoscrizione*
+        - **Nome gruppo di risorse**: *pre-popolato con il proprio nome del gruppo di risorse.*
+        - **Nome dell'account**: *pre-popolato con il nome della risorsa*
 
 1. Selezionare **Rivedi e crea**.
 
-1. Attendere che il bot venga creato (l'icona di notifica in alto a destra, simile a una campana, verrà animata durante l'attesa). Quindi, nella notifica che la distribuzione è stata completata, fare clic su **Vai alla risorsa** (in alternativa, nella home page fare clic su **Gruppi** di risorse, aprire il gruppo di risorse in cui è stato creato il bot dell'app Web e fare clic su di esso).
+1. Attendere che il bot venga creato (l'icona di notifica a forma di campana in alto a destra si muove durante l'attesa). Quindi, nella notifica di completamento della distribuzione, fare clic su **Vai alla risorsa** (oppure in alternativa, sulla pagina iniziale, fare clic su **Gruppi di risorse**, aprire il gruppo di risorse in cui è stato creato il bot per app Web e selezionarlo.)
 
 1. Nel riquadro sinistro del bot cercare **Impostazioni**, fare clic su **Test in chat Web** e attendere che il bot visualizzi il messaggio **Hello and Welcome** (l'inizializzazione potrebbe richiedere alcuni secondi).
 
-1. Usare l'interfaccia di chat di test per assicurarsi che il bot risponda alle domande della Knowledge Base come previsto. Ad esempio, provare a inviare *I need to cancel my hotel*.
+1. Usa l'interfaccia della chat di test per assicurarti che il bot risponda alle domande dalla tua knowledge base come previsto. Ad esempio, provare a inviare *I need to cancel my hotel*.
 
 Sperimentare l'uso del bot. Probabilmente si noterà che può rispondere alle domande disponibili nelle domande frequenti in modo abbastanza accurato, ma avrà una capacità limitata di interpretare le domande per cui non è stato sottoposto a training. È sempre possibile usare Language Studio per modificare la knowledge base per migliorarla e ripubblicarla.
 

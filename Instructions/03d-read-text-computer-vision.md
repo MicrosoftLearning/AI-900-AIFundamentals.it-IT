@@ -5,47 +5,47 @@ lab:
 
 # Esplorare il riconoscimento ottico dei caratteri
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
 Il rilevamento e l'interpretazione del testo in un'immagine rappresentano una sfida comune per i sistemi di visione artificiale. Questo tipo di elaborazione viene spesso definito *riconoscimento ottico dei caratteri* (OCR). L'API Lettura di Microsoft fornisce l'accesso alle funzionalità OCR. 
 
 Per testare le funzionalità dell'API Lettura, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Usare il servizio Visione artificiale di Azure per leggere il testo in un'immagine
+## Usare il servizio Visione di Azure AI per leggere il testo in un'immagine
 
-Il **servizio Visione** artificiale di Azure offre supporto per le attività OCR, tra cui:
+Il servizio **Visione di Azure AI** offre supporto per le attività OCR, tra cui:
 
 - Un'API di **lettura** ottimizzata per documenti di dimensioni maggiori. Questa API viene usata in modo asincrono e può essere usata sia per il testo stampato che per quello scritto a mano.
 
-## Creare una *risorsa dei servizi* di intelligenza artificiale di Azure
+## Creare una risorsa *Servizi di Azure AI*
 
-È possibile usare il servizio Visione artificiale di Azure creando una risorsa Visione artificiale** o una ****risorsa dei servizi** di intelligenza artificiale di Azure.
+È possibile usare il servizio Visione di Azure AI creando una risorsa **Visione artificiale** o una risorsa **Servizi di Azure AI**.
 
-Se non è già stato fatto, creare una **risorsa dei servizi** di intelligenza artificiale di Azure nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **Servizi di Azure AI** nella sottoscrizione di Azure.
 
-1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
+1. In un'altra scheda del browser, aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Fare clic sul pulsante **&#65291;Crea una risorsa** e cercare *Servizi di Azure AI*. Selezionare **Crea** un piano di **Servizi di Azure AI**. Verrà visualizzata una pagina per creare una risorsa Servizi di Azure AI. Eseguire la configurazione con le seguenti impostazioni:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: Standard S0
+    - **Piano tariffario**: Standard S0.
     - **Selezionando questa casella, confermo di aver letto e compreso tutte le condizioni seguenti**: selezionata.
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la **pagina Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi di Azure AI. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## Run Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Visione personalizzata, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
-1. Nel portale di Azure selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale. 
+1. Nel portale di Azure, selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Si aprirà un riquadro di Cloud Shell nella parte inferiore del portale. 
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/read-text-computer-vision/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -69,7 +69,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    >**Suggerimento** Se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
+    >**Suggerimento:** se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
 
 1. I file vengono scaricati in una cartella denominata **ai-900**. Ora si vogliono visualizzare tutti i file disponibili nella risorsa di archiviazione di Cloud Shell e usarli. Digitare il comando seguente nella shell:
 
@@ -77,7 +77,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     code .
     ```
 
-    Verrà aperto un editor come quello illustrato nell'immagine seguente: 
+    Si aprirà un editor come quello illustrato nell'immagine seguente: 
 
     ![Editor di codice.](media/read-text-computer-vision/powershell-portal-guide-4.png)
 
@@ -85,9 +85,9 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente il codice per analizzare il testo nelle immagini.](media/read-text-computer-vision/ocr-code.png)
 
-1. Non preoccuparti troppo dei dettagli del codice, l'aspetto importante è che richiede l'URL dell'endpoint e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi di Azure AI. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
-    > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
+    > **Suggerimento:** potrebbe essere necessario usare la barra di separazione per regolare l'area della schermata mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
     Dopo aver incollato i valori della chiave e dell'endpoint, le prime due righe di codice dovrebbero essere simili a quanto segue:
 
@@ -96,7 +96,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     $endpoint="https..."
     ```
 
-1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**. Dopo aver configurato la chiave e l'endpoint, è possibile usare la risorsa dei servizi di intelligenza artificiale di Azure per estrarre testo da un'immagine.
+1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Chiudi Editor**. Dopo aver configurato la chiave e l'endpoint, è possibile usare la risorsa Servizi di Azure AI per estrarre testo da un'immagine.
 
     Si userà ora l'API **Lettura**. In questo caso, si dispone di un'immagine pubblicitaria della società fittizia di vendita al dettaglio Northwind Traders, che include un testo.
 

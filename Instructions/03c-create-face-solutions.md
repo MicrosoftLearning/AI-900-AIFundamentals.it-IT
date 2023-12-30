@@ -5,40 +5,40 @@ lab:
 
 # Esplorare la funzionalità di riconoscimento volto
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
 Le soluzioni di visione artificiale richiedono spesso una soluzione di intelligenza artificiale (IA) per poter rilevare i visi umani. Si supponga, ad esempio, che l'azienda di vendita al dettaglio Northwind Traders voglia individuare la posizione in cui i clienti si trovano in un negozio per assisterli al meglio. Un modo per eseguire questa operazione consiste nel determinare se sono presenti visi nelle immagini e, in tal caso, identificare le coordinate del rettangolo delimitatore intorno ai visi.
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una *risorsa API* Viso
+## Creare una risorsa *API Viso*
 
-È possibile usare il servizio Viso creando una **risorsa Viso** .
+È possibile usare il servizio Viso creando una risorsa **Viso**.
 
-Se non è già stato fatto, creare una **risorsa API** Viso nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **API Viso** nella sottoscrizione di Azure.
 
-1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
+1. In un'altra scheda del browser, aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul **&#65291; Creare un pulsante di risorsa** , cercare *Viso* e creare una **risorsa Viso** con le impostazioni seguenti:
+1. Fare clic sul pulsante **&#65291;Crea una risorsa**, cercare *Viso* e creare una risorsa **Viso** con le impostazioni seguenti:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: F0 gratuito
+    - **Piano tariffario**: gratuito F0.
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la **pagina Chiavi ed endpoint** per la risorsa Viso. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Viso. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## Run Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Viso, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure. 
 
-1. Nel portale di Azure selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale. 
+1. Nel portale di Azure, selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Si aprirà un riquadro di Cloud Shell nella parte inferiore del portale. 
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/create-face-solutions/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -62,7 +62,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    > **Suggerimento** Se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
+    > **Suggerimento:** se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
 
 1. I file vengono scaricati in una cartella denominata **ai-900**. Ora si vogliono visualizzare tutti i file disponibili nella risorsa di archiviazione di Cloud Shell e usarli. Digitare il comando seguente nella shell:
 
@@ -70,7 +70,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     code .
     ```
 
-    Verrà aperto un editor come quello illustrato nell'immagine seguente: 
+    Si aprirà un editor come quello illustrato nell'immagine seguente: 
 
     ![Editor di codice.](media/create-face-solutions/powershell-portal-guide-4.png) 
 
@@ -78,9 +78,9 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente codice per rilevare i visi in un'immagine](media/create-face-solutions/find-faces-code.png)
 
-1. Non preoccuparti troppo dei dettagli del codice, l'aspetto importante è che richiede l'URL dell'endpoint e una delle chiavi per la risorsa Viso. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Viso. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
-    > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
+    > **Suggerimento:** potrebbe essere necessario usare la barra di separazione per regolare l'area della schermata mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
     Dopo aver incollato i valori della chiave e dell'endpoint, le prime due righe di codice dovrebbero essere simili a quanto segue:
 
@@ -89,7 +89,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     $endpoint="https..."
     ```
 
-1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**.
+1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Chiudi Editor**.
 
     L'applicazione client di esempio userà il servizio Viso per analizzare l'immagine seguente, scattata da una fotocamera nel negozio di Northwind Traders:
 
@@ -106,7 +106,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Immagine di una persona con il viso delineato](media/create-face-solutions/store-camera-1-face.jpg)
 
-    >**Nota** Le funzionalità del servizio Viso che restituiscono caratteristiche personali sono limitate. Per informazioni dettagliate, vedere https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
+    >**Nota:** le funzionalità del servizio Viso che restituiscono caratteristiche personali sono limitate. Per informazioni dettagliate, vedere https://azure.microsoft.com/blog/responsible-ai-investments-and-safeguards-for-facial-recognition/.
 
 1. Proviamo ora un'altra immagine:
 

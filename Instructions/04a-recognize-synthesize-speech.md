@@ -5,47 +5,47 @@ lab:
 
 # Esplorare le funzionalità del servizio Voce
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-Per creare software in grado di interpretare il parlato udibile e rispondere in modo appropriato, è possibile usare il **servizio Voce** di Intelligenza artificiale di Azure, che offre un modo semplice per trascrivere la lingua parlata in testo e viceversa.
+Per creare software in grado di interpretare il parlato udibile e rispondere in modo appropriato si può usare il servizio di **Voce di Azure AI**, che offre un modo semplice per trascrivere la lingua parlata in testo e viceversa.
 
 Si supponga, ad esempio, di voler creare uno Smart Device in grado di rispondere verbalmente a domande formulate a voce, ad esempio "Che ore sono?". La risposta deve essere l'ora locale.
 
 Per testare le funzionalità del servizio Voce, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una *risorsa dei servizi* di intelligenza artificiale di Azure
+## Creare una risorsa *Servizi di Azure AI*
 
-È possibile usare il servizio Voce creando una **risorsa voce** o una **risorsa dei servizi** di intelligenza artificiale di Azure.
+È possibile usare il servizio Voce creando una risorsa **Voce** o una risorsa **Servizi di Azure AI**.
 
-Se non è già stato fatto, creare una **risorsa dei servizi** di intelligenza artificiale di Azure nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **Servizi di Azure AI** nella sottoscrizione di Azure.
 
-1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
+1. In un'altra scheda del browser, aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Fare clic sul pulsante **&#65291;Crea una risorsa** e cercare *Servizi di Azure AI*. Selezionare **Crea** un piano di **Servizi di Azure AI**. Verrà visualizzata una pagina per creare una risorsa Servizi di Azure AI. Eseguire la configurazione con le seguenti impostazioni:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: Standard S0
+    - **Piano tariffario**: Standard S0.
     - **Selezionando questa casella, confermo di aver letto e compreso tutte le condizioni seguenti**: selezionata.
 
 1. Esaminare e creare la risorsa.
 
-### Ottenere la chiave e la posizione per la risorsa dei servizi di intelligenza artificiale di Azure
+### Ottenere la chiave e la posizione per la risorsa Servizi di Azure AI
 
-1. Attendere il completamento della distribuzione. Passare quindi alla risorsa dei servizi di intelligenza artificiale di Azure e **nella pagina Panoramica** fare clic sul collegamento per gestire le chiavi per il servizio. Sono necessari l'endpoint e le chiavi per connettersi alla risorsa dei servizi di intelligenza artificiale di Azure dalle applicazioni client.
+1. Attendere il completamento della distribuzione. Passare quindi alla risorsa Servizi di Azure AI e nella pagina **Panoramica** fare clic sul collegamento per gestire le chiavi per il servizio. L'endpoint e le chiavi saranno necessari per connettersi alla risorsa Servizi di Azure AI dalle applicazioni client.
 
 1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa. Saranno necessarie la **posizione/area** e la **chiave** per la connessione dalle applicazioni client.
 
-## Run Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Voce, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
-1. Nel portale di Azure selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale.
+1. Nel portale di Azure, selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Si aprirà un riquadro di Cloud Shell nella parte inferiore del portale.
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/recognize-synthesize-speech/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -69,7 +69,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    >**Suggerimento** Se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
+    >**Suggerimento:** se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
 
 1. I file vengono scaricati in una cartella denominata **ai-900**. Ora si vogliono visualizzare tutti i file disponibili nella risorsa di archiviazione di Cloud Shell e usarli. Digitare il comando seguente nella shell:
 
@@ -77,7 +77,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     code .
     ```
 
-    Verrà aperto un editor come quello illustrato nell'immagine seguente:
+    Si aprirà un editor come quello illustrato nell'immagine seguente:
 
     ![Editor di codice.](media/recognize-synthesize-speech/powershell-portal-guide-4.png)
 
@@ -85,9 +85,9 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
 
     ![Editor contenente il codice per l'uso del servizio Voce](media/recognize-synthesize-speech/speaking-clock-code.png)
 
-1. Non preoccuparti troppo dei dettagli del codice, l'aspetto importante è che richiede l'area o la posizione e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_LOCATION**.
+1. Non preoccuparsi troppo dei dettagli del codice, l'aspetto importante è che sono necessari l'area/la posizione e una delle chiavi per la risorsa Servizi di Azure AI. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_LOCATION**.
 
-    > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
+    > **Suggerimento:** potrebbe essere necessario usare la barra di separazione per regolare l'area della schermata mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
     Dopo aver incollato i valori della chiave e dell'area/posizione, le prime due righe di codice dovrebbero avere un aspetto simile al seguente:
 
@@ -96,7 +96,7 @@ Ora che si dispone di un modello personalizzato, è possibile eseguire una sempl
     $region="somelocation"
     ```
 
-1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Close Editor**.
+1. In alto a destra nel riquadro dell'editor fare clic sul pulsante **...** per aprire il menu e selezionare **Salva** per salvare le modifiche. Aprire di nuovo il menu e selezionare **Chiudi Editor**.
 
     L'applicazione client di esempio userà il servizio Voce per trascrivere l'input parlato e sintetizzare una risposta verbale appropriata. Un'applicazione reale accetterebbe l'input da un microfono e invierebbe la risposta a un altoparlante, ma in questo semplice esempio si userà l'input preregistrato in un file e si salverà la risposta in un altro file.
 

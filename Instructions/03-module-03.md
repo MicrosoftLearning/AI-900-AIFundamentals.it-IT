@@ -5,43 +5,43 @@ lab:
 
 # Esplorare Visione artificiale
 
-> **Nota** Per completare questo lab, è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
+> **Nota:** per completare questo lab è necessaria una [sottoscrizione di Azure](https://azure.microsoft.com/free?azure-portal=true) in cui si ha accesso amministrativo.
 
-Il *servizio Visione artificiale* usa modelli di Machine Learning con training preliminare per analizzare le immagini ed estrarre informazioni su di esse.
+Il servizio *Visione artificiale* usa modelli di Machine Learning sottoposti a training per analizzare le immagini ed estrarre informazioni su di esse.
 
-Si supponga, ad esempio, che l'azienda di vendita al dettaglio fittizia *Northwind Traders* abbia deciso di implementare un "negozio intelligente", in cui i servizi di intelligenza artificiale mantengono monitorato il negozio per identificare i clienti che richiedono assistenza e indirizzare i dipendenti per aiutarli. Usando il servizio Visione artificiale è possibile analizzare le immagini scattate dalle fotocamere in tutto il negozio per fornire descrizioni significative di ciò che rappresentano.
+Si supponga, ad esempio, che l'azienda di vendita al dettaglio fittizia *Northwind Traders* abbia deciso di implementare un "negozio intelligente", in cui i servizi di intelligenza artificiale monitorano il negozio per identificare i clienti che richiedono assistenza e indirizzare i dipendenti per aiutarli. Usando il servizio Visione artificiale è possibile analizzare le immagini scattate dalle fotocamere in tutto il negozio per fornire descrizioni significative di ciò che rappresentano.
 
 In questo lab si userà una semplice applicazione da riga di comando per vedere il servizio Visione artificiale in azione. Gli stessi principi e funzionalità sono applicabili a soluzioni reali, ad esempio siti Web o app per smartphone.
 
-## Creare una *risorsa dei servizi* di intelligenza artificiale di Azure
+## Creare una risorsa *Servizi di Azure AI*
 
-È possibile usare il servizio Visione artificiale creando una risorsa Visione artificiale** o una ****risorsa dei servizi** di intelligenza artificiale di Azure.
+È possibile usare il servizio Visione artificiale creando una risorsa **Visione artificiale** o una risorsa **Servizi di Azure AI**.
 
-Se non è già stato fatto, creare una **risorsa dei servizi** di intelligenza artificiale di Azure nella sottoscrizione di Azure.
+Se non è già stato fatto, creare una risorsa **Servizi di Azure AI** nella sottoscrizione di Azure.
 
-1. In un'altra scheda del browser aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
+1. In un'altra scheda del browser, aprire il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com?azure-portal=true), eseguendo l'accesso con l'account Microsoft.
 
-1. Fare clic sul **&#65291; Creare un pulsante di risorsa e cercare i servizi* di intelligenza** artificiale di *Azure. Selezionare **Crea** un **piano di servizi** di intelligenza artificiale di Azure. Verrà visualizzata una pagina per creare una risorsa dei servizi di intelligenza artificiale di Azure. Configurarlo con le impostazioni seguenti:
+1. Fare clic sul pulsante **&#65291;Crea una risorsa** e cercare *Servizi di Azure AI*. Selezionare **Crea** un piano di **Servizi di Azure AI**. Verrà visualizzata una pagina per creare una risorsa Servizi di Azure AI. Eseguire la configurazione con le seguenti impostazioni:
     - **Sottoscrizione**: *la sottoscrizione di Azure usata*.
     - **Gruppo di risorse**: *selezionare o creare un nuovo gruppo di risorse con un nome univoco*.
     - **Area**: *scegliere una qualsiasi area disponibile*.
     - **Nome**: *immettere un nome univoco*.
-    - **Piano tariffario**: Standard S0
+    - **Piano tariffario**: Standard S0.
     - **Selezionando questa casella, confermo di aver letto e compreso tutte le condizioni seguenti**: selezionata.
 
 1. Esaminare e creare la risorsa e attendere il completamento della distribuzione. Passare quindi alla risorsa distribuita.
 
-1. Visualizzare la **pagina Chiavi ed endpoint** per la risorsa dei servizi di intelligenza artificiale di Azure. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
+1. Visualizzare la pagina **Chiavi ed endpoint** per la risorsa Servizi di Azure AI. Sarà necessario specificare l'endpoint e le chiavi per la connessione dalle applicazioni client.
 
-## Run Cloud Shell
+## Eseguire Cloud Shell
 
 Per testare le funzionalità del servizio Visione artificiale, verrà usata una semplice applicazione da riga di comando eseguita in Cloud Shell in Azure.
 
-1. Nel portale di Azure selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Verrà aperto un riquadro di Cloud Shell nella parte inferiore del portale.
+1. Nel portale di Azure, selezionare il pulsante **[>_]** (*Cloud Shell*) nella parte superiore della pagina a destra della casella di ricerca. Si aprirà un riquadro di Cloud Shell nella parte inferiore del portale.
 
     ![Avviare Cloud Shell facendo clic sull'icona a destra della casella di ricerca in alto](media/analyze-images-computer-vision-service/powershell-portal-guide-1.png)
 
-1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Seleziona **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
+1. La prima volta che si apre Cloud Shell, è possibile che venga chiesto di scegliere il tipo di shell da usare (*Bash* o *PowerShell*). Selezionare **PowerShell**. Se questa opzione non viene visualizzata, ignorare il passaggio.  
 
 1. Se viene chiesto di creare una risorsa di archiviazione per Cloud Shell, assicurarsi che sia specificata la sottoscrizione corretta e selezionare **Crea risorsa di archiviazione**. Attendere circa un minuto che la risorsa di archiviazione venga creata.
 
@@ -65,7 +65,7 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
     git clone https://github.com/MicrosoftLearning/AI-900-AIFundamentals ai-900
     ```
 
-    > **Suggerimento** Se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
+    > **Suggerimento:** se questo comando è già stato usato in un altro lab per clonare il repository *ai-900*, è possibile ignorare questo passaggio.
 
 1. I file vengono scaricati in una cartella denominata **ai-900**. Ora si vogliono visualizzare tutti i file disponibili nella risorsa di archiviazione di Cloud Shell e usarli. Digitare il comando seguente nella shell:
 
@@ -73,7 +73,7 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
     code .
     ```
 
-    Verrà aperto un editor come quello illustrato nell'immagine seguente:
+    Si aprirà un editor come quello illustrato nell'immagine seguente:
 
     ![Editor di codice.](media/analyze-images-computer-vision-service/powershell-portal-guide-4.png)
 
@@ -81,9 +81,9 @@ Ora che si dispone di un ambiente Cloud Shell, è possibile eseguire una semplic
 
     ![Editor contenente il codice per analizzare un'immagine](media/analyze-images-computer-vision-service/analyze-image-code.png)
 
-1. Non preoccuparti troppo del codice, l'aspetto importante è che richiede l'URL dell'endpoint e una delle chiavi per la risorsa dei servizi di intelligenza artificiale di Azure. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
+1. Non preoccuparsi troppo del codice, l'aspetto importante è che sono necessari l'URL dell'endpoint e una delle chiavi per la risorsa Servizi di Azure AI. Copiare questi valori dalla pagina **Chiavi ed endpoint** per la risorsa dal portale di Azure e incollarli nell'editor di codice, sostituendo rispettivamente i valori segnaposto **YOUR_KEY** e **YOUR_ENDPOINT**.
 
-    > **Suggerimento** Potrebbe essere necessario usare la barra di separazione per regolare l'area dello schermo mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
+    > **Suggerimento:** potrebbe essere necessario usare la barra di separazione per regolare l'area della schermata mentre si usano i riquadri **Chiavi ed endpoint** ed **Editor**.
 
     Dopo aver incollato i valori della chiave e dell'endpoint, le prime due righe di codice dovrebbero essere simili a quanto segue:
 
