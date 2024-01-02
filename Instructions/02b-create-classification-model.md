@@ -35,7 +35,7 @@ lab:
 
 1. Nella pagina **Calcolo** selezionare la scheda **Cluster di elaborazione** e aggiungere un nuovo cluster di elaborazione con le impostazioni specificate di seguito. Il cluster sarà usato per eseguire il training di un modello di Machine Learning:
     - **Posizione**: *selezionare la stessa posizione dell'area di lavoro. Se la posizione non è nell'elenco, scegliere quella più vicina alla propria posizione*.
-    - **Livello macchina virtuale**: Dedicato
+    - **Livello macchina virtuale**: dedicato
     - **Tipo di macchina virtuale**: CPU
     - **Dimensioni macchina virtuale**:
         - Scegliere **Selezionare da tutte le opzioni**
