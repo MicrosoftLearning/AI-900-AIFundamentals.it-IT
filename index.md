@@ -1,14 +1,14 @@
 ---
-title: Istruzioni online
+title: Istruzioni ospitate online
 permalink: index.html
 layout: home
 ---
 
-# <a name="azure-ai-fundamentals-exercises"></a>Esercizi su Elementi fondamentali di Azure per intelligenza artificiale
+# Esercizi per Concetti fondamentali su Azure per intelligenza artificiale
 
-Questi esercizi pratici sono progettati a supporto del contenuto di training in [Microsoft Learn](https://docs.microsoft.com/training/).
+Questi esercizi pratici sono progettati a supporto del contenuto per la formazione in [Microsoft Learn](https://docs.microsoft.com/training/).
 
-Per completare gli esercizi, è necessaria una sottoscrizione a Microsoft Azure. È possibile iscriversi per una versione di valutazione gratuita all’indirizzo [https://azure.microsoft.com](https://azure.microsoft.com).
+Per completare gli esercizi, sarà necessaria una sottoscrizione di Microsoft Azure. È possibile iscriversi per una versione di prova gratuita all'indirizzo [https://azure.microsoft.com](https://azure.microsoft.com).
 
 {% assign labs = site.pages | where_exp:"page", "page.url contains '/instructions'" %}
 | Esercizi |
