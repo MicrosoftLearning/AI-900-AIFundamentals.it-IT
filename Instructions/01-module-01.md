@@ -44,7 +44,7 @@ Prima di usare la piattaforma, è necessario associare una risorsa Servizi di Az
     - **Nome**: *immettere un nome univoco*.
     - **Piano tariffario**: gratuito F0.
 
-1. Selezionare **Rivedi e crea** per rivedere la configurazione. Selezionare quindi **Crea**. La schermata indicherà quando la distribuzione è stata completata. 
+1. Selezionare **Rivedi e crea** per rivedere la configurazione. Selezionare **Crea**. La schermata indicherà quando la distribuzione è stata completata. 
 
 *Congratulazioni! È stata appena creata una risorsa Servizi di Azure AI o ne è stato effettuato il provisioning. Quella di cui è stato effettuato il provisioning in particolare è una risorsa del servizio Sicurezza dei contenuti a servizio singolo.*
 
